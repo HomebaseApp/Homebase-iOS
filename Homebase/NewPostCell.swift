@@ -1,5 +1,5 @@
 //
-//  Postcell.swift
+//  NewPostCell.swift
 //  Homebase
 //
 //  Created by Justin Oroz on 10/10/15.
@@ -8,12 +8,8 @@
 
 import UIKit
 
-class Postcell: UITableViewCell {
+class NewPostCell: UITableViewCell {
 
-    @IBOutlet weak var nameButton: UIButton!
-    
-    @IBOutlet weak var postText: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -1,5 +1,5 @@
 //
-//  Newsfeed.swift
+//  ChatView.swift
 //  Homebase
 //
 //  Created by Justin Oroz on 10/10/15.
@@ -8,9 +8,8 @@
 
 import UIKit
 
-class Newsfeed: UITableViewController {
+class ChatView: UITableViewController {
 
-    let postCellIdentifier = "broadcast"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,45 +29,23 @@ class Newsfeed: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 0
     }
 
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.item == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("newPost") as! NewPostCell
-            cell.textLabel?.text = "Create new post"
-            cell.textLabel?.textAlignment = NSTextAlignment.Center
-            return cell
-        }
-        return postCellAtIndexPath(indexPath)
-    }
-    
-    func postCellAtIndexPath(indexPath:NSIndexPath) -> Postcell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(postCellIdentifier) as! Postcell
-        setNameForCell(cell, indexPath: indexPath)
-        setTextForCell(cell, indexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
-    func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.nameButton.setTitle("Hello!", forState: UIControlState.Normal)
-    }
-  
-    
-    
-    func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
-
-
-        cell.postText.text = "Hey!"
-    
-    }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
