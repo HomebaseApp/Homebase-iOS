@@ -353,7 +353,7 @@
         <!--Log In-->
         <scene sceneID="1c2-QY-KjR">
             <objects>
-                <viewController title="Log In" id="7NK-XN-IS4" sceneMemberID="viewController">
+                <viewController title="Log In" id="7NK-XN-IS4" customClass="LogIn" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dcQ-Nh-voq"/>
                         <viewControllerLayoutGuide type="bottom" id="rm0-nd-29f"/>
@@ -362,17 +362,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXY-PW-fTl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HXY-PW-fTl">
                                 <rect key="frame" x="102" y="156" width="210" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="enterPassword:" destination="7NK-XN-IS4" eventType="editingDidEndOnExit" id="kxR-gJ-U0M"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3k1-IA-xQO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGD-vZ-ypV">
+                                <rect key="frame" x="186" y="264" width="42" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="7NK-XN-IS4" eventType="touchUpInside" id="o2V-ac-OAM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wZ-df-RmC">
+                                <rect key="frame" x="154" y="315" width="107" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="createAccount:" destination="7NK-XN-IS4" eventType="touchUpInside" id="tgs-mR-DgY"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3k1-IA-xQO">
                                 <rect key="frame" x="97" y="201" width="220" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="7NK-XN-IS4" eventType="editingDidEndOnExit" id="ehd-W4-gli"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <animations/>
@@ -386,6 +408,11 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="7je-2O-OcY"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="LogInButton" destination="YGD-vZ-ypV" id="7HQ-Na-Gai"/>
+                        <outlet property="emailField" destination="HXY-PW-fTl" id="wEO-no-aGz"/>
+                        <outlet property="passwordField" destination="3k1-IA-xQO" id="wPo-b0-jnB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TC-H3-HI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

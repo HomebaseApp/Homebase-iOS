@@ -20,6 +20,7 @@
 		D05871531BC9295D0011DBD6 /* NewPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05871521BC9295D0011DBD6 /* NewPostCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D05871561BC932020011DBD6 /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05871551BC932020011DBD6 /* userInfo.plist */; settings = {ASSET_TAGS = (); }; };
 		D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05871571BC933CB0011DBD6 /* LogIn.swift */; settings = {ASSET_TAGS = (); }; };
+		D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D058715C1BC937820011DBD6 /* KeychainWrapper.m */; settings = {ASSET_TAGS = (); }; };
 		D08611CF1BC910A700B3261B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08611CE1BC910A700B3261B /* Firebase.framework */; settings = {ASSET_TAGS = (); }; };
 		F7480C653801304D05ACCD05 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82FF8B645EC2EE42C3CB92C /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,9 @@
 		D05871521BC9295D0011DBD6 /* NewPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCell.swift; sourceTree = "<group>"; };
 		D05871551BC932020011DBD6 /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
 		D05871571BC933CB0011DBD6 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		D058715B1BC937820011DBD6 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		D058715C1BC937820011DBD6 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeychainWrapper-Bridge.h"; sourceTree = "<group>"; };
 		D08611CE1BC910A700B3261B /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		F82FF8B645EC2EE42C3CB92C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,9 +186,20 @@
 		D05871591BC933E20011DBD6 /* User Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				D058715A1BC937820011DBD6 /* KeychainWrapper */,
 				D05871571BC933CB0011DBD6 /* LogIn.swift */,
 			);
 			name = "User Authentication";
+			sourceTree = "<group>";
+		};
+		D058715A1BC937820011DBD6 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				D058715B1BC937820011DBD6 /* KeychainWrapper.h */,
+				D058715C1BC937820011DBD6 /* KeychainWrapper.m */,
+				D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */,
+			);
+			path = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */,
+				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
 				D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */,
@@ -526,6 +542,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
 			};
 			name = Debug;
 		};
@@ -543,6 +560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
 			};
 			name = Release;
 		};
