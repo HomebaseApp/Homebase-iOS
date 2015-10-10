@@ -9,10 +9,14 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-
+    
+    @IBOutlet weak var testerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        testerButton.titleLabel?.text = "Hello World!"
     }
 
     override func didReceiveMemoryWarning() {

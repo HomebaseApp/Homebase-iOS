@@ -164,7 +164,7 @@
         <!--Settings-->
         <scene sceneID="Yey-d3-Tv2">
             <objects>
-                <viewController id="Wus-MU-j9R" sceneMemberID="viewController">
+                <viewController id="Wus-MU-j9R" customClass="FirstViewController" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZbU-EL-JXg"/>
                         <viewControllerLayoutGuide type="bottom" id="7fZ-M6-Wc5"/>
@@ -172,11 +172,21 @@
                     <view key="view" contentMode="scaleToFill" id="331-nN-kcq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-EZ-0hz">
+                                <rect key="frame" x="184" y="135" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Gear" selectedImage="Gear" id="X9q-Vm-QLb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="testerButton" destination="zkf-EZ-0hz" id="CXC-vP-PiP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOw-r7-Cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
