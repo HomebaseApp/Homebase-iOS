@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14A46DB51BC918E50015D94A /* Homelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A46DB41BC918E50015D94A /* Homelist.swift */; settings = {ASSET_TAGS = (); }; };
-		14A46DB91BC91D510015D94A /* Homelist-Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A46DB81BC91D510015D94A /* Homelist-Cell.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029B3841BC8F2A20021DD5D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3861BC901EF0021DD5D /* Newsfeed.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3881BC9029B0021DD5D /* Postcell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -18,6 +16,11 @@
 		D043EE811BC8A3DF0058A855 /* HomebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043EE801BC8A3DF0058A855 /* HomebaseTests.swift */; };
 		D043EE8C1BC8A3DF0058A855 /* HomebaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043EE8B1BC8A3DF0058A855 /* HomebaseUITests.swift */; };
 		D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058714C1BC916CB0011DBD6 /* SettingsView.swift */; settings = {ASSET_TAGS = (); }; };
+		D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058714E1BC91B650011DBD6 /* ChatView.swift */; settings = {ASSET_TAGS = (); }; };
+		D05871531BC9295D0011DBD6 /* NewPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05871521BC9295D0011DBD6 /* NewPostCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D05871561BC932020011DBD6 /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05871551BC932020011DBD6 /* userInfo.plist */; settings = {ASSET_TAGS = (); }; };
+		D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05871571BC933CB0011DBD6 /* LogIn.swift */; settings = {ASSET_TAGS = (); }; };
+		D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D058715C1BC937820011DBD6 /* KeychainWrapper.m */; settings = {ASSET_TAGS = (); }; };
 		D08611CF1BC910A700B3261B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08611CE1BC910A700B3261B /* Firebase.framework */; settings = {ASSET_TAGS = (); }; };
 		F7480C653801304D05ACCD05 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82FF8B645EC2EE42C3CB92C /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -41,8 +44,6 @@
 
 /* Begin PBXFileReference section */
 		020847711C594FE71F8D7EC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		14A46DB41BC918E50015D94A /* Homelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist.swift; sourceTree = "<group>"; };
-		14A46DB81BC91D510015D94A /* Homelist-Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Homelist-Cell.swift"; sourceTree = "<group>"; };
 		A3D7F7CA3E5B40D9F16B8CEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D029B3841BC8F2A20021DD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029B3861BC901EF0021DD5D /* Newsfeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
@@ -59,6 +60,13 @@
 		D043EE8B1BC8A3DF0058A855 /* HomebaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomebaseUITests.swift; sourceTree = "<group>"; };
 		D043EE8D1BC8A3DF0058A855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D058714C1BC916CB0011DBD6 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D058714E1BC91B650011DBD6 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		D05871521BC9295D0011DBD6 /* NewPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCell.swift; sourceTree = "<group>"; };
+		D05871551BC932020011DBD6 /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
+		D05871571BC933CB0011DBD6 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		D058715B1BC937820011DBD6 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		D058715C1BC937820011DBD6 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeychainWrapper-Bridge.h"; sourceTree = "<group>"; };
 		D08611CE1BC910A700B3261B /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		F82FF8B645EC2EE42C3CB92C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,12 +145,12 @@
 				D043EE691BC8A3DE0058A855 /* AppDelegate.swift */,
 				D029B3841BC8F2A20021DD5D /* Assets.xcassets */,
 				D043EE6F1BC8A3DF0058A855 /* Main.storyboard */,
-				14A46DB81BC91D510015D94A /* Homelist-Cell.swift */,
-				14A46DB41BC918E50015D94A /* Homelist.swift */,
-				D029B3881BC9029B0021DD5D /* Postcell.swift */,
-				D029B3861BC901EF0021DD5D /* Newsfeed.swift */,
+				D05871591BC933E20011DBD6 /* User Authentication */,
+				D05871541BC92AC30011DBD6 /* Newsfeed */,
+				D058714E1BC91B650011DBD6 /* ChatView.swift */,
 				D043EE741BC8A3DF0058A855 /* LaunchScreen.storyboard */,
 				D043EE771BC8A3DF0058A855 /* Info.plist */,
+				D05871551BC932020011DBD6 /* userInfo.plist */,
 			);
 			path = Homebase;
 			sourceTree = "<group>";
@@ -163,6 +171,35 @@
 				D043EE8D1BC8A3DF0058A855 /* Info.plist */,
 			);
 			path = HomebaseUITests;
+			sourceTree = "<group>";
+		};
+		D05871541BC92AC30011DBD6 /* Newsfeed */ = {
+			isa = PBXGroup;
+			children = (
+				D05871521BC9295D0011DBD6 /* NewPostCell.swift */,
+				D029B3881BC9029B0021DD5D /* Postcell.swift */,
+				D029B3861BC901EF0021DD5D /* Newsfeed.swift */,
+			);
+			name = Newsfeed;
+			sourceTree = "<group>";
+		};
+		D05871591BC933E20011DBD6 /* User Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D058715A1BC937820011DBD6 /* KeychainWrapper */,
+				D05871571BC933CB0011DBD6 /* LogIn.swift */,
+			);
+			name = "User Authentication";
+			sourceTree = "<group>";
+		};
+		D058715A1BC937820011DBD6 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				D058715B1BC937820011DBD6 /* KeychainWrapper.h */,
+				D058715C1BC937820011DBD6 /* KeychainWrapper.m */,
+				D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */,
+			);
+			path = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +272,7 @@
 				TargetAttributes = {
 					D043EE651BC8A3DE0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 82FGZ58BV2;
+						DevelopmentTeam = 747EALPHEP;
 					};
 					D043EE7B1BC8A3DF0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -275,6 +312,7 @@
 				D043EE761BC8A3DF0058A855 /* LaunchScreen.storyboard in Resources */,
 				D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */,
 				D043EE711BC8A3DF0058A855 /* Main.storyboard in Resources */,
+				D05871561BC932020011DBD6 /* userInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,12 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A46DB91BC91D510015D94A /* Homelist-Cell.swift in Sources */,
 				D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */,
+				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
+				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
+				D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */,
 				D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */,
+				D05871531BC9295D0011DBD6 /* NewPostCell.swift in Sources */,
 				D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */,
-				14A46DB51BC918E50015D94A /* Homelist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,8 +540,9 @@
 				);
 				INFOPLIST_FILE = Homebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.homebase.Homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
 			};
 			name = Debug;
 		};
@@ -517,8 +558,9 @@
 				);
 				INFOPLIST_FILE = Homebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.homebase.Homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
 			};
 			name = Release;
 		};
