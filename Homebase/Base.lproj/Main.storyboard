@@ -8,7 +8,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oTB-ne-mqc">
             <objects>
-                <navigationController id="1un-ki-ad1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainpage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1un-ki-ad1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yHR-Ie-qqZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -110,7 +110,7 @@
                                             <rect key="frame" x="25" y="38" width="365" height="63"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KW4-3i-HM5">
@@ -254,17 +254,17 @@
         <scene sceneID="d6t-4n-tRx">
             <objects>
                 <tableViewController id="QPQ-fc-FPc" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qme-j8-qUu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qme-j8-qUu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5cq-wH-aGj">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="5cq-wH-aGj">
+                                <rect key="frame" x="0.0" y="92" width="414" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5cq-wH-aGj" id="wCB-9E-ARE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -353,7 +353,7 @@
         <!--Log In-->
         <scene sceneID="1c2-QY-KjR">
             <objects>
-                <viewController title="Log In" id="7NK-XN-IS4" customClass="LogIn" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logmein" title="Log In" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7NK-XN-IS4" customClass="LogIn" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dcQ-Nh-voq"/>
                         <viewControllerLayoutGuide type="bottom" id="rm0-nd-29f"/>

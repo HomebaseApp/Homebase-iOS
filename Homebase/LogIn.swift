@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LogIn: UIViewController {
+class LogIn: UIViewController, UIAlertViewDelegate {
 
     let MyKeychainWrapper = KeychainWrapper()
 
@@ -71,6 +71,11 @@ class LogIn: UIViewController {
                 } else {
                     // We are now logged in
                     //save info in keychain.
+                    NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
+
+                    self.MyKeychainWrapper.mySetObject(self.passwordField.text, forKey:kSecValueData)
+                    self.MyKeychainWrapper.writeToKeychain()
+                    NSUserDefaults.standardUserDefaults().synchronize()
                     
                 }
         })
@@ -96,9 +101,31 @@ class LogIn: UIViewController {
                 
                 if error != nil {
                     // There was an error creating the account
+                    let alertView = UIAlertController(title: "Error!",
+                        message: "Please try again" as String, preferredStyle:.Alert)
+                    let newAccountAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+                    alertView.addAction(newAccountAction)
+                    self.presentViewController(alertView, animated: true, completion: nil)
+                    
+                    self.navigationController?.popViewControllerAnimated(true)
+                    
                 } else {
                     let uid = result["uid"] as? String
                     print("Successfully created user account with uid: \(uid)")
+                    
+                    NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
+                    
+                    self.MyKeychainWrapper.mySetObject(self.passwordField.text, forKey:kSecValueData)
+                    self.MyKeychainWrapper.writeToKeychain()
+                    NSUserDefaults.standardUserDefaults().synchronize()
+
+                    let alertView = UIAlertController(title: "Account Created!",
+                        message: "" as String, preferredStyle:.Alert)
+                    let newAccountAction = UIAlertAction(title: "Awesome!", style: .Default, handler: nil)
+                    alertView.addAction(newAccountAction)
+                    self.presentViewController(alertView, animated: true, completion: nil)
+                    
+                    self.navigationController?.popViewControllerAnimated(true)
                 }
         })
     }
