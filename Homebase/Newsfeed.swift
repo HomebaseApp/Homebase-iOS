@@ -35,11 +35,17 @@ class Newsfeed: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if (indexPath.item == 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("newPost") as! NewPostCell
+            cell.textLabel?.text = "Create new post"
+            cell.textLabel?.textAlignment = NSTextAlignment.Center
+            return cell
+        }
         return postCellAtIndexPath(indexPath)
     }
     
