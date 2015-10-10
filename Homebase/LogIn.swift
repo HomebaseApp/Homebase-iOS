@@ -70,7 +70,7 @@ class LogIn: UIViewController {
                     self.presentViewController(alertView, animated: true, completion: nil)
                 } else {
                     // We are now logged in
-                    //save info in keychain
+                    //save info in keychain.
                     
                 }
         })
