@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A46DB51BC918E50015D94A /* Homelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A46DB41BC918E50015D94A /* Homelist.swift */; settings = {ASSET_TAGS = (); }; };
+		14A46DB91BC91D510015D94A /* Homelist-Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A46DB81BC91D510015D94A /* Homelist-Cell.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029B3841BC8F2A20021DD5D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3861BC901EF0021DD5D /* Newsfeed.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3881BC9029B0021DD5D /* Postcell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		020847711C594FE71F8D7EC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		14A46DB41BC918E50015D94A /* Homelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist.swift; sourceTree = "<group>"; };
+		14A46DB81BC91D510015D94A /* Homelist-Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Homelist-Cell.swift"; sourceTree = "<group>"; };
 		A3D7F7CA3E5B40D9F16B8CEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D029B3841BC8F2A20021DD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029B3861BC901EF0021DD5D /* Newsfeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				D043EE691BC8A3DE0058A855 /* AppDelegate.swift */,
 				D029B3841BC8F2A20021DD5D /* Assets.xcassets */,
 				D043EE6F1BC8A3DF0058A855 /* Main.storyboard */,
+				14A46DB81BC91D510015D94A /* Homelist-Cell.swift */,
+				14A46DB41BC918E50015D94A /* Homelist.swift */,
 				D029B3881BC9029B0021DD5D /* Postcell.swift */,
 				D029B3861BC901EF0021DD5D /* Newsfeed.swift */,
 				D043EE741BC8A3DF0058A855 /* LaunchScreen.storyboard */,
@@ -229,7 +235,7 @@
 				TargetAttributes = {
 					D043EE651BC8A3DE0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 747EALPHEP;
+						DevelopmentTeam = 82FGZ58BV2;
 					};
 					D043EE7B1BC8A3DF0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -341,10 +347,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A46DB91BC91D510015D94A /* Homelist-Cell.swift in Sources */,
 				D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */,
 				D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */,
+				14A46DB51BC918E50015D94A /* Homelist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
