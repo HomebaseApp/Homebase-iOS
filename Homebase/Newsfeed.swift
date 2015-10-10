@@ -10,7 +10,6 @@ import UIKit
 
 class Newsfeed: UITableViewController {
 
-    let postCellIdentifier = "broadcast"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,43 +29,23 @@ class Newsfeed: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 1
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.item == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("newPost") as! NewPostCell
-            cell.textLabel?.text = "Create new post"
-            cell.textLabel?.textAlignment = NSTextAlignment.Center
-            return cell
-        }
-        return postCellAtIndexPath(indexPath)
-    }
-    
-    func postCellAtIndexPath(indexPath:NSIndexPath) -> Postcell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(postCellIdentifier) as! Postcell
-        setNameForCell(cell, indexPath: indexPath)
-        setTextForCell(cell, indexPath: indexPath)
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> Postcell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("broadcast", forIndexPath: indexPath) as! Postcell
+
+        // Configure the cell...
+        
+        cell.detailTextLabel?.text = "Test"
+
         return cell
-    }
-    
-    func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.nameButton.setTitle("Hello!", forState: UIControlState.Normal)
-    }
-  
-    
-    
-    func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
-
-
-        cell.postText.text = "Hey!"
-    
     }
     
 
