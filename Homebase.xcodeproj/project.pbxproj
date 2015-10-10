@@ -102,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1461722C1BC9631B00AE2ACC /* Homelist */ = {
+			isa = PBXGroup;
+			children = (
+				146973151BC95A340046C9AD /* Homelist.swift */,
+				1469730F1BC955750046C9AD /* Homelist_Cell.swift */,
+			);
+			name = Homelist;
+			sourceTree = "<group>";
+		};
 		80EB71D3B2AB8DE68EF64055 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +158,7 @@
 				D043EE691BC8A3DE0058A855 /* AppDelegate.swift */,
 				D029B3841BC8F2A20021DD5D /* Assets.xcassets */,
 				D043EE6F1BC8A3DF0058A855 /* Main.storyboard */,
-				146973151BC95A340046C9AD /* Homelist.swift */,
-				1469730F1BC955750046C9AD /* Homelist_Cell.swift */,
+				1461722C1BC9631B00AE2ACC /* Homelist */,
 				D05871591BC933E20011DBD6 /* User Authentication */,
 				D05871541BC92AC30011DBD6 /* Newsfeed */,
 				D058714E1BC91B650011DBD6 /* ChatView.swift */,
