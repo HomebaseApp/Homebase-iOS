@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsView: UIViewController {
+    
+    let ref = Firebase(url: "https://homebasehack.firebaseio.com")
+
 
     @IBOutlet weak var tester: UIButton!
+    
+    @IBAction func logOut(sender: AnyObject) {
+        ref.unauth()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        tester.setTitle("Hello World!!", forState: UIControlState.Normal)
+        //tester.setTitle("Hello World!!", forState: UIControlState.Normal)
     }
 
     override func didReceiveMemoryWarning() {

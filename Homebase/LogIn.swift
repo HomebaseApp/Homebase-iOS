@@ -77,6 +77,9 @@ class LogIn: UIViewController, UIAlertViewDelegate {
                     self.MyKeychainWrapper.writeToKeychain()
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
+                    
+                    self.performSegueWithIdentifier("gohome", sender: sender)
+
                 }
         })
         
@@ -121,7 +124,9 @@ class LogIn: UIViewController, UIAlertViewDelegate {
 
                     let alertView = UIAlertController(title: "Account Created!",
                         message: "" as String, preferredStyle:.Alert)
-                    let newAccountAction = UIAlertAction(title: "Awesome!", style: .Default, handler: nil)
+                    let newAccountAction = UIAlertAction(title: "Awesome!", style: .Default, handler: { (action: UIAlertAction!) in
+                        self.performSegueWithIdentifier("gohome", sender: sender)
+                    })
                     alertView.addAction(newAccountAction)
                     self.presentViewController(alertView, animated: true, completion: nil)
                     

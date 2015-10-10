@@ -330,9 +330,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-EZ-0hz">
                                 <rect key="frame" x="75" y="123" width="265" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Log In"/>
+                                <state key="normal" title="Log Out"/>
                                 <connections>
-                                    <segue destination="7NK-XN-IS4" kind="show" id="pb0-nI-GzA"/>
+                                    <action selector="logOut:" destination="Wus-MU-j9R" eventType="touchUpInside" id="erv-QQ-WHB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -412,11 +412,12 @@
                         <outlet property="LogInButton" destination="YGD-vZ-ypV" id="7HQ-Na-Gai"/>
                         <outlet property="emailField" destination="HXY-PW-fTl" id="wEO-no-aGz"/>
                         <outlet property="passwordField" destination="3k1-IA-xQO" id="wPo-b0-jnB"/>
+                        <segue destination="1un-ki-ad1" kind="presentation" identifier="gohome" id="eb3-uQ-I2m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TC-H3-HI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="-1339"/>
+            <point key="canvasLocation" x="-1404" y="-1259"/>
         </scene>
     </scenes>
     <resources>
