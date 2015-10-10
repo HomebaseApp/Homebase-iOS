@@ -496,7 +496,7 @@
 				);
 				INFOPLIST_FILE = Homebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.homebase.Homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -513,7 +513,7 @@
 				);
 				INFOPLIST_FILE = Homebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.homebase.Homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

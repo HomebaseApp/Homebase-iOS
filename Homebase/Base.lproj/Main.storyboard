@@ -69,7 +69,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="broadcast" rowHeight="110" id="w3l-Vj-hTo" customClass="Postcell" customModule="Homebase" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="broadcasts" tableViewCell="w3l-Vj-hTo" id="Wwc-7t-Ige">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w3l-Vj-hTo" id="Wwc-7t-Ige">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -78,6 +78,13 @@
                                             <animations/>
                                             <state key="normal" title="Name"/>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxw-N4-VQE">
+                                            <rect key="frame" x="186" y="44" width="42" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -88,6 +95,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="nameButton" destination="4Ze-jP-sAj" id="JaO-R7-jMH"/>
+                                    <outlet property="postText" destination="jxw-N4-VQE" id="Zv4-rm-QhI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

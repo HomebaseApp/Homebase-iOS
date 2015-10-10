@@ -10,6 +10,7 @@ import UIKit
 
 class Newsfeed: UITableViewController {
 
+    let postCellIdentifier = "broadcast"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +30,7 @@ class Newsfeed: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,14 +39,28 @@ class Newsfeed: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> Postcell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("broadcast", forIndexPath: indexPath) as! Postcell
-
-        // Configure the cell...
-        
-        cell.detailTextLabel?.text = "Test"
-
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return postCellAtIndexPath(indexPath)
+    }
+    
+    func postCellAtIndexPath(indexPath:NSIndexPath) -> Postcell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(postCellIdentifier) as! Postcell
+        setNameForCell(cell, indexPath: indexPath)
+        setTextForCell(cell, indexPath: indexPath)
         return cell
+    }
+    
+    func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
+        cell.nameButton.setTitle("Hello!", forState: UIControlState.Normal)
+    }
+  
+    
+    
+    func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
+
+
+        cell.postText.text = "Hey!"
+    
     }
     
 
