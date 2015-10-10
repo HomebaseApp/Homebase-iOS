@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,15 +15,49 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="Wev-Uu-PFS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wev-Uu-PFS" secondAttribute="height" multiplier="9:16" id="gnP-wF-Ar4"/>
+                                    <constraint firstAttribute="height" constant="736" id="zlp-L6-y2j"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="0Js-8N-vfh">
+                                <rect key="frame" x="66" y="53" width="283" height="302"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Js-8N-vfh" secondAttribute="height" multiplier="283:302" id="Fmz-EE-aJ2"/>
+                                    <constraint firstAttribute="width" constant="300" id="ngs-RT-ukb"/>
+                                    <constraint firstAttribute="width" secondItem="0Js-8N-vfh" secondAttribute="height" multiplier="283:302" id="y1b-29-klm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Wev-Uu-PFS" secondAttribute="bottom" id="DBo-Gc-zqp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wev-Uu-PFS" secondAttribute="trailing" constant="-20" id="FAw-3N-76T"/>
+                            <constraint firstItem="0Js-8N-vfh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="35" id="FBm-aH-rqc"/>
+                            <constraint firstItem="Wev-Uu-PFS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="NBN-11-Iiy"/>
+                            <constraint firstItem="0Js-8N-vfh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NlZ-1b-pm1"/>
+                            <constraint firstItem="Wev-Uu-PFS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="Zrc-7v-3aN"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Wev-Uu-PFS" secondAttribute="bottom" id="dKD-Ux-Mej"/>
+                            <constraint firstItem="Wev-Uu-PFS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="yul-zy-Uvb"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Splash" width="666" height="666"/>
+        <image name="icon" width="2000" height="2000"/>
+    </resources>
 </document>

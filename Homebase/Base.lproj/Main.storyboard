@@ -53,7 +53,7 @@
                             <outlet property="delegate" destination="LGz-hK-2EW" id="a7S-B0-grS"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Newsfeed" id="UpM-iR-Q5r"/>
+                    <tabBarItem key="tabBarItem" title="Newsfeed" image="home" selectedImage="home" id="UpM-iR-Q5r"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsg-V5-Kzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +86,7 @@
                             <outlet property="delegate" destination="hYq-mh-nkX" id="E3s-Bc-4VV"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Homelists" id="fLx-xt-oFp"/>
+                    <tabBarItem key="tabBarItem" title="Homelists" image="list" selectedImage="list" id="fLx-xt-oFp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0v5-iV-FzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +119,7 @@
                             <outlet property="delegate" destination="QPQ-fc-FPc" id="Mmb-Dn-Qk1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Calender" id="SiN-Vo-vFo"/>
+                    <tabBarItem key="tabBarItem" title="Calender" image="Calender" selectedImage="Calender" id="SiN-Vo-vFo"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0J-XI-PPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,7 +140,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="X9q-Vm-QLb"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Gear" selectedImage="0C583D6D-EE76-4145-968B-6480A922953B" id="X9q-Vm-QLb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOw-r7-Cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,4 +148,26 @@
             <point key="canvasLocation" x="1212" y="-77"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="0C583D6D-EE76-4145-968B-6480A922953B" width="42" height="42">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWHs0MiwgNDJ90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoYohsc
+gAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfEHxmaWxlOi8vL0FwcGxpY2F0
+aW9ucy9YY29kZS5hcHAvQ29udGVudHMvUGx1Z0lucy9JREVJbnRlcmZhY2VCdWlsZGVyS2l0LmlkZXBs
+dWdpbi9Db250ZW50cy9SZXNvdXJjZXMvSUJNaXNzaW5nSW1hZ2VHbHlwaC50aWZm0icoKSpaJGNsYXNz
+bmFtZVgkY2xhc3Nlc1VOU1VSTKIpK1hOU09iamVjdNInKC0uV05TQXJyYXmiLSvTMDEKMjM0V05TV2hp
+dGVcTlNDb2xvclNwYWNlRDAgMAAQA4AL0icoNjdXTlNDb2xvcqI2K9InKDk6V05TSW1hZ2WiOStfEA9O
+U0tleWVkQXJjaGl2ZXLRPT5Ucm9vdIABAAgAEQAaACMALQAyADcARQBLAFYAXQBkAHEAeACAAIIAhACJ
+AIsAjQCWAJsApgCoAKoArACxALQAtgC4ALoAvADDAMsA1wDZANsA3QFcAWEBbAF1AXsBfgGHAYwBlAGX
+AZ4BpgGzAbgBugG8AcEByQHMAdEB2QHcAe4B8QH2AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAA
+Afg
+</mutableData>
+        </image>
+        <image name="Calender" width="24" height="24"/>
+        <image name="Gear" width="24" height="24"/>
+        <image name="home" width="24" height="24"/>
+        <image name="list" width="24" height="24"/>
+    </resources>
 </document>
