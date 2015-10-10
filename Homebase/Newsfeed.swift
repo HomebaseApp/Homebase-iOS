@@ -39,9 +39,11 @@ class Newsfeed: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> Postcell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("broadcast", forIndexPath: indexPath) as! Postcell
+        var cell = tableView.dequeueReusableCellWithIdentifier("broadcast", forIndexPath: indexPath) as! Postcell
 
         // Configure the cell...
+        
+        cell.detailTextLabel?.text = "Test"
 
         return cell
     }
