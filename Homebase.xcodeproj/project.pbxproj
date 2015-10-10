@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		146973101BC955750046C9AD /* Homelist_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1469730F1BC955750046C9AD /* Homelist_Cell.swift */; settings = {ASSET_TAGS = (); }; };
+		146973161BC95A340046C9AD /* Homelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146973151BC95A340046C9AD /* Homelist.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029B3841BC8F2A20021DD5D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3861BC901EF0021DD5D /* Newsfeed.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3881BC9029B0021DD5D /* Postcell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		020847711C594FE71F8D7EC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1469730F1BC955750046C9AD /* Homelist_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist_Cell.swift; sourceTree = "<group>"; };
+		146973151BC95A340046C9AD /* Homelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist.swift; sourceTree = "<group>"; };
 		A3D7F7CA3E5B40D9F16B8CEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D029B3841BC8F2A20021DD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029B3861BC901EF0021DD5D /* Newsfeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				D043EE691BC8A3DE0058A855 /* AppDelegate.swift */,
 				D029B3841BC8F2A20021DD5D /* Assets.xcassets */,
 				D043EE6F1BC8A3DF0058A855 /* Main.storyboard */,
+				146973151BC95A340046C9AD /* Homelist.swift */,
+				1469730F1BC955750046C9AD /* Homelist_Cell.swift */,
 				D05871591BC933E20011DBD6 /* User Authentication */,
 				D05871541BC92AC30011DBD6 /* Newsfeed */,
 				D058714E1BC91B650011DBD6 /* ChatView.swift */,
@@ -272,7 +278,7 @@
 				TargetAttributes = {
 					D043EE651BC8A3DE0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 747EALPHEP;
+						DevelopmentTeam = 82FGZ58BV2;
 					};
 					D043EE7B1BC8A3DF0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -389,7 +395,9 @@
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
+				146973161BC95A340046C9AD /* Homelist.swift in Sources */,
 				D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */,
+				146973101BC955750046C9AD /* Homelist_Cell.swift in Sources */,
 				D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */,
 				D05871531BC9295D0011DBD6 /* NewPostCell.swift in Sources */,
 				D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */,
@@ -534,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -542,6 +551,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
 			};
 			name = Debug;
@@ -552,6 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -560,6 +571,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
 			};
 			name = Release;
