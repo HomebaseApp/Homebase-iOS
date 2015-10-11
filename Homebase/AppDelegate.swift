@@ -15,28 +15,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     var window: UIWindow?
-
+    let server = Firebase(url: "https://homebasehack.firebaseio.com")
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let ref = Firebase(url: "https://homebasehack.firebaseio.com")
+        
         
         MMX.setupWithConfiguration("default")
-
         
-        ref.observeAuthEventWithBlock({ authData in
+        // checks Firebase login status
+        server.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
+                // check if in a homebase
+//TODO
+                if (false){
+                    let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier("selectHomebase")
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                }
+                
                 print(authData)
             } else {
                 // No user is signed in
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                
-                let initialViewController = storyboard.instantiateViewControllerWithIdentifier("logmein") 
+                // go to log in screen first
+                let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier("loginNavigator")
                 
                 self.window?.rootViewController = initialViewController
                 self.window?.makeKeyAndVisible()
+                
             }
         })
         

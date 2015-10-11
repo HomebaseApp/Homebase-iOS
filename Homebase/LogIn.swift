@@ -102,6 +102,11 @@ class LogIn: UIViewController, UIAlertViewDelegate {
                     self.MyKeychainWrapper.writeToKeychain()
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
+                    
+                    if (Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String + "/broadcasts") == nil) {
+                         self.performSegueWithIdentifier("gohome", sender: sender)
+                    }
+                    
                     // go to homepage
                     self.performSegueWithIdentifier("gohome", sender: sender)
 
