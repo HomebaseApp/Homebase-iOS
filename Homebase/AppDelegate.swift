@@ -21,17 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com", forKey: "serverURL")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
-        
-        MMX.setupWithConfiguration("default")
         
         // checks Firebase login status
         server.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
                 // check if in a homebase
-//TODO
-                
                 
                 if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") != nil){
                     let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier("selectHomebase")

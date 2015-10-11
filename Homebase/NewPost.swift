@@ -11,7 +11,8 @@ import Firebase
 
 class NewPost: UIViewController {
 
-   // let ref = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String + "/broadcasts")
+    // homebase specific broadcasts url
+    let broadcasts = Firebase(url: (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
     
     @IBOutlet weak var postText: UITextView!
     
@@ -27,10 +28,7 @@ class NewPost: UIViewController {
     }
     
     @IBAction func post(sender: AnyObject) {
-        //let time = FirebaseServerValue.timestamp()
-       // ref.childByAppendingPath(time.description).childByAppendingPath("fullName").valueForKey(NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String)
-        //ref.childByAppendingPath(time.description).childByAppendingPath("text").valueForKey(NSUserDefaults.standardUserDefaults().valueForKey(postText.text) as! String)
-        //ref.childByAppendingPath(time.description).childByAppendingPath("user").valueForKey(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+      
     }
 
     /*

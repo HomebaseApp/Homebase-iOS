@@ -11,8 +11,9 @@ import Firebase
 
 class Newsfeed: UITableViewController {
     
-    let ref = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String)
-    let broadcasts =  Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String + "/broadcasts")
+    //let ref = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String)
+    // homebase specific broadcasts url
+    //let broadcasts = Firebase(url: (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
     
     var postCount = 0
     
@@ -20,6 +21,7 @@ class Newsfeed: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         /*
         if (NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String == "") {

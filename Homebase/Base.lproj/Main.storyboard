@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Begin-->
@@ -568,7 +569,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
                                 <rect key="frame" x="85" y="116" width="240" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -602,7 +603,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
                                 <rect key="frame" x="85" y="72" width="242" height="36"/>
                                 <animations/>
                                 <constraints>
@@ -628,7 +629,7 @@
                                     <segue destination="ifR-ZV-3Bd" kind="show" identifier="getMoreInfo" id="Pdb-hQ-B0l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MW-Le-dkt">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MW-Le-dkt">
                                 <rect key="frame" x="129" y="292" width="154" height="40"/>
                                 <animations/>
                                 <constraints>
@@ -850,35 +851,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Join your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzx-Nz-04E">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzx-Nz-04E">
                                 <rect key="frame" x="76" y="28" width="262" height="63"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Er4-GW-njZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="ckj-UK-Jv0">
-                                <rect key="frame" x="101" y="99" width="213" height="296"/>
-                                <animations/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make or Join" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-32-Bw0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make or Join" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-32-Bw0">
                                 <rect key="frame" x="95" y="365" width="225" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="i4n-yy-ZaY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="joinHomeBase:" destination="ft8-wd-u9J" eventType="editingDidEndOnExit" id="8Fl-Wc-vGn"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="ckj-UK-Jv0">
+                                <rect key="frame" x="101" y="119" width="213" height="170"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kzx-Nz-04E" firstAttribute="top" secondItem="bQJ-ew-BG8" secondAttribute="bottom" constant="8" id="GOx-JP-pKd"/>
-                            <constraint firstItem="Kzx-Nz-04E" firstAttribute="centerX" secondItem="Skj-Py-ch8" secondAttribute="centerX" id="IlS-Ae-g0f"/>
+                            <constraint firstItem="GZA-32-Bw0" firstAttribute="top" secondItem="ckj-UK-Jv0" secondAttribute="bottom" constant="96" id="1TA-ia-O0f"/>
+                            <constraint firstItem="Kzx-Nz-04E" firstAttribute="top" secondItem="bQJ-ew-BG8" secondAttribute="bottom" constant="8" symbolic="YES" id="3c1-nV-aub"/>
+                            <constraint firstItem="GZA-32-Bw0" firstAttribute="centerX" secondItem="ckj-UK-Jv0" secondAttribute="centerX" id="A2c-lp-Mre"/>
+                            <constraint firstItem="ckj-UK-Jv0" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="81" id="Gi1-VX-D6d"/>
                             <constraint firstItem="ckj-UK-Jv0" firstAttribute="top" secondItem="Kzx-Nz-04E" secondAttribute="bottom" constant="8" id="R3z-7N-HLg"/>
-                            <constraint firstItem="ckj-UK-Jv0" firstAttribute="centerX" secondItem="Skj-Py-ch8" secondAttribute="centerX" id="v9R-51-eO8"/>
+                            <constraint firstItem="JED-wi-lV8" firstAttribute="top" secondItem="GZA-32-Bw0" secondAttribute="bottom" constant="341" id="Rp0-cP-jcE"/>
+                            <constraint firstItem="ckj-UK-Jv0" firstAttribute="centerX" secondItem="Kzx-Nz-04E" secondAttribute="centerX" id="Z4J-qg-qnU"/>
+                            <constraint firstItem="ckj-UK-Jv0" firstAttribute="top" secondItem="Kzx-Nz-04E" secondAttribute="bottom" multiplier="2" constant="8" symbolic="YES" id="fvK-3Q-6gb"/>
+                            <constraint firstItem="GZA-32-Bw0" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="75" id="hgq-Xa-Yi4"/>
+                            <constraint firstItem="Kzx-Nz-04E" firstAttribute="centerX" secondItem="Skj-Py-ch8" secondAttribute="centerX" id="xtb-P2-jq9"/>
+                            <constraint firstItem="Kzx-Nz-04E" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="56" id="yJQ-vI-vbo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="R3z-7N-HLg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
