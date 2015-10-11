@@ -31,7 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // user authenticated
                 // check if in a homebase
 //TODO
-                if (false){
+                
+                
+                if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") != nil){
                     let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier("selectHomebase")
                     self.window?.rootViewController = initialViewController
                     self.window?.makeKeyAndVisible()

@@ -28,7 +28,6 @@
 		D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058714E1BC91B650011DBD6 /* ChatView.swift */; settings = {ASSET_TAGS = (); }; };
 		D05871531BC9295D0011DBD6 /* NewPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05871521BC9295D0011DBD6 /* NewPostCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D05871561BC932020011DBD6 /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05871551BC932020011DBD6 /* userInfo.plist */; settings = {ASSET_TAGS = (); }; };
-		D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05871571BC933CB0011DBD6 /* LogIn.swift */; settings = {ASSET_TAGS = (); }; };
 		D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D058715C1BC937820011DBD6 /* KeychainWrapper.m */; settings = {ASSET_TAGS = (); }; };
 		D08611CF1BC910A700B3261B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08611CE1BC910A700B3261B /* Firebase.framework */; settings = {ASSET_TAGS = (); }; };
 		F7480C653801304D05ACCD05 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82FF8B645EC2EE42C3CB92C /* Pods.framework */; };
@@ -59,7 +58,6 @@
 		146973151BC95A340046C9AD /* Homelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist.swift; sourceTree = "<group>"; };
 		A3D7F7CA3E5B40D9F16B8CEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D01B70C61BC97A9C00767FAC /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
-		D01B70CA1BC99EA100767FAC /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		D01B70CC1BC9B43400767FAC /* NewPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
 		D029B3841BC8F2A20021DD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029B3861BC901EF0021DD5D /* Newsfeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 		D058714E1BC91B650011DBD6 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D05871521BC9295D0011DBD6 /* NewPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCell.swift; sourceTree = "<group>"; };
 		D05871551BC932020011DBD6 /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
-		D05871571BC933CB0011DBD6 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		D058715B1BC937820011DBD6 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		D058715C1BC937820011DBD6 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeychainWrapper-Bridge.h"; sourceTree = "<group>"; };
@@ -222,8 +219,6 @@
 				D04A5CF51BCA1447005C701A /* gatherInfoViewController.swift */,
 				D04A5CF11BCA0CDD005C701A /* LogInViewController.swift */,
 				D04A5CF31BCA141C005C701A /* homebaseSelectionViewController.swift */,
-				D05871571BC933CB0011DBD6 /* LogIn.swift */,
-				D01B70CA1BC99EA100767FAC /* UserInfo.swift */,
 				D058715A1BC937820011DBD6 /* KeychainWrapper */,
 			);
 			name = "User Authentication";
@@ -429,7 +424,6 @@
 				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
 				D01B70CD1BC9B43400767FAC /* NewPost.swift in Sources */,
 				146973161BC95A340046C9AD /* Homelist.swift in Sources */,
-				D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */,
 				D04A5CF41BCA141C005C701A /* homebaseSelectionViewController.swift in Sources */,
 				146973101BC955750046C9AD /* Homelist_Cell.swift in Sources */,
 				D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */,

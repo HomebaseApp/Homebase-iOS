@@ -89,8 +89,7 @@ class LogInViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
                 NSUserDefaults.standardUserDefaults().synchronize()
 
-                
-                if (false) {
+                if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") != nil) {
                     //if in a homebase, go home
                     self.performSegueWithIdentifier("goodLogin", sender: nil)
                 } else {

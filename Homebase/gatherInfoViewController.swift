@@ -119,7 +119,7 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
                 // let them know
                 let alertView = UIAlertController(title: "Account created",
                     message: "However Login failed" as String, preferredStyle:.Alert)
-                var okAction = UIAlertAction(title: "Login", style: UIAlertActionStyle.Default) {
+                let okAction = UIAlertAction(title: "Login", style: UIAlertActionStyle.Default) {
                     UIAlertAction in
                     self.performSegueWithIdentifier("returnLogin", sender: nil)
                     
@@ -169,6 +169,8 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
                 let newAccountAction = UIAlertAction(title: "Awesome!", style: .Default, handler: nil)
                 alertView.addAction(newAccountAction)
                 self.presentViewController(alertView, animated: true, completion: nil)
+                
+                self.performSegueWithIdentifier("homebase", sender: nil)
             }
         }
     }
