@@ -11,33 +11,13 @@ import Firebase
 
 class SettingsView: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var test: UINavigationItem!
+    @IBOutlet weak var user_Name: UINavigationItem!
     
     let ref = Firebase(url: "https://homebasehack.firebaseio.com")
     
     var baseRef = Firebase(url: "https://homebasehack.firebaseio.com")
     
-    @IBOutlet weak var homebaseField: UITextField!
-    @IBAction func joinHomeBase(sender: AnyObject) {
-        
-        if self.homebaseField.text != "" {
-            
-            NSUserDefaults.standardUserDefaults().setValue(self.homebaseField.text, forKey: "homebase")
-            
-            self.ref.childByAppendingPath("bases")
-                .childByAppendingPath(self.homebaseField.text).childByAppendingPath("users").childByAppendingPath(ref.authData.uid).setValue(NSUserDefaults.standardUserDefaults().dataForKey("fullName"))
-            
-            baseRef = Firebase(url: "https://homebasehack.firebaseio.com/bases/")
-            NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/bases/"+self.homebaseField.text!, forKey: "homebaseURL")
-            
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-        
-        
-        
-        
-        
-    }
+
     
     @IBOutlet weak var tester: UIButton!
     
@@ -48,10 +28,10 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        test.title = NSUserDefaults.standardUserDefaults().valueForKey("fullName") as? String
+        user_Name.title = NSUserDefaults.standardUserDefaults().valueForKey("fullName") as? String
         // Do any additional setup after loading the view.
         
-        //tester.setTitle("Hello World!!", forState: UIControlState.Normal)
+       homeBase.text = NSUserDefaults.standardUserDefaults().valueForKey("homebase") as? String
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +39,7 @@ class SettingsView: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var homeBase: UILabel!
     
     /*
     // MARK: - Navigation
