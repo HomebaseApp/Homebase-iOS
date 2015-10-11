@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="-837" y="-108"/>
         </scene>
-        <!--View Controller-->
+        <!--New Post-->
         <scene sceneID="Sf1-Cr-dmW">
             <objects>
-                <viewController id="7XB-px-mHN" sceneMemberID="viewController">
+                <viewController id="7XB-px-mHN" customClass="NewPost" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mA7-2R-soN"/>
                         <viewControllerLayoutGuide type="bottom" id="CoG-b7-BJB"/>
@@ -187,36 +187,26 @@
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="post:" destination="NDF-w2-T4p" eventType="touchUpInside" id="FJ1-sU-pb0"/>
+                                    <action selector="post:" destination="7XB-px-mHN" eventType="touchUpInside" id="vZw-E9-y1F"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ois-cT-fIW">
+                                <rect key="frame" x="63" y="100" width="240" height="128"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="postText" destination="ois-cT-fIW" id="4VS-qe-BJd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyz-Xy-CCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1684" y="905"/>
-        </scene>
-        <!--New Post-->
-        <scene sceneID="Dzf-7L-cJW">
-            <objects>
-                <viewController title="New Post" id="NDF-w2-T4p" customClass="NewPost" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vhT-fO-f9i"/>
-                        <viewControllerLayoutGuide type="bottom" id="GEk-zA-ud0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ChO-0e-eE1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RjB-N5-r6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1130" y="854"/>
         </scene>
         <!--View Post-->
         <scene sceneID="aTQ-Im-UJr">
@@ -938,7 +928,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c3d-yb-Yj3"/>
-        <segue reference="k6I-ce-Fpd"/>
+        <segue reference="WWv-Oa-veE"/>
         <segue reference="1im-6y-1cD"/>
         <segue reference="bEk-tp-w4p"/>
     </inferredMetricsTieBreakers>

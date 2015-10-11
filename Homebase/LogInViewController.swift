@@ -86,6 +86,11 @@ class LogInViewController: UIViewController {
                 self.MyKeychainWrapper.writeToKeychain()
                 
                 //save data locally
+                
+                //let fullName = self.server.childByAppendingPath("users").childByAppendingPath(self.server.authData.uid).valueForKey("fullName")
+
+                //NSUserDefaults.standardUserDefaults().setValue(fullName, forKey: "fullName")
+                NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
                 NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
                 NSUserDefaults.standardUserDefaults().synchronize()
 

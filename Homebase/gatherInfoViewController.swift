@@ -158,10 +158,12 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
                 self.MyKeychainWrapper.writeToKeychain()
                 
                 // save user email in device
+                
                 NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
                 NSUserDefaults.standardUserDefaults().setValue(self.firstField.text, forKey: "firstName")
                 NSUserDefaults.standardUserDefaults().setValue(self.lastField.text, forKey: "lastName")
                 NSUserDefaults.standardUserDefaults().setValue(self.firstField.text! + " " + self.lastField.text!, forKey: "fullName")
+                NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 
                 let alertView = UIAlertController(title: "Account Created!",

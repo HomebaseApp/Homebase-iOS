@@ -11,12 +11,13 @@ import Firebase
 
 class Newsfeed: UITableViewController {
     
-    var postCount:UInt = 0
+    //var postCount:UInt = 0
     
     let homebaseURL = (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/bases/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts"
     
     var broadcasts:Firebase = Firebase()
-    var posts = Dictionary<String, String>()
+//    var posts: FDataSnapshot = FDataSnapshot()
+    var posts:[NSDictionary] = []
     
     let postCellIdentifier = "broadcast"
     
@@ -26,10 +27,13 @@ class Newsfeed: UITableViewController {
         broadcasts = Firebase(url: homebaseURL)
                 
         broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
-            print (self.postCount = snapshot.childrenCount)
-            print (snapshot)
-            self.posts["user"] = snapshot.value.objectForKey("user") as! String
-            self.posts["text"] = snapshot.value.objectForKey("text") as! String
+//            self.postCount = snapshot.childrenCount
+            //print (self.postCount)
+           // print (snapshot.value)
+            
+            self.posts.append(snapshot.value as! NSDictionary)
+            
+            print(self.posts)
             self.tableView.reloadData()
 
         })
@@ -57,7 +61,7 @@ class Newsfeed: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return Int(postCount.value) + 1
+        return Int(posts.count) + 1
     }
 
     
@@ -79,7 +83,7 @@ class Newsfeed: UITableViewController {
     }
     
     func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.nameButton.setTitle("Hello!", forState: UIControlState.Normal)
+        cell.nameButton.setTitle(posts[posts.count - (indexPath.item)]["fullName"] as? String, forState: UIControlState.Normal)
     }
   
     
@@ -87,7 +91,7 @@ class Newsfeed: UITableViewController {
     func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
 
 
-        cell.postText.text = "Hey!"
+        cell.postText.text = posts[posts.count - (indexPath.item)]["text"]as? String
     
     }
     

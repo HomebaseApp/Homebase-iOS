@@ -151,6 +151,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D003F94E1BCA7B9C005F7084 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D058714E1BC91B650011DBD6 /* ChatView.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		D043EE5D1BC8A3DE0058A855 = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +190,7 @@
 				1461722C1BC9631B00AE2ACC /* Homelist */,
 				D05871591BC933E20011DBD6 /* User Authentication */,
 				D05871541BC92AC30011DBD6 /* Newsfeed */,
-				D058714E1BC91B650011DBD6 /* ChatView.swift */,
+				D003F94E1BCA7B9C005F7084 /* Chat */,
 				D043EE741BC8A3DF0058A855 /* LaunchScreen.storyboard */,
 				D029B3841BC8F2A20021DD5D /* Assets.xcassets */,
 				D043EE771BC8A3DF0058A855 /* Info.plist */,

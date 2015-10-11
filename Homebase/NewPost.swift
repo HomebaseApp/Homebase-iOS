@@ -8,11 +8,12 @@
 
 import UIKit
 import Firebase
+import SwiftyJSON
 
 class NewPost: UIViewController {
 
     // homebase specific broadcasts url
-    let broadcasts = Firebase(url: (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
+    let broadcasts = Firebase(url: (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/bases/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
     
     @IBOutlet weak var postText: UITextView!
     
@@ -28,7 +29,12 @@ class NewPost: UIViewController {
     }
     
     @IBAction func post(sender: AnyObject) {
-      
+        print((NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
+        
+        var data:JSON = [ "text": postText.text , "fullName" : NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String ]
+        
+        broadcasts.childByAutoId().setValue(data.dictionaryObject)
+        
     }
 
     /*
