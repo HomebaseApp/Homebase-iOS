@@ -9,9 +9,13 @@
 import UIKit
 
 class Homelist: UITableViewController {
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,14 +38,14 @@ class Homelist: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewList", forIndexPath: indexPath) as! Homelist_Cell
 
         // Configure the cell...
-        cell.NewList.setTitle("Create New", forState: UIControlState.Normal)
+        cell.NewList.setTitle("Create New List", forState: UIControlState.Normal)
 
         return cell
     }

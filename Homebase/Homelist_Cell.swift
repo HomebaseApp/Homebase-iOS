@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct task{
+    var title = "List title"
+    var item = "Item name"
+}
+
 class Homelist_Cell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -22,5 +27,12 @@ class Homelist_Cell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+//    var tasks = [task](title, item)
+//    
+//    func addTask(title: String, item: String){
+//        tasks.append(title, item)
+//    }
 
+    @IBOutlet weak var item: UITextField!
 }
