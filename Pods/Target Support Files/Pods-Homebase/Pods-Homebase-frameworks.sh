@@ -84,8 +84,20 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Homebase/CocoaAsyncSocket.framework"
+  install_framework "Pods-Homebase/CocoaLumberjack.framework"
   install_framework "Pods-Homebase/Firebase.framework"
+  install_framework "Pods-Homebase/MDMCoreData.framework"
+  install_framework "Pods-Homebase/MMX.framework"
+  install_framework "Pods-Homebase/MMXXMPPFramework.framework"
+  install_framework "Pods-Homebase/Mantle.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Homebase/CocoaAsyncSocket.framework"
+  install_framework "Pods-Homebase/CocoaLumberjack.framework"
   install_framework "Pods-Homebase/Firebase.framework"
+  install_framework "Pods-Homebase/MDMCoreData.framework"
+  install_framework "Pods-Homebase/MMX.framework"
+  install_framework "Pods-Homebase/MMXXMPPFramework.framework"
+  install_framework "Pods-Homebase/Mantle.framework"
 fi

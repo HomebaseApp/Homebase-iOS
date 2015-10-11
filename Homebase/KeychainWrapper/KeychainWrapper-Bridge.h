@@ -10,5 +10,6 @@
 #define KeychainWrapper_Bridge_h
 
 #import "KeychainWrapper.h"
+#import <MMX/MMX.h>
 
 #endif /* KeychainWrapper_Bridge_h */
