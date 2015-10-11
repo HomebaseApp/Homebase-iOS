@@ -1,5 +1,5 @@
 //
-//  Homelist.swift
+//  onListController.swift
 //  Homebase
 //
 //  Created by Michael A. Gonzalez on 10/10/15.
@@ -8,14 +8,12 @@
 
 import UIKit
 
-class Homelist: UITableViewController {
+class onListController: UITableViewController {
     
-
+    var listItems = ["cat", "dog", "bear"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,17 +36,34 @@ class Homelist: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return (listItems.count + 1)
     }
 
+    @IBAction func newItem(sender: AnyObject) {
+        listItems.append((sender as! UITextField).text!)
+        print(listItems)
+        self.tableView.reloadData()
+
+    }
+    @IBAction func getTitle(sender: AnyObject) {
+        
+        //TO DO
+        
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewList", forIndexPath: indexPath) as! Homelist_Cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("oneListCell", forIndexPath: indexPath) as! oneListTableViewCell
 
         // Configure the cell...
-        cell.NewList.setTitle("Create New List", forState: UIControlState.Normal)
+        if indexPath.item > 0 {
+            cell.item.text = listItems[indexPath.item-1]
+        } else {
+            cell.item.text = ""
+        }
 
         return cell
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
