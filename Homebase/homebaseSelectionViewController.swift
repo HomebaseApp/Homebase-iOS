@@ -40,7 +40,7 @@ class homebaseSelectionViewController: UIViewController {
             return
         }
         var fullName = NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String
-        
+        var firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as! String
         //save homebase name in info on firebase
         users.childByAppendingPath(users.authData.uid).childByAppendingPath("homebase").setValue(homebaseField.text)
         NSUserDefaults.standardUserDefaults().setValue(homebaseField.text, forKey: "homebase")
@@ -48,6 +48,8 @@ class homebaseSelectionViewController: UIViewController {
         
         
         homebases.childByAppendingPath(homebaseField.text!).childByAppendingPath("users").childByAppendingPath(homebases.authData.uid!).setValue(fullName)
+         homebases.childByAppendingPath(homebaseField.text!).childByAppendingPath("broadcasts").childByAutoId().childByAppendingPath("user").setValue(["HomeBase"])
+         homebases.childByAppendingPath(homebaseField.text!).childByAppendingPath("broadcasts").childByAutoId().childByAppendingPath("text").setValue(["Welcome to HomeBase \(firstName)!"])
         self.performSegueWithIdentifier("finishSignup", sender: nil)
     }
     /*

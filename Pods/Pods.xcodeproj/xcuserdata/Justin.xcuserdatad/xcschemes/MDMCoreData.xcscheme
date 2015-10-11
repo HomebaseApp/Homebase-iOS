@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '730800DFF1F1E2616CD6B08D'
+               BlueprintIdentifier = 'B4A55550867826648D9A04C8'
                BlueprintName = 'MDMCoreData'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MDMCoreData.framework'>

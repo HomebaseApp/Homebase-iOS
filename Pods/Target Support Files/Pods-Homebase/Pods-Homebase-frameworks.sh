@@ -91,6 +91,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Homebase/MMX.framework"
   install_framework "Pods-Homebase/MMXXMPPFramework.framework"
   install_framework "Pods-Homebase/Mantle.framework"
+  install_framework "Pods-Homebase/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Homebase/CocoaAsyncSocket.framework"
@@ -100,4 +101,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Homebase/MMX.framework"
   install_framework "Pods-Homebase/MMXXMPPFramework.framework"
   install_framework "Pods-Homebase/Mantle.framework"
+  install_framework "Pods-Homebase/SwiftyJSON.framework"
 fi

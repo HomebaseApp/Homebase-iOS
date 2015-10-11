@@ -11,36 +11,29 @@ import Firebase
 
 class Newsfeed: UITableViewController {
     
-    //let ref = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String)
-    // homebase specific broadcasts url
-    //let broadcasts = Firebase(url: (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
+    var postCount:UInt = 0
     
-    var postCount = 0
+    let homebaseURL = (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/bases/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts"
+    
+    var broadcasts:Firebase = Firebase()
+    var posts = Dictionary<String, String>()
     
     let postCellIdentifier = "broadcast"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        /*
-        if (NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String == "") {
-            let alertView = UIAlertController(title: "No Homebase!",
-                message: "" as String, preferredStyle:.Alert)
-            let settings = UIAlertAction(title: "Fix it", style: .Default, handler: { (action: UIAlertAction!) in
-            })
-            alertView.addAction(settings)
-            self.presentViewController(alertView, animated: true, completion: {
-                self.performSegueWithIdentifier("choosehomebase", sender: nil)
+        broadcasts = Firebase(url: homebaseURL)
+                
+        broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
+            print (self.postCount = snapshot.childrenCount)
+            print (snapshot)
+            self.posts["user"] = snapshot.value.objectForKey("user") as! String
+            self.posts["text"] = snapshot.value.objectForKey("text") as! String
+            self.tableView.reloadData()
 
-            })
+        })
         
-        } */
-        
-        /*
-        broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
-            self.postCount = snapshot.childrenCount
-        }) */
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -64,7 +57,7 @@ class Newsfeed: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return postCount + 1
+        return Int(postCount.value) + 1
     }
 
     

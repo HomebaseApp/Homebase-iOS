@@ -166,11 +166,13 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
                 
                 let alertView = UIAlertController(title: "Account Created!",
                     message: "" as String, preferredStyle:.Alert)
-                let newAccountAction = UIAlertAction(title: "Awesome!", style: .Default, handler: nil)
+                let newAccountAction = UIAlertAction(title: "Awesome!", style: UIAlertActionStyle.Default) {
+                    UIAlertAction in
+                    self.performSegueWithIdentifier("homebase", sender: nil)
+                }
                 alertView.addAction(newAccountAction)
                 self.presentViewController(alertView, animated: true, completion: nil)
                 
-                self.performSegueWithIdentifier("homebase", sender: nil)
             }
         }
     }
