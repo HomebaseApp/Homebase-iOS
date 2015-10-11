@@ -7,13 +7,39 @@
 //
 
 import UIKit
+import Firebase
 
 class Newsfeed: UITableViewController {
-
+    
+    let ref = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String)
+    let broadcasts =  Firebase(url: NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String + "/broadcasts")
+    
+    var postCount = 0
+    
     let postCellIdentifier = "broadcast"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+        if (NSUserDefaults.standardUserDefaults().valueForKey("homebaseURL") as! String == "") {
+            let alertView = UIAlertController(title: "No Homebase!",
+                message: "" as String, preferredStyle:.Alert)
+            let settings = UIAlertAction(title: "Fix it", style: .Default, handler: { (action: UIAlertAction!) in
+            })
+            alertView.addAction(settings)
+            self.presentViewController(alertView, animated: true, completion: {
+                self.performSegueWithIdentifier("choosehomebase", sender: nil)
 
+            })
+        
+        } */
+        
+        /*
+        broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+            self.postCount = snapshot.childrenCount
+        }) */
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +61,8 @@ class Newsfeed: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        
+        return postCount + 1
     }
 
     

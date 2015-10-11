@@ -11,6 +11,9 @@
 		140C94301BC9E18C00B338B8 /* onListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C942F1BC9E18C00B338B8 /* onListController.swift */; settings = {ASSET_TAGS = (); }; };
 		146973101BC955750046C9AD /* Homelist_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1469730F1BC955750046C9AD /* Homelist_Cell.swift */; settings = {ASSET_TAGS = (); }; };
 		146973161BC95A340046C9AD /* Homelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146973151BC95A340046C9AD /* Homelist.swift */; settings = {ASSET_TAGS = (); }; };
+		D01B70C71BC97A9C00767FAC /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = D01B70C61BC97A9C00767FAC /* Configurations.plist */; settings = {ASSET_TAGS = (); }; };
+		D01B70CB1BC99EA100767FAC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01B70CA1BC99EA100767FAC /* UserInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		D01B70CD1BC9B43400767FAC /* NewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01B70CC1BC9B43400767FAC /* NewPost.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029B3841BC8F2A20021DD5D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3861BC901EF0021DD5D /* Newsfeed.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3881BC9029B0021DD5D /* Postcell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -53,6 +56,9 @@
 		1469730F1BC955750046C9AD /* Homelist_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist_Cell.swift; sourceTree = "<group>"; };
 		146973151BC95A340046C9AD /* Homelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homelist.swift; sourceTree = "<group>"; };
 		A3D7F7CA3E5B40D9F16B8CEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D01B70C61BC97A9C00767FAC /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
+		D01B70CA1BC99EA100767FAC /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		D01B70CC1BC9B43400767FAC /* NewPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
 		D029B3841BC8F2A20021DD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029B3861BC901EF0021DD5D /* Newsfeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
 		D029B3881BC9029B0021DD5D /* Postcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postcell.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				D058714E1BC91B650011DBD6 /* ChatView.swift */,
 				D043EE741BC8A3DF0058A855 /* LaunchScreen.storyboard */,
 				D043EE771BC8A3DF0058A855 /* Info.plist */,
+				D01B70C61BC97A9C00767FAC /* Configurations.plist */,
 				D05871551BC932020011DBD6 /* userInfo.plist */,
 			);
 			path = Homebase;
@@ -196,6 +203,7 @@
 		D05871541BC92AC30011DBD6 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
+				D01B70CC1BC9B43400767FAC /* NewPost.swift */,
 				D05871521BC9295D0011DBD6 /* NewPostCell.swift */,
 				D029B3881BC9029B0021DD5D /* Postcell.swift */,
 				D029B3861BC901EF0021DD5D /* Newsfeed.swift */,
@@ -206,8 +214,9 @@
 		D05871591BC933E20011DBD6 /* User Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				D058715A1BC937820011DBD6 /* KeychainWrapper */,
 				D05871571BC933CB0011DBD6 /* LogIn.swift */,
+				D01B70CA1BC99EA100767FAC /* UserInfo.swift */,
+				D058715A1BC937820011DBD6 /* KeychainWrapper */,
 			);
 			name = "User Authentication";
 			sourceTree = "<group>";
@@ -292,7 +301,7 @@
 				TargetAttributes = {
 					D043EE651BC8A3DE0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 82FGZ58BV2;
+						DevelopmentTeam = 747EALPHEP;
 					};
 					D043EE7B1BC8A3DF0058A855 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -331,6 +340,7 @@
 			files = (
 				D043EE761BC8A3DF0058A855 /* LaunchScreen.storyboard in Resources */,
 				D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */,
+				D01B70C71BC97A9C00767FAC /* Configurations.plist in Resources */,
 				D043EE711BC8A3DF0058A855 /* Main.storyboard in Resources */,
 				D05871561BC932020011DBD6 /* userInfo.plist in Resources */,
 			);
@@ -409,6 +419,7 @@
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
+				D01B70CD1BC9B43400767FAC /* NewPost.swift in Sources */,
 				146973161BC95A340046C9AD /* Homelist.swift in Sources */,
 				D05871581BC933CB0011DBD6 /* LogIn.swift in Sources */,
 				146973101BC955750046C9AD /* Homelist_Cell.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMX
 import Firebase
 
 @UIApplicationMain
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let ref = Firebase(url: "https://homebasehack.firebaseio.com")
+        
+        MMX.setupWithConfiguration("default")
+
         
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
