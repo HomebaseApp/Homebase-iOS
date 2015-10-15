@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MMX
 import Firebase
 
 @UIApplicationMain

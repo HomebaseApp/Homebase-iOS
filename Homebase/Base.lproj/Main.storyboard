@@ -265,10 +265,10 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="zEP-TD-cMc"/>
                                             <exclude reference="qcI-Av-hJo"/>
-                                            <exclude reference="ZOP-D9-Kmp"/>
+                                            <exclude reference="zEP-TD-cMc"/>
                                             <exclude reference="Ju2-96-cPg"/>
+                                            <exclude reference="ZOP-D9-Kmp"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
