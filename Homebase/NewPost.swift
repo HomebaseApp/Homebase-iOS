@@ -35,6 +35,8 @@ class NewPost: UIViewController {
         
         broadcasts.childByAutoId().setValue(data.dictionaryObject)
         
+        self.navigationController?.popViewControllerAnimated(true)
+        
     }
 
     /*

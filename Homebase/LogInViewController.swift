@@ -85,22 +85,70 @@ class LogInViewController: UIViewController {
                 self.MyKeychainWrapper.mySetObject(self.passwordField.text, forKey:kSecValueData)
                 self.MyKeychainWrapper.writeToKeychain()
                 
-                //save data locally
                 
-                //let fullName = self.server.childByAppendingPath("users").childByAppendingPath(self.server.authData.uid).valueForKey("fullName")
-
-                //NSUserDefaults.standardUserDefaults().setValue(fullName, forKey: "fullName")
-                NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
+                // save inputted data locally
                 NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
-                NSUserDefaults.standardUserDefaults().synchronize()
+                print("email Saved Locally")
+                
+                NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
+                print("UID Saved Locally")
 
-                if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") != nil) {
-                    //if in a homebase, go home
-                    self.performSegueWithIdentifier("goodLogin", sender: nil)
-                } else {
-                    // else force join one
-                    self.performSegueWithIdentifier("noHomeBase", sender: nil)
-                }
+
+                
+                //save most recent server data locally
+                self.server.childByAppendingPath("users/"+self.server.authData.uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    
+                    if snapshot.exists() { //check if it has data
+                        
+                        if snapshot.hasChild("fullName") {
+                            let fullName = snapshot.value.objectForKey("fullName")
+                            NSUserDefaults.standardUserDefaults().setValue(fullName, forKey: "fullName")
+                            print("Full Name Saved Locally")
+                        }
+                        if snapshot.hasChild("firstName") {
+                            let firstName = snapshot.value.objectForKey("firstName")
+                            NSUserDefaults.standardUserDefaults().setValue(firstName, forKey: "firstName")
+                            print("First Name Saved Locally")
+                        }
+                        if snapshot.hasChild("lastName") {
+                            let lastName = snapshot.value.objectForKey("lastName")
+                            NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
+                            print("Last Name Saved Locally")
+                        }
+                        if snapshot.hasChild("homebase") {
+                            let homebase = snapshot.value.objectForKey("homebase")
+                            NSUserDefaults.standardUserDefaults().setValue(homebase, forKey: "homebase")
+                            print("Joined Homebase: " + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String))
+                            print("HomeBase Saved Locally")
+                        }
+                        if snapshot.hasChild("provider") {
+                            let provider = snapshot.value.objectForKey("provider")
+                            NSUserDefaults.standardUserDefaults().setValue(provider, forKey: "provider")
+                            print("Authentication Provider Saved Locally")
+                        }
+                        
+                        
+                        NSUserDefaults.standardUserDefaults().synchronize()
+
+                        
+                    } // even if snapshot does not have data
+                    
+                    // if user has not selected a Homebase, force to selection screen
+                    if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") != nil) {
+                        //if in a homebase, go home
+                        print("Homebase selected, going home")
+                        self.performSegueWithIdentifier("goodLogin", sender: nil)
+                    } else {
+                        // else force join one
+                        print("Homebase NOT selected, select one now")
+                        self.performSegueWithIdentifier("noHomeBase", sender: nil)
+                    }
+                    
+                })
+                
+
+                
+                NSUserDefaults.standardUserDefaults().synchronize()
             }
         }
 

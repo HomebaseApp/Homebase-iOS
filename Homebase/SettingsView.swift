@@ -23,6 +23,25 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     
     @IBAction func logOut(sender: AnyObject) {
         ref.unauth()
+        //DELETE INFORMATION FROM SHARED DATA
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("uid")
+        print("UID Removed Locally")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("fullName")
+        print("fullName Removed Locally")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("homebase")
+        print("homebase Removed Locally")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("firstName")
+        print("firstName Removed Locally")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("lastName")
+        print("lastName Removed Locally")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("provider")
+        print("provider Removed Locally")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        self.performSegueWithIdentifier("logOut", sender: nil)
+
+
+
     }
     
     override func viewDidLoad() {

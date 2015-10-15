@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1un-ki-ad1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rVJ-R1-xCw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -559,6 +560,7 @@
                     <connections>
                         <outlet property="homeBase" destination="1fU-o4-EtD" id="HZ4-Wg-maV"/>
                         <outlet property="user_Name" destination="jjy-TP-HWO" id="BZe-j7-YdH"/>
+                        <segue destination="Tgq-ll-pCh" kind="presentation" identifier="logOut" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="UzY-6v-dF0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOw-r7-Cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,7 +579,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
                                 <rect key="frame" x="85" y="116" width="240" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -611,7 +613,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
                                 <rect key="frame" x="85" y="72" width="242" height="36"/>
                                 <animations/>
                                 <constraints>
@@ -637,7 +639,7 @@
                                     <segue destination="ifR-ZV-3Bd" kind="show" identifier="getMoreInfo" id="Pdb-hQ-B0l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MW-Le-dkt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MW-Le-dkt">
                                 <rect key="frame" x="129" y="292" width="154" height="40"/>
                                 <animations/>
                                 <constraints>
@@ -705,7 +707,7 @@
                     <connections>
                         <outlet property="emailField" destination="aJM-G5-Y8j" id="Rjt-Dv-Crt"/>
                         <outlet property="passwordField" destination="nSd-Yt-16Q" id="G9b-xr-q27"/>
-                        <segue destination="1un-ki-ad1" kind="presentation" identifier="goodLogin" id="yvR-6S-8gY"/>
+                        <segue destination="1un-ki-ad1" kind="presentation" identifier="goodLogin" modalTransitionStyle="flipHorizontal" id="yvR-6S-8gY"/>
                         <segue destination="ft8-wd-u9J" kind="show" identifier="noHomeBase" id="k6I-ce-Fpd"/>
                     </connections>
                 </viewController>
@@ -917,6 +919,48 @@
             </objects>
             <point key="canvasLocation" x="-826" y="-3162"/>
         </scene>
+        <!--Splash-->
+        <scene sceneID="BL0-2j-Wf9">
+            <objects>
+                <viewController title="Splash" id="rVJ-R1-xCw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iNq-A6-Q5f"/>
+                        <viewControllerLayoutGuide type="bottom" id="DM3-0t-sMi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="STg-2V-hPt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="kPf-dm-Rky">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kPf-dm-Rky" secondAttribute="height" multiplier="9:16" id="X8Z-bg-mC5"/>
+                                    <constraint firstAttribute="height" constant="736" id="z8y-rg-fzv"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NO9-rn-XFU">
+                                <rect key="frame" x="189" y="287" width="37" height="37"/>
+                                <animations/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kPf-dm-Rky" firstAttribute="top" secondItem="STg-2V-hPt" secondAttribute="topMargin" id="9Rz-Dg-ibK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kPf-dm-Rky" secondAttribute="trailing" constant="-20" id="DHQ-vR-y8f"/>
+                            <constraint firstItem="kPf-dm-Rky" firstAttribute="leading" secondItem="STg-2V-hPt" secondAttribute="leadingMargin" constant="-20" id="QTZ-Lg-DCu"/>
+                            <constraint firstItem="DM3-0t-sMi" firstAttribute="top" secondItem="kPf-dm-Rky" secondAttribute="bottom" id="dkI-Dc-3dz"/>
+                            <constraint firstItem="kPf-dm-Rky" firstAttribute="top" secondItem="STg-2V-hPt" secondAttribute="topMargin" id="lzp-xn-Q5W"/>
+                            <constraint firstItem="DM3-0t-sMi" firstAttribute="top" secondItem="kPf-dm-Rky" secondAttribute="bottom" id="ysJ-ZQ-RHf"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yu4-Lw-Pny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2703" y="-3941"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Calender" width="24" height="24"/>
@@ -927,9 +971,9 @@
         <image name="list" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c3d-yb-Yj3"/>
+        <segue reference="yvR-6S-8gY"/>
+        <segue reference="fPd-sA-YdK"/>
         <segue reference="WWv-Oa-veE"/>
-        <segue reference="1im-6y-1cD"/>
         <segue reference="bEk-tp-w4p"/>
     </inferredMetricsTieBreakers>
 </document>

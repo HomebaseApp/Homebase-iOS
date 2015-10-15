@@ -18,6 +18,7 @@ class homebaseSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
 
@@ -39,17 +40,15 @@ class homebaseSelectionViewController: UIViewController {
             self.presentViewController(alertView, animated: true, completion: nil)
             return
         }
-        var fullName = NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String
-        var firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as! String
+        
+        
         //save homebase name in info on firebase
         users.childByAppendingPath(users.authData.uid).childByAppendingPath("homebase").setValue(homebaseField.text)
+        
+        //save the homebase info to local storage
         NSUserDefaults.standardUserDefaults().setValue(homebaseField.text, forKey: "homebase")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        
-        homebases.childByAppendingPath(homebaseField.text!).childByAppendingPath("users").childByAppendingPath(homebases.authData.uid!).setValue(fullName)
-         homebases.childByAppendingPath(homebaseField.text!).childByAppendingPath("broadcasts").childByAutoId().childByAppendingPath("user").setValue(["HomeBase"])
-         homebases.childByAppendingPath(homebaseField.text!).childByAppendingPath("broadcasts").childByAutoId().childByAppendingPath("text").setValue(["Welcome to HomeBase \(firstName)!"])
         self.performSegueWithIdentifier("finishSignup", sender: nil)
     }
     /*
