@@ -145,8 +145,13 @@ class Newsfeed: UITableViewController {
         if segue.identifier == viewPostSegueIdentifier {
             if let destination = segue.destinationViewController as? ViewPost {
                 if let postIndex = tableView.indexPathForSelectedRow?.row {
+                    var postedID: String = ""
+                    if posts[posts.count - (postIndex)].objectForKey("uid") != nil {
+                        postedID = posts[posts.count - (postIndex)]["uid"] as! String
+                    }
+                    
                     destination.thePost = PostData(
-                        posterID: posts[posts.count - (postIndex)]["uid"] as! String,
+                        posterID: postedID,
                         posterFullName: posts[posts.count - (postIndex)]["fullName"] as! String,
                         postText: posts[posts.count - (postIndex)]["text"] as! String
                     )
