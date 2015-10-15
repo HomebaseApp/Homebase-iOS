@@ -183,23 +183,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ii-qT-kc5">
-                                <rect key="frame" x="133" y="287" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ii-qT-kc5">
+                                <rect key="frame" x="109" y="275" width="197" height="81"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="post:" destination="7XB-px-mHN" eventType="touchUpInside" id="vZw-E9-y1F"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ois-cT-fIW">
-                                <rect key="frame" x="63" y="100" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ois-cT-fIW">
+                                <rect key="frame" x="20" y="90" width="374" height="152"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ii-qT-kc5" firstAttribute="top" secondItem="ois-cT-fIW" secondAttribute="bottom" constant="33" id="53T-DY-SGB"/>
+                            <constraint firstItem="ois-cT-fIW" firstAttribute="leading" secondItem="AO1-p6-Y6P" secondAttribute="leadingMargin" id="Ag7-d3-Off"/>
+                            <constraint firstItem="ois-cT-fIW" firstAttribute="top" secondItem="mA7-2R-soN" secondAttribute="bottom" constant="26" id="GuI-FL-xft"/>
+                            <constraint firstItem="2ii-qT-kc5" firstAttribute="centerX" secondItem="AO1-p6-Y6P" secondAttribute="centerX" id="NLI-U6-1bL"/>
+                            <constraint firstItem="ois-cT-fIW" firstAttribute="trailing" secondItem="AO1-p6-Y6P" secondAttribute="trailingMargin" id="jhk-1X-FXn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="postText" destination="ois-cT-fIW" id="4VS-qe-BJd"/>
