@@ -152,7 +152,7 @@
                                 <connections>
                                     <outlet property="nameButton" destination="KW4-3i-HM5" id="Q8k-Od-RC0"/>
                                     <outlet property="postText" destination="RiG-gS-rcG" id="GTu-xu-WVC"/>
-                                    <segue destination="KKU-Mk-V1h" kind="show" id="tQd-B3-HBw"/>
+                                    <segue destination="KKU-Mk-V1h" kind="show" identifier="viewPost" id="tQd-B3-HBw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -221,18 +221,68 @@
         <!--View Post-->
         <scene sceneID="aTQ-Im-UJr">
             <objects>
-                <tableViewController title="View Post" id="KKU-Mk-V1h" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XQr-Ei-0DW">
+                <tableViewController title="View Post" id="KKU-Mk-V1h" customClass="ViewPost" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" id="XQr-Ei-0DW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oFO-Tk-zdM">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="thePost" rowHeight="110" id="Nd1-tj-mXf" customClass="Postcell" customModule="Homebase" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oFO-Tk-zdM" id="w5K-JQ-5yH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nd1-tj-mXf" id="1Hl-aZ-ih4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Post Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-ez-L95">
+                                            <rect key="frame" x="25" y="38" width="365" height="63"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKr-2w-AyW">
+                                            <rect key="frame" x="14" y="0.0" width="376" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <state key="normal" title="Name"/>
+                                        </button>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JBU-ez-L95" secondAttribute="trailing" constant="5" id="1e3-dp-TBF"/>
+                                        <constraint firstItem="TKr-2w-AyW" firstAttribute="trailing" secondItem="1Hl-aZ-ih4" secondAttribute="trailingMargin" id="AbZ-HZ-dwG"/>
+                                        <constraint firstItem="JBU-ez-L95" firstAttribute="bottom" secondItem="1Hl-aZ-ih4" secondAttribute="bottomMargin" id="Fg7-fO-jkc"/>
+                                        <constraint firstItem="JBU-ez-L95" firstAttribute="leading" secondItem="1Hl-aZ-ih4" secondAttribute="leadingMargin" constant="17" id="Ju2-96-cPg"/>
+                                        <constraint firstItem="JBU-ez-L95" firstAttribute="top" secondItem="TKr-2w-AyW" secondAttribute="bottom" id="WRW-RE-Xyc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JBU-ez-L95" secondAttribute="trailing" constant="10" id="ZOP-D9-Kmp"/>
+                                        <constraint firstItem="JBU-ez-L95" firstAttribute="leading" secondItem="1Hl-aZ-ih4" secondAttribute="leadingMargin" constant="17" id="ZwH-r1-hIr"/>
+                                        <constraint firstItem="TKr-2w-AyW" firstAttribute="leading" secondItem="1Hl-aZ-ih4" secondAttribute="leadingMargin" constant="19" id="hpi-3r-htr"/>
+                                        <constraint firstItem="TKr-2w-AyW" firstAttribute="top" secondItem="1Hl-aZ-ih4" secondAttribute="topMargin" constant="-8" id="oE8-gc-O62"/>
+                                        <constraint firstItem="TKr-2w-AyW" firstAttribute="top" secondItem="1Hl-aZ-ih4" secondAttribute="topMargin" id="qcI-Av-hJo"/>
+                                        <constraint firstItem="TKr-2w-AyW" firstAttribute="top" secondItem="1Hl-aZ-ih4" secondAttribute="topMargin" id="zEP-TD-cMc"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="zEP-TD-cMc"/>
+                                            <exclude reference="qcI-Av-hJo"/>
+                                            <exclude reference="ZOP-D9-Kmp"/>
+                                            <exclude reference="Ju2-96-cPg"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="nameButton" destination="TKr-2w-AyW" id="SYC-B7-0xG"/>
+                                    <outlet property="postText" destination="JBU-ez-L95" id="N6g-bI-Cg3"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="theComments" rowHeight="108" id="v57-Xr-oOb" customClass="PostCommentCell" customModule="Homebase" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="202" width="414" height="108"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v57-Xr-oOb" id="Ngq-Mf-i8q">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>

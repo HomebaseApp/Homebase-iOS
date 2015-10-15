@@ -31,6 +31,9 @@
 		D05871561BC932020011DBD6 /* appData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05871551BC932020011DBD6 /* appData.plist */; settings = {ASSET_TAGS = (); }; };
 		D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D058715C1BC937820011DBD6 /* KeychainWrapper.m */; settings = {ASSET_TAGS = (); }; };
 		D08611CF1BC910A700B3261B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08611CE1BC910A700B3261B /* Firebase.framework */; settings = {ASSET_TAGS = (); }; };
+		D0EA01511BCF52AE00A40A9B /* ViewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01501BCF52AE00A40A9B /* ViewPost.swift */; settings = {ASSET_TAGS = (); }; };
+		D0EA01541BCF531600A40A9B /* PostCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01531BCF531600A40A9B /* PostCommentCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D0EA01561BCF53E700A40A9B /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01551BCF53E700A40A9B /* PostData.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		D058715C1BC937820011DBD6 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeychainWrapper-Bridge.h"; sourceTree = "<group>"; };
 		D08611CE1BC910A700B3261B /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		D0EA01501BCF52AE00A40A9B /* ViewPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPost.swift; sourceTree = "<group>"; };
+		D0EA01531BCF531600A40A9B /* PostCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCommentCell.swift; sourceTree = "<group>"; };
+		D0EA01551BCF53E700A40A9B /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		F8928713D20F3444170B8654 /* Pods-Homebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-Homebase/Pods-Homebase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,7 +219,7 @@
 		D05871541BC92AC30011DBD6 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
-				D01B70CC1BC9B43400767FAC /* NewPost.swift */,
+				D0EA01521BCF52B300A40A9B /* Posts */,
 				D05871521BC9295D0011DBD6 /* NewPostCell.swift */,
 				D029B3881BC9029B0021DD5D /* Postcell.swift */,
 				D029B3861BC901EF0021DD5D /* Newsfeed.swift */,
@@ -240,6 +246,17 @@
 				D058715E1BC938AC0011DBD6 /* KeychainWrapper-Bridge.h */,
 			);
 			path = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		D0EA01521BCF52B300A40A9B /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				D01B70CC1BC9B43400767FAC /* NewPost.swift */,
+				D0EA01501BCF52AE00A40A9B /* ViewPost.swift */,
+				D0EA01551BCF53E700A40A9B /* PostData.swift */,
+				D0EA01531BCF531600A40A9B /* PostCommentCell.swift */,
+			);
+			name = Posts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */,
+				D0EA01561BCF53E700A40A9B /* PostData.swift in Sources */,
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
@@ -436,6 +454,8 @@
 				146973101BC955750046C9AD /* Homelist_Cell.swift in Sources */,
 				D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */,
 				140C942E1BC9BE3700B338B8 /* oneListTableViewCell.swift in Sources */,
+				D0EA01541BCF531600A40A9B /* PostCommentCell.swift in Sources */,
+				D0EA01511BCF52AE00A40A9B /* ViewPost.swift in Sources */,
 				D04A5CF21BCA0CDD005C701A /* LogInViewController.swift in Sources */,
 				D05871531BC9295D0011DBD6 /* NewPostCell.swift in Sources */,
 				140C94301BC9E18C00B338B8 /* onListController.swift in Sources */,

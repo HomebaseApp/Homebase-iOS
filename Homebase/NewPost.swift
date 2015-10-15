@@ -31,9 +31,15 @@ class NewPost: UIViewController {
     @IBAction func post(sender: AnyObject) {
         print((NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
         
-        var data:JSON = [ "text": postText.text , "fullName" : NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String ]
         
-        broadcasts.childByAutoId().setValue(data.dictionaryObject)
+        let newPost = PostData(
+            posterID: broadcasts.authData.uid,
+            posterFullName: NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String,
+            postText: postText.text
+        )
+        
+        broadcasts.childByAutoId().setValue(newPost.fbReadable())
+
         
         self.navigationController?.popViewControllerAnimated(true)
         

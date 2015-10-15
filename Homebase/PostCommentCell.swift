@@ -1,21 +1,15 @@
 //
-//  Postcell.swift
+//  PostCommentCell.swift
 //  Homebase
 //
-//  Created by Justin Oroz on 10/10/15.
+//  Created by Justin Oroz on 10/14/15.
 //  Copyright © 2015 HomeBase. All rights reserved.
 //
 
 import UIKit
 
-class Postcell: UITableViewCell {
+class PostCommentCell: UITableViewCell {
 
-    @IBOutlet weak var nameButton: UIButton!
-    
-    @IBOutlet weak var postText: UILabel!
-    
-    var posterID:String = ""
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
