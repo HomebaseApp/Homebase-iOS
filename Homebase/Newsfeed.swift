@@ -29,8 +29,6 @@ class Newsfeed: UITableViewController {
         broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
             self.posts.append(snapshot.value as! NSDictionary)
-            
-            print(self.posts)
             self.tableView.reloadData()
 
         })

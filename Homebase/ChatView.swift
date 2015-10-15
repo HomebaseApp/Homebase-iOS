@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MMX
 
 class ChatView: UITableViewController {
 
@@ -16,52 +15,9 @@ class ChatView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let username =  NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-        let password = MyKeychainWrapper.myObjectForKey("v_Data") as? String
         
-        let credential = NSURLCredential(user: username, password: password!, persistence: NSURLCredentialPersistence.None)
-        
-        if (!signIn(credential)){ //if cant sign in
-            signUp(credential, displayName: NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String) // try signing up
-        }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func signIn(credential: NSURLCredential) -> Bool{
-        var success: Bool = false
-        MMXUser.logInWithCredential(credential,
-            success: { (user) -> Void in
-                //You MUST call start when you are ready to start sending and receiving messages.
-                //Login may not always be the best time to call it.
-                //You need to be ready to handle incoming messages when calling the API
-                MMX.start()
-                print("Chat Logon Success")
-                success = true
-            },
-            failure: { (error) -> Void in
-                
-                success = false
-        })
-        return success
-    }
-    
-    func signUp(credential: NSURLCredential, displayName: String){
-        let user = MMXUser()
-        user.displayName = displayName
-        user.registerWithCredential(credential,
-            success: {
-                print("Chat Sign up success")
-            },
-            failure: { (error) -> Void in
-                // error.code == 409 if the user already exists
-        })
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

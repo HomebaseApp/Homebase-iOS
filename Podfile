@@ -6,7 +6,6 @@ use_frameworks!
 target 'Homebase' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'Firebase', '>= 2.4.1'
-    pod 'MMX'
 end
 
 target 'HomebaseTests' do

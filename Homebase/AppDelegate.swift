@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Initialize Magnet Message
-        MMX.setupWithConfiguration("default")
 
         //save firebase URL
         NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com", forKey: "serverURL")
