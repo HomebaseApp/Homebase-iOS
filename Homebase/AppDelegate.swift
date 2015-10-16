@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //save firebase URL
         NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com", forKey: "serverURL")
+        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/users", forKey: "usersURL")
+        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/bases", forKey: "basesURL")
+        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/chats", forKey: "chatsURL")
         
         // checks Firebase login status
         server.observeAuthEventWithBlock({ authData in

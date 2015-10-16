@@ -13,22 +13,25 @@ class Newsfeed: UITableViewController {
     
     //var postCount:UInt = 0
     
-    let homebaseURL = (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/bases/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts"
+    let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
+    let basesURL = NSUserDefaults.standardUserDefaults().valueForKey("basesURL") as! String
+    
+    //let homebaseURL = (NSUserDefaults.standardUserDefaults().valueForKey("basesURL") as! String) + userData[""] + "/broadcasts"
     
     var broadcasts:Firebase = Firebase()
 //    var posts: FDataSnapshot = FDataSnapshot()
-    var posts:[NSDictionary] = []
+    var posts: [Dictionary<String, String>] = []
     
     let postCellIdentifier = "broadcast"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        broadcasts = Firebase(url: homebaseURL)
+        broadcasts = Firebase(url: basesURL + "/" + userData["homebase"]! + "/broadcasts")
                 
         broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
-            self.posts.append(snapshot.value as! NSDictionary)
+            self.posts.append(snapshot.value as! Dictionary)
             self.tableView.reloadData()
 
         })
@@ -78,19 +81,17 @@ class Newsfeed: UITableViewController {
     }
     
     func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.nameButton.setTitle(posts[posts.count - (indexPath.item)]["fullName"] as? String, forState: UIControlState.Normal)
+        cell.nameButton.setTitle(posts[posts.count - (indexPath.item)]["fullName"]!, forState: UIControlState.Normal)
         //
-        if posts[posts.count - (indexPath.item)].objectForKey("uid") != nil {
-            cell.posterID = posts[posts.count - (indexPath.item)]["uid"] as! String
+        if posts[posts.count - (indexPath.item)]["uid"] != nil {
+            cell.posterID = posts[posts.count - (indexPath.item)]["uid"]!
         }
     }
   
     
     
     func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
-
-
-        cell.postText.text = posts[posts.count - (indexPath.item)]["text"]as? String
+        cell.postText.text = posts[posts.count - (indexPath.item)]["text"]!
     
     }
     
@@ -144,14 +145,14 @@ class Newsfeed: UITableViewController {
             if let destination = segue.destinationViewController as? ViewPost {
                 if let postIndex = tableView.indexPathForSelectedRow?.row {
                     var postedID: String = ""
-                    if posts[posts.count - (postIndex)].objectForKey("uid") != nil {
-                        postedID = posts[posts.count - (postIndex)]["uid"] as! String
+                    if posts[posts.count - (postIndex)]["uid"] != nil {
+                        postedID = posts[posts.count - (postIndex)]["uid"]!
                     }
                     
                     destination.thePost = PostData(
                         posterID: postedID,
-                        posterFullName: posts[posts.count - (postIndex)]["fullName"] as! String,
-                        postText: posts[posts.count - (postIndex)]["text"] as! String
+                        posterFullName: posts[posts.count - (postIndex)]["fullName"]!,
+                        postText: posts[posts.count - (postIndex)]["text"]!
                     )
                 }
             }

@@ -595,15 +595,25 @@
                                     <action selector="logOut:" destination="Wus-MU-j9R" eventType="touchUpInside" id="erv-QQ-WHB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI3-fI-MVY">
+                                <rect key="frame" x="145" y="195" width="125" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Switch HomeBase"/>
+                                <connections>
+                                    <segue destination="ft8-wd-u9J" kind="presentation" modalTransitionStyle="crossDissolve" id="d3G-c5-PQC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="leading" secondItem="331-nN-kcq" secondAttribute="leadingMargin" constant="27" id="2iW-4k-50p"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="zkf-EZ-0hz" secondAttribute="centerX" id="AGl-S5-dLZ"/>
+                            <constraint firstItem="JI3-fI-MVY" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="8" id="C6a-T0-U6q"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="top" secondItem="ZbU-EL-JXg" secondAttribute="bottom" constant="49" id="Mi4-Dn-LKa"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="MrR-8v-2TJ"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="93" id="aRL-mR-drN"/>
+                            <constraint firstItem="JI3-fI-MVY" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="c8v-rn-9ir"/>
                             <constraint firstItem="7fZ-M6-Wc5" firstAttribute="top" secondItem="zkf-EZ-0hz" secondAttribute="bottom" constant="355" id="dyf-1D-NfT"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="knz-OL-EC0"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="zRk-qG-Gop"/>
@@ -769,7 +779,7 @@
                     <connections>
                         <outlet property="emailField" destination="aJM-G5-Y8j" id="Rjt-Dv-Crt"/>
                         <outlet property="passwordField" destination="nSd-Yt-16Q" id="G9b-xr-q27"/>
-                        <segue destination="1un-ki-ad1" kind="presentation" identifier="goodLogin" modalTransitionStyle="flipHorizontal" id="yvR-6S-8gY"/>
+                        <segue destination="1un-ki-ad1" kind="presentation" identifier="goodLogin" modalTransitionStyle="coverVertical" id="yvR-6S-8gY"/>
                         <segue destination="ft8-wd-u9J" kind="show" identifier="noHomeBase" id="k6I-ce-Fpd"/>
                     </connections>
                 </viewController>
@@ -1001,9 +1011,14 @@
                                     <constraint firstAttribute="height" constant="736" id="z8y-rg-fzv"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NO9-rn-XFU">
-                                <rect key="frame" x="189" y="287" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NO9-rn-XFU">
+                                <rect key="frame" x="198" y="295" width="20" height="20"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2T2-2G-WVU"/>
+                                    <constraint firstAttribute="width" constant="50" id="rrq-Cg-PvT"/>
+                                </constraints>
+                                <color key="color" red="1" green="0.0" blue="0.051290923323739968" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <animations/>
@@ -1012,6 +1027,7 @@
                             <constraint firstItem="kPf-dm-Rky" firstAttribute="top" secondItem="STg-2V-hPt" secondAttribute="topMargin" id="9Rz-Dg-ibK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kPf-dm-Rky" secondAttribute="trailing" constant="-20" id="DHQ-vR-y8f"/>
                             <constraint firstItem="kPf-dm-Rky" firstAttribute="leading" secondItem="STg-2V-hPt" secondAttribute="leadingMargin" constant="-20" id="QTZ-Lg-DCu"/>
+                            <constraint firstItem="NO9-rn-XFU" firstAttribute="centerX" secondItem="STg-2V-hPt" secondAttribute="centerX" id="TbS-AB-1d4"/>
                             <constraint firstItem="DM3-0t-sMi" firstAttribute="top" secondItem="kPf-dm-Rky" secondAttribute="bottom" id="dkI-Dc-3dz"/>
                             <constraint firstItem="kPf-dm-Rky" firstAttribute="top" secondItem="STg-2V-hPt" secondAttribute="topMargin" id="lzp-xn-Q5W"/>
                             <constraint firstItem="DM3-0t-sMi" firstAttribute="top" secondItem="kPf-dm-Rky" secondAttribute="bottom" id="ysJ-ZQ-RHf"/>
@@ -1034,8 +1050,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yvR-6S-8gY"/>
-        <segue reference="fPd-sA-YdK"/>
-        <segue reference="WWv-Oa-veE"/>
-        <segue reference="bEk-tp-w4p"/>
+        <segue reference="UzY-6v-dF0"/>
+        <segue reference="Gax-Gw-4Go"/>
+        <segue reference="d3G-c5-PQC"/>
     </inferredMetricsTieBreakers>
 </document>
