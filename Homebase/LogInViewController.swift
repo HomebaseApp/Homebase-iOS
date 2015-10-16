@@ -87,10 +87,14 @@ class LogInViewController: UIViewController {
                 
                 
                 // save inputted data locally
-                NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
+                var localData = [
+                    "email": self.emailField.text,
+                    "uid": self.server.authData.uid
+                ]
+                //NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
                 print("email Saved Locally")
                 
-                NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
+                //NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
                 print("UID Saved Locally")
 
 
@@ -100,41 +104,45 @@ class LogInViewController: UIViewController {
                     
                     if snapshot.exists() { //check if it has data
                         
+                        
+                        
                         if snapshot.hasChild("fullName") {
-                            let fullName = snapshot.value.objectForKey("fullName")
-                            NSUserDefaults.standardUserDefaults().setValue(fullName, forKey: "fullName")
+                            let fullName = snapshot.value.objectForKey("fullName") as! String
+                            localData["fullName"] = fullName
                             print("Full Name Saved Locally")
                         }
                         if snapshot.hasChild("firstName") {
-                            let firstName = snapshot.value.objectForKey("firstName")
-                            NSUserDefaults.standardUserDefaults().setValue(firstName, forKey: "firstName")
+                            let firstName = snapshot.value.objectForKey("firstName") as! String
+                            localData["firstName"] = firstName
                             print("First Name Saved Locally")
                         }
                         if snapshot.hasChild("lastName") {
-                            let lastName = snapshot.value.objectForKey("lastName")
-                            NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
+                            let lastName = snapshot.value.objectForKey("lastName") as! String
+                            localData["lastName"] = lastName
                             print("Last Name Saved Locally")
                         }
                         if snapshot.hasChild("homebase") {
-                            let homebase = snapshot.value.objectForKey("homebase")
-                            NSUserDefaults.standardUserDefaults().setValue(homebase, forKey: "homebase")
-                            print("Joined Homebase: " + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String))
+                            let homebase = snapshot.value.objectForKey("homebase") as! String
+                            localData["homebase"] = homebase
+                            print("Joined Homebase: " + localData["homebase"]!)
                             print("HomeBase Saved Locally")
                         }
                         if snapshot.hasChild("provider") {
-                            let provider = snapshot.value.objectForKey("provider")
-                            NSUserDefaults.standardUserDefaults().setValue(provider, forKey: "provider")
+                            let provider = snapshot.value.objectForKey("provider") as! String
+                            localData["provider"] = provider
                             print("Authentication Provider Saved Locally")
                         }
                         
-                        
+                        NSUserDefaults.standardUserDefaults().setValue(localData, forKey: "userData")
                         NSUserDefaults.standardUserDefaults().synchronize()
+                        
+                        print(NSUserDefaults.standardUserDefaults().valueForKey("userData"))
 
                         
                     } // even if snapshot does not have data
                     
                     // if user has not selected a Homebase, force to selection screen
-                    if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") != nil) {
+                    if ( NSUserDefaults.standardUserDefaults().valueForKeyPath("userData/homebase") != nil) {
                         //if in a homebase, go home
                         print("Homebase selected, going home")
                         self.performSegueWithIdentifier("goodLogin", sender: nil)

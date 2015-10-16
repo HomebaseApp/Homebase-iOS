@@ -24,18 +24,9 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     @IBAction func logOut(sender: AnyObject) {
         ref.unauth()
         //DELETE INFORMATION FROM SHARED DATA
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("uid")
-        print("UID Removed Locally")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("fullName")
-        print("fullName Removed Locally")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("homebase")
-        print("homebase Removed Locally")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("firstName")
-        print("firstName Removed Locally")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("lastName")
-        print("lastName Removed Locally")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("provider")
-        print("provider Removed Locally")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("userData")
+        print("userData Locally")
+
         NSUserDefaults.standardUserDefaults().synchronize()
         
         self.performSegueWithIdentifier("logOut", sender: nil)
@@ -47,10 +38,12 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user_Name.title = NSUserDefaults.standardUserDefaults().valueForKey("fullName") as? String
+        let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
+        
+        user_Name.title = userData["fullName"]
         // Do any additional setup after loading the view.
         
-       homeBase.text = NSUserDefaults.standardUserDefaults().valueForKey("homebase") as? String
+       homeBase.text = userData["homebase"]
     }
     
     override func didReceiveMemoryWarning() {

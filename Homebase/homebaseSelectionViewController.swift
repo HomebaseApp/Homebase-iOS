@@ -46,7 +46,7 @@ class homebaseSelectionViewController: UIViewController {
         users.childByAppendingPath(users.authData.uid).childByAppendingPath("homebase").setValue(homebaseField.text)
         
         //save the homebase info to local storage
-        NSUserDefaults.standardUserDefaults().setValue(homebaseField.text, forKey: "homebase")
+        NSUserDefaults.standardUserDefaults().setValue(homebaseField.text, forKeyPath: "userData/homebase")
         NSUserDefaults.standardUserDefaults().synchronize()
         
         self.performSegueWithIdentifier("finishSignup", sender: nil)

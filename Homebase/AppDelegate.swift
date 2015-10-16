@@ -28,40 +28,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // user authenticated
                 // check if in a homebase
                 
+                var localData: Dictionary<String, String> = Dictionary<String, String>()
+                
                 //save most recent server data locally
                 self.server.childByAppendingPath("users/"+self.server.authData.uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
                     if snapshot.exists() { //check if it has data
                         
+                        if snapshot.hasChild("uid") {
+                            localData["uid"] = self.server.authData.uid
+                            print("uid updated from Firebase")
+                        }
+                        if snapshot.hasChild("email") {
+                            let email = snapshot.value.objectForKey("email") as! String
+                            localData["email"] = email
+                            print("email updated from Firebase")
+                        }
                         if snapshot.hasChild("fullName") {
-                            let fullName = snapshot.value.objectForKey("fullName")
-                            NSUserDefaults.standardUserDefaults().setValue(fullName, forKey: "fullName")
-                            print("Full Name Saved Locally")
+                            let fullName = snapshot.value.objectForKey("fullName") as! String
+                            localData["fullName"] = fullName
+                            print("Full Name updated from Firebase")
                         }
                         if snapshot.hasChild("firstName") {
-                            let firstName = snapshot.value.objectForKey("firstName")
-                            NSUserDefaults.standardUserDefaults().setValue(firstName, forKey: "firstName")
-                            print("First Name Saved Locally")
+                            let firstName = snapshot.value.objectForKey("firstName") as! String
+                            localData["firstName"] = firstName
+                            print("First Name updated from Firebase")
                         }
                         if snapshot.hasChild("lastName") {
-                            let lastName = snapshot.value.objectForKey("lastName")
-                            NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
-                            print("Last Name Saved Locally")
+                            let lastName = snapshot.value.objectForKey("lastName") as! String
+                            localData["lastName"] = lastName
+                            NSUserDefaults.standardUserDefaults().setValue(lastName, forKeyPath: "userData/lastName")
+                            print("Last Name updated from Firebase")
                         }
                         if snapshot.hasChild("homebase") {
-                            let homebase = snapshot.value.objectForKey("homebase")
-                            NSUserDefaults.standardUserDefaults().setValue(homebase, forKey: "homebase")
-                            print("Joined Homebase: " + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String))
-                            print("HomeBase Saved Locally")
+                            let homebase = snapshot.value.objectForKey("homebase") as! String
+                            localData["homebase"] = homebase
+                            print("Joined Homebase: " + homebase)
+                            print("HomeBase updated from Firebase")
                         }
                         if snapshot.hasChild("provider") {
-                            let provider = snapshot.value.objectForKey("provider")
-                            NSUserDefaults.standardUserDefaults().setValue(provider, forKey: "provider")
-                            print("Authentication Provider Saved Locally")
+                            let provider = snapshot.value.objectForKey("provider") as! String
+                            localData["provider"] = provider
+                            print("Authentication Provider updated from Firebase")
                         }
                         
-                        
                         NSUserDefaults.standardUserDefaults().synchronize()
+                        
+                        print(NSUserDefaults.standardUserDefaults().valueForKey("userData")!)
                         
                         
                     } // even if snapshot does not have data

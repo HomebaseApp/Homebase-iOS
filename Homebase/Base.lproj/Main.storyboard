@@ -535,6 +535,9 @@
                             <outlet property="delegate" destination="DXy-Ez-41w" id="7Rc-OC-Tgh"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Chat" id="OYz-Rt-cOv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="2G8-6W-WYY"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nks-h8-JNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
