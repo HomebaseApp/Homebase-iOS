@@ -13,44 +13,26 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
-    let urlOf: urls = urls()
-    let serverURL = "https://homebasehack.firebaseio.com"
     var window: UIWindow?
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-                
-        let server = Firebase(url: serverURL)
-        
-
-        //save firebase URLs
-        NSUserDefaults.standardUserDefaults().setValue([
-            "server":serverURL,
-            "users":serverURL + "/users",
-            "bases":serverURL + "/bases",
-            "chats":serverURL + "/chats"
-            ], forKeyPath: "url")
-
-        
-        NSUserDefaults.standardUserDefaults().synchronize()
-
         
         // checks Firebase login status
-        server.observeAuthEventWithBlock({ authData in
+        server.ref().observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
-                // check if in a homebase
                 
+                // create dictionary for userdata storage
                 var localData: Dictionary<String, String> = Dictionary<String, String>()
                 
                 //save most recent server data locally
-                server.childByAppendingPath("users/"+server.authData.uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                server.userData().observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
                     if snapshot.exists() { //check if it has data
                         
                         // always has uid information if snapshot returns
-                        localData["uid"] = server.authData.uid
-                        NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/users/" + server.authData.uid, forKeyPath: "url/userData")
+                        localData["uid"] = server.userData().authData.uid
                         print("uid updated from Firebase")
                         
                         if snapshot.hasChild("email") {
@@ -76,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if snapshot.hasChild("homebase") {
                             let homebase = snapshot.value.objectForKey("homebase") as! String
                             localData["homebase"] = homebase
-                            NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/bases/" + homebase, forKeyPath: "url/homebase")
                             print("Joined Homebase: " + homebase)
                             print("HomeBase updated from Firebase")
                         }
@@ -86,17 +67,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("Authentication Provider updated from Firebase")
                         }
                         
+                        //place the Dictionary in storage
                         NSUserDefaults.standardUserDefaults().setValue(localData, forKey: "userData")
-                        
                         NSUserDefaults.standardUserDefaults().synchronize()
-                        
-                        print(NSUserDefaults.standardUserDefaults().valueForKey("userData")!)
-                        
                         
                     } // even if snapshot does not have data
                     
                     //select homebase if none chosen
-                    if ( NSUserDefaults.standardUserDefaults().valueForKey("homebase") == nil){
+                    if ( localData["homebase"] == nil){
                         let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier("selectHomebase")
                         self.window?.rootViewController = initialViewController
                         self.window?.makeKeyAndVisible()
@@ -107,10 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     
                 })
-                
-
-                
-                print(authData)
             } else {
                 // No user is signed in
                 // go to login page

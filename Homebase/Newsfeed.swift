@@ -11,13 +11,8 @@ import Firebase
 
 class Newsfeed: UITableViewController {
     
-    //var postCount:UInt = 0
-    
     let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-    let homebaseURL = NSUserDefaults.standardUserDefaults().valueForKeyPath("url/homebase") as! String
-        
-    var broadcasts:Firebase = Firebase()
-
+    
     var posts: [Dictionary<String, String>] = []
     
     let postCellIdentifier = "broadcast"
@@ -25,10 +20,7 @@ class Newsfeed: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        broadcasts = Firebase(url: homebaseURL + "/broadcasts")
-                
-        broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
+        server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
             self.posts.append(snapshot.value as! Dictionary)
             self.tableView.reloadData()
@@ -149,14 +141,14 @@ class Newsfeed: UITableViewController {
             if let destination = segue.destinationViewController as? ViewPost {
                 if let postIndex = tableView.indexPathForSelectedRow?.row {
                     var postedID: String = ""
-                    if posts[posts.count - (postIndex)]["uid"] != nil {
-                        postedID = posts[posts.count - (postIndex)]["uid"]!
+                    if posts[(posts.count-1) - (postIndex)]["uid"] != nil {
+                        postedID = posts[(posts.count-1) - (postIndex)]["uid"]!
                     }
                     
                     destination.thePost = PostData(
                         posterID: postedID,
-                        posterFullName: posts[posts.count - (postIndex)]["fullName"]!,
-                        postText: posts[posts.count - (postIndex)]["text"]!
+                        posterFullName: posts[(posts.count-1) - (postIndex)]["fullName"]!,
+                        postText: posts[(posts.count-1) - (postIndex)]["text"]!
                     )
                 }
             }

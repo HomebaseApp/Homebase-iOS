@@ -10,7 +10,7 @@ import UIKit
 
 class ViewPost: UITableViewController {
     
-    var thePost: PostData = PostData()
+    var thePost = PostData()
 
     override func viewDidLoad() {
         super.viewDidLoad()

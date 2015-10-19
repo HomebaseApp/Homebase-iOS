@@ -11,7 +11,6 @@ import Firebase
 
 class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     
-    let server = NSUserDefaults.standardUserDefaults().valueForKeyPath("firebase/server") as! Firebase
     let MyKeychainWrapper = KeychainWrapper()
 
     var holdPass: String = ""
@@ -51,18 +50,14 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     @IBAction func join(sender: AnyObject) {
         
         if (self.lastField.text! == "" || self.firstField.text! == "") {
-            let alertView = UIAlertController(title: "Error",
-                message: "Please fill all fields" as String, preferredStyle:.Alert)
-            let okAction = UIAlertAction(title: "Try again", style: .Default, handler: nil)
-            alertView.addAction(okAction)
-            self.presentViewController(alertView, animated: true, completion: nil)
+            displayBasicAlert("Error", error: "Please fill in all fields", buttonText: "Try Again")
             return
         }
         
         
         
         // send data to Firebase
-        server.createUser(self.emailField.text!, password: self.passwordField.text!,
+        server.ref().createUser(self.emailField.text!, password: self.passwordField.text!,
             withValueCompletionBlock: { error, result in
                 
                 if error != nil {
@@ -111,7 +106,7 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     }
     
     func logIn(){
-        self.server.authUser(self.emailField.text!, password:self.passwordField.text!) {
+        server.ref().authUser(self.emailField.text!, password:self.passwordField.text!) {
             error, authData in
             if error != nil {
                 // Something went wrong. :( determin problem
@@ -141,15 +136,13 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
                 
                 // The logged in user's unique identifier
                 print("Working with: " +  authData.uid!)
-                
-                let uid = authData.uid!
-                
+                                
                 // Create a new user dictionary accessing the user's info
                 // provided by the authData parameter
 
                 
                 // Create a child path with a key set to the uid underneath the "users" node
-                 self.server.childByAppendingPath("users").childByAppendingPath(uid).setValue(newUser)
+                server.userData().setValue(newUser)
                 //self.server.childByAppendingPath("test").setValue(newUser)
                 
                 //save password in Keychain

@@ -12,9 +12,7 @@ import Firebase
 
 class LogInViewController: UIViewController {
     
-    let urlOf = NSUserDefaults.standardUserDefaults().valueForKey("url") as! Dictionary<String,String>
     // get server object
-    let server = Firebase(url: "https://homebasehack.firebaseio.com")
     let MyKeychainWrapper = KeychainWrapper()
 
     override func viewDidLoad() {
@@ -38,7 +36,6 @@ class LogInViewController: UIViewController {
     }
     // submit information
     @IBAction func submit(sender: AnyObject) {
-        let serverURL = urlOf["server"]
         
         // obvious invalid data shows alert, doesnt log in
         if (emailField.text == "" || passwordField.text == "" || emailField.text?.containsString("@") == false)  {
@@ -51,7 +48,7 @@ class LogInViewController: UIViewController {
         }
         
         // check login data against firebase
-        server.authUser(emailField.text, password: passwordField.text) {
+        server.ref().authUser(emailField.text, password: passwordField.text) {
             error, authData in
             if error != nil {
                 var errorText: String = "Something went wrong"
@@ -87,17 +84,15 @@ class LogInViewController: UIViewController {
                 // save inputted data locally
                 var localData = [
                     "email": self.emailField.text,
-                    "uid": self.server.authData.uid
+                    "uid": server.ref().authData.uid
                 ]
                 print("email Saved Locally")
-                
-                NSUserDefaults.standardUserDefaults().setValue(serverURL! + "/users/" + self.server.authData.uid, forKeyPath: "url/userData")
                 print("UID Saved Locally")
 
 
                 
                 //save most recent server data locally
-                self.server.childByAppendingPath("users/"+self.server.authData.uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                server.userData().observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
                     if snapshot.exists() { //check if it has data
                         
@@ -121,7 +116,6 @@ class LogInViewController: UIViewController {
                         if snapshot.hasChild("homebase") {
                             let homebase = snapshot.value.objectForKey("homebase") as! String
                             localData["homebase"] = homebase
-                            NSUserDefaults.standardUserDefaults().setValue(serverURL! + "/bases/" + homebase, forKeyPath: "url/homebase")
                             print("Joined Homebase: " + localData["homebase"]!)
                             print("HomeBase Saved Locally")
                         }

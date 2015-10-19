@@ -11,11 +11,6 @@ import Firebase
 
 class homebaseSelectionViewController: UIViewController {
     
-    let userData = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKeyPath("url/userData") as! String)
-
-    let homebases = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKeyPath("url/bases") as! String)
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +45,7 @@ class homebaseSelectionViewController: UIViewController {
         
         
         //save homebase name in info on firebase
-        userData.childByAppendingPath("homebase").setValue(homebaseField.text)
+        server.userData().childByAppendingPath("homebase").setValue(homebaseField.text)
         
         
         //save the homebase info to local storage
@@ -78,8 +73,6 @@ class homebaseSelectionViewController: UIViewController {
         
         //put it back
         NSUserDefaults.standardUserDefaults().setValue(localUserData, forKey: "userData")
-        
-        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/bases/" + homebaseField.text!, forKeyPath: "url/homebase")
         NSUserDefaults.standardUserDefaults().synchronize()
 
 

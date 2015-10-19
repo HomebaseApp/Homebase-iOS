@@ -13,10 +13,6 @@ import SwiftyJSON
 class NewPost: UIViewController {
     
     let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-    let homebaseURL = NSUserDefaults.standardUserDefaults().valueForKeyPath("url/homebase") as! String
-
-    // homebase specific broadcasts url
-    var broadcasts:Firebase = Firebase()
     
     @IBOutlet weak var postText: UITextView!
     
@@ -24,7 +20,6 @@ class NewPost: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        broadcasts = Firebase(url: homebaseURL + "/broadcasts")
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,16 +28,14 @@ class NewPost: UIViewController {
     }
     
     @IBAction func post(sender: AnyObject) {
-        print(homebaseURL + "/broadcasts")
-        
         
         let newPost = PostData(
-            posterID: broadcasts.authData.uid,
+            posterID: server.ref().authData.uid,
             posterFullName: NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String,
             postText: postText.text
         )
         
-        broadcasts.childByAutoId().setValue(newPost.fbReadable())
+        server.broadcasts().childByAutoId().setValue(newPost.fbReadable())
 
         
         self.navigationController?.popViewControllerAnimated(true)
