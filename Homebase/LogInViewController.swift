@@ -12,7 +12,7 @@ import Firebase
 
 class LogInViewController: UIViewController {
     
-    let serverURL = NSUserDefaults.standardUserDefaults().valueForKeyPath("url/server") as! String
+    let urlOf = NSUserDefaults.standardUserDefaults().valueForKey("url") as! Dictionary<String,String>
     // get server object
     let server = Firebase(url: "https://homebasehack.firebaseio.com")
     let MyKeychainWrapper = KeychainWrapper()
@@ -38,6 +38,8 @@ class LogInViewController: UIViewController {
     }
     // submit information
     @IBAction func submit(sender: AnyObject) {
+        let serverURL = urlOf["server"]
+        
         // obvious invalid data shows alert, doesnt log in
         if (emailField.text == "" || passwordField.text == "" || emailField.text?.containsString("@") == false)  {
             let alertView = UIAlertController(title: "Error",
@@ -72,11 +74,7 @@ class LogInViewController: UIViewController {
                 }
                 
                 // let them know
-                let alertView = UIAlertController(title: "Error",
-                    message: errorText as String, preferredStyle:.Alert)
-                let okAction = UIAlertAction(title: "Try again", style: .Default, handler: nil)
-                alertView.addAction(okAction)
-                self.presentViewController(alertView, animated: true, completion: nil)
+                self.displayBasicAlert("Error", error: errorText, buttonText: "Try Again")
                 
             } else {
                 // user is logged in, check authData for data
@@ -86,7 +84,6 @@ class LogInViewController: UIViewController {
                 self.MyKeychainWrapper.mySetObject(self.passwordField.text, forKey:kSecValueData)
                 self.MyKeychainWrapper.writeToKeychain()
                 
-                
                 // save inputted data locally
                 var localData = [
                     "email": self.emailField.text,
@@ -94,7 +91,7 @@ class LogInViewController: UIViewController {
                 ]
                 print("email Saved Locally")
                 
-                NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/users/" + self.server.authData.uid, forKeyPath: "url/userData")
+                NSUserDefaults.standardUserDefaults().setValue(serverURL! + "/users/" + self.server.authData.uid, forKeyPath: "url/userData")
                 print("UID Saved Locally")
 
 
@@ -124,7 +121,7 @@ class LogInViewController: UIViewController {
                         if snapshot.hasChild("homebase") {
                             let homebase = snapshot.value.objectForKey("homebase") as! String
                             localData["homebase"] = homebase
-                            NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/bases/" + homebase, forKeyPath: "url/homebase")
+                            NSUserDefaults.standardUserDefaults().setValue(serverURL! + "/bases/" + homebase, forKeyPath: "url/homebase")
                             print("Joined Homebase: " + localData["homebase"]!)
                             print("HomeBase Saved Locally")
                         }

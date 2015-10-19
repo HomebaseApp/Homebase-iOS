@@ -12,14 +12,16 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    let urlOf: urls = urls()
     let serverURL = "https://homebasehack.firebaseio.com"
     var window: UIWindow?
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+                
         let server = Firebase(url: serverURL)
-
+        
 
         //save firebase URLs
         NSUserDefaults.standardUserDefaults().setValue([

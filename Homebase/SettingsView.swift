@@ -33,6 +33,7 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     }
     
     private func removeUserURLs(){
+        
         //pull the dictionary
         var urlDict = NSUserDefaults.standardUserDefaults().valueForKey("url") as! Dictionary<String,String>
         
