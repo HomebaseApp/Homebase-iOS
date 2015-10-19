@@ -35,12 +35,8 @@ class homebaseSelectionViewController: UIViewController {
             || homebaseField.text?.containsString("[") == true
             || homebaseField.text?.containsString("]") == true
             ) {
-            let alertView = UIAlertController(title: "Error",
-                message: "Invalid Entry" as String, preferredStyle:.Alert)
-            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertView.addAction(okAction)
-            self.presentViewController(alertView, animated: true, completion: nil)
-            return
+                displayBasicAlert("Error", error: "Invalid Entry", buttonText: "OK")
+                return
         }
         
         

@@ -13,19 +13,7 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var user_Name: UINavigationItem!
     
-    @IBOutlet weak var tester: UIButton!
-    
-    @IBAction func logOut(sender: AnyObject) {
-        server.ref().unauth()
-        
-        //DELETE INFORMATION FROM SHARED DATA
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("userData")
-        print("Deleted local userData")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        self.performSegueWithIdentifier("logOut", sender: nil)
-
-    }
+    @IBOutlet weak var homeBase: UILabel!
 
     
     override func viewDidLoad() {
@@ -44,7 +32,18 @@ class SettingsView: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var homeBase: UILabel!
+    @IBAction func logOut(sender: AnyObject) {
+        server.ref().unauth()
+        
+        //DELETE INFORMATION FROM SHARED DATA
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("userData")
+        print("Deleted local userData")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        self.performSegueWithIdentifier("logOut", sender: nil)
+        
+    }
+    
     
     /*
     // MARK: - Navigation
