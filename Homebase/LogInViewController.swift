@@ -88,8 +88,6 @@ class LogInViewController: UIViewController {
                 ]
                 print("email Saved Locally")
                 print("UID Saved Locally")
-
-
                 
                 //save most recent server data locally
                 server.userData().observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -127,9 +125,6 @@ class LogInViewController: UIViewController {
                         
                         NSUserDefaults.standardUserDefaults().setValue(localData, forKey: "userData")
                         NSUserDefaults.standardUserDefaults().synchronize()
-                        
-                        print(NSUserDefaults.standardUserDefaults().valueForKey("userData"))
-
                         
                     } // even if snapshot does not have data
                     
