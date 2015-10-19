@@ -1,21 +1,17 @@
 //
-//  Homelist.swift
+//  HomeListsViewController.swift
 //  Homebase
 //
-//  Created by Michael A. Gonzalez on 10/10/15.
+//  Created by Justin Oroz on 10/19/15.
 //  Copyright © 2015 HomeBase. All rights reserved.
 //
 
 import UIKit
 
-class Homelist: UITableViewController {
-    
-
+class HomeListsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,14 +37,24 @@ class Homelist: UITableViewController {
         return 1
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewList", forIndexPath: indexPath) as! Homelist_Cell
+        if indexPath.item == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("NewList", forIndexPath: indexPath)
 
-        // Configure the cell...
+            // Configure the cell...
+            cell.textLabel?.text = "Create New List"
 
-        return cell
-    } */
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ExistingList", forIndexPath: indexPath)
+            
+            // Configure the cell...
+            
+            return cell
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -12,18 +12,26 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    
+    let serverURL = "https://homebasehack.firebaseio.com"
     var window: UIWindow?
-    let server = Firebase(url: "https://homebasehack.firebaseio.com")
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let server = Firebase(url: serverURL)
 
-        //save firebase URL
-        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com", forKey: "serverURL")
-        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/users", forKey: "usersURL")
-        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/bases", forKey: "basesURL")
-        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/chats", forKey: "chatsURL")
+
+        //save firebase URLs
+        NSUserDefaults.standardUserDefaults().setValue([
+            "server":serverURL,
+            "users":serverURL + "/users",
+            "bases":serverURL + "/bases",
+            "chats":serverURL + "/chats"
+            ], forKeyPath: "url")
+
+        
+        NSUserDefaults.standardUserDefaults().synchronize()
+
         
         // checks Firebase login status
         server.observeAuthEventWithBlock({ authData in
@@ -34,14 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 var localData: Dictionary<String, String> = Dictionary<String, String>()
                 
                 //save most recent server data locally
-                self.server.childByAppendingPath("users/"+self.server.authData.uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                server.childByAppendingPath("users/"+server.authData.uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
                     if snapshot.exists() { //check if it has data
                         
-                        if snapshot.hasChild("uid") {
-                            localData["uid"] = self.server.authData.uid
-                            print("uid updated from Firebase")
-                        }
+                        // always has uid information if snapshot returns
+                        localData["uid"] = server.authData.uid
+                        NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/users/" + server.authData.uid, forKeyPath: "url/userData")
+                        print("uid updated from Firebase")
+                        
                         if snapshot.hasChild("email") {
                             let email = snapshot.value.objectForKey("email") as! String
                             localData["email"] = email
@@ -60,12 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if snapshot.hasChild("lastName") {
                             let lastName = snapshot.value.objectForKey("lastName") as! String
                             localData["lastName"] = lastName
-                            NSUserDefaults.standardUserDefaults().setValue(lastName, forKeyPath: "userData/lastName")
                             print("Last Name updated from Firebase")
                         }
                         if snapshot.hasChild("homebase") {
                             let homebase = snapshot.value.objectForKey("homebase") as! String
                             localData["homebase"] = homebase
+                            NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/bases/" + homebase, forKeyPath: "url/homebase")
                             print("Joined Homebase: " + homebase)
                             print("HomeBase updated from Firebase")
                         }
@@ -74,6 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             localData["provider"] = provider
                             print("Authentication Provider updated from Firebase")
                         }
+                        
+                        NSUserDefaults.standardUserDefaults().setValue(localData, forKey: "userData")
                         
                         NSUserDefaults.standardUserDefaults().synchronize()
                         

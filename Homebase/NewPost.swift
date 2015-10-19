@@ -11,9 +11,12 @@ import Firebase
 import SwiftyJSON
 
 class NewPost: UIViewController {
+    
+    let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
+    let homebaseURL = NSUserDefaults.standardUserDefaults().valueForKeyPath("url/homebase") as! String
 
     // homebase specific broadcasts url
-    let broadcasts = Firebase(url: (NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/bases/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
+    var broadcasts:Firebase = Firebase()
     
     @IBOutlet weak var postText: UITextView!
     
@@ -21,6 +24,7 @@ class NewPost: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        broadcasts = Firebase(url: homebaseURL + "/broadcasts")
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +33,7 @@ class NewPost: UIViewController {
     }
     
     @IBAction func post(sender: AnyObject) {
-        print((NSUserDefaults.standardUserDefaults().valueForKey("serverURL") as! String) + "/" + (NSUserDefaults.standardUserDefaults().valueForKey("homebase") as! String) + "/broadcasts")
+        print(homebaseURL + "/broadcasts")
         
         
         let newPost = PostData(

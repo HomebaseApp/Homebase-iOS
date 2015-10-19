@@ -14,12 +14,10 @@ class Newsfeed: UITableViewController {
     //var postCount:UInt = 0
     
     let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-    let basesURL = NSUserDefaults.standardUserDefaults().valueForKey("basesURL") as! String
-    
-    //let homebaseURL = (NSUserDefaults.standardUserDefaults().valueForKey("basesURL") as! String) + userData[""] + "/broadcasts"
-    
+    let homebaseURL = NSUserDefaults.standardUserDefaults().valueForKeyPath("url/homebase") as! String
+        
     var broadcasts:Firebase = Firebase()
-//    var posts: FDataSnapshot = FDataSnapshot()
+
     var posts: [Dictionary<String, String>] = []
     
     let postCellIdentifier = "broadcast"
@@ -27,7 +25,8 @@ class Newsfeed: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        broadcasts = Firebase(url: basesURL + "/" + userData["homebase"]! + "/broadcasts")
+        
+        broadcasts = Firebase(url: homebaseURL + "/broadcasts")
                 
         broadcasts.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
@@ -52,21 +51,26 @@ class Newsfeed: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        // section 1: Create new Post
+        // section 2: posts
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return Int(posts.count) + 1
+        if section == 0 {
+            return 1
+        } else {
+            return Int(posts.count)
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.item == 0){
+        if (indexPath.section == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("newPost") as! NewPostCell
-            cell.textLabel?.text = "Create new post"
+            cell.textLabel?.text = "New Broadcast"
             cell.textLabel?.textAlignment = NSTextAlignment.Center
             return cell
         }
@@ -81,17 +85,17 @@ class Newsfeed: UITableViewController {
     }
     
     func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.nameButton.setTitle(posts[posts.count - (indexPath.item)]["fullName"]!, forState: UIControlState.Normal)
+        cell.nameButton.setTitle(posts[(posts.count - 1) - (indexPath.item)]["fullName"]!, forState: UIControlState.Normal)
         //
-        if posts[posts.count - (indexPath.item)]["uid"] != nil {
-            cell.posterID = posts[posts.count - (indexPath.item)]["uid"]!
+        if posts[(posts.count - 1) - (indexPath.item)]["uid"] != nil {
+            cell.posterID = posts[(posts.count - 1) - (indexPath.item)]["uid"]!
         }
     }
   
     
     
     func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.postText.text = posts[posts.count - (indexPath.item)]["text"]!
+        cell.postText.text = posts[(posts.count - 1) - (indexPath.item)]["text"]!
     
     }
     

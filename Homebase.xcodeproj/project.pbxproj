@@ -34,6 +34,7 @@
 		D0EA01511BCF52AE00A40A9B /* ViewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01501BCF52AE00A40A9B /* ViewPost.swift */; settings = {ASSET_TAGS = (); }; };
 		D0EA01541BCF531600A40A9B /* PostCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01531BCF531600A40A9B /* PostCommentCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D0EA01561BCF53E700A40A9B /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01551BCF53E700A40A9B /* PostData.swift */; settings = {ASSET_TAGS = (); }; };
+		D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F2EA911BD4D2ED00A96A32 /* HomeListsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		D0EA01501BCF52AE00A40A9B /* ViewPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPost.swift; sourceTree = "<group>"; };
 		D0EA01531BCF531600A40A9B /* PostCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCommentCell.swift; sourceTree = "<group>"; };
 		D0EA01551BCF53E700A40A9B /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		D0F2EA911BD4D2ED00A96A32 /* HomeListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListsViewController.swift; sourceTree = "<group>"; };
 		F8928713D20F3444170B8654 /* Pods-Homebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-Homebase/Pods-Homebase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 		1461722C1BC9631B00AE2ACC /* Homelist */ = {
 			isa = PBXGroup;
 			children = (
+				D0F2EA911BD4D2ED00A96A32 /* HomeListsViewController.swift */,
 				140C942F1BC9E18C00B338B8 /* onListController.swift */,
 				140C942D1BC9BE3700B338B8 /* oneListTableViewCell.swift */,
 				146973151BC95A340046C9AD /* Homelist.swift */,
@@ -446,6 +449,7 @@
 				D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */,
 				D0EA01561BCF53E700A40A9B /* PostData.swift in Sources */,
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
+				D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D058714F1BC91B650011DBD6 /* ChatView.swift in Sources */,
 				D01B70CD1BC9B43400767FAC /* NewPost.swift in Sources */,

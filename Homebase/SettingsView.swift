@@ -13,10 +13,7 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var user_Name: UINavigationItem!
     
-    let ref = Firebase(url: "https://homebasehack.firebaseio.com")
-    
-    var baseRef = Firebase(url: "https://homebasehack.firebaseio.com")
-    
+    let ref = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKeyPath("url/server") as! String)
 
     
     @IBOutlet weak var tester: UIButton!
@@ -25,15 +22,29 @@ class SettingsView: UIViewController, UITextFieldDelegate {
         ref.unauth()
         //DELETE INFORMATION FROM SHARED DATA
         NSUserDefaults.standardUserDefaults().removeObjectForKey("userData")
+
+
         print("userData Locally")
 
         NSUserDefaults.standardUserDefaults().synchronize()
         
         self.performSegueWithIdentifier("logOut", sender: nil)
 
-
+    }
+    
+    private func removeUserURLs(){
+        //pull the dictionary
+        var urlDict = NSUserDefaults.standardUserDefaults().valueForKey("url") as! Dictionary<String,String>
+        
+        //remove user specific URLs
+        urlDict.removeValueForKey("userData")
+        urlDict.removeValueForKey("homebase")
+        
+        //put it back
+        NSUserDefaults.standardUserDefaults().setValue(urlDict, forKey: "url")
 
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +54,7 @@ class SettingsView: UIViewController, UITextFieldDelegate {
         user_Name.title = userData["fullName"]
         // Do any additional setup after loading the view.
         
-       homeBase.text = userData["homebase"]
+        homeBase.text = userData["homebase"]
     }
     
     override func didReceiveMemoryWarning() {

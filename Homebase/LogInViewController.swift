@@ -12,6 +12,7 @@ import Firebase
 
 class LogInViewController: UIViewController {
     
+    let serverURL = NSUserDefaults.standardUserDefaults().valueForKeyPath("url/server") as! String
     // get server object
     let server = Firebase(url: "https://homebasehack.firebaseio.com")
     let MyKeychainWrapper = KeychainWrapper()
@@ -91,10 +92,9 @@ class LogInViewController: UIViewController {
                     "email": self.emailField.text,
                     "uid": self.server.authData.uid
                 ]
-                //NSUserDefaults.standardUserDefaults().setValue(self.emailField.text, forKey: "email")
                 print("email Saved Locally")
                 
-                //NSUserDefaults.standardUserDefaults().setValue(self.server.authData.uid, forKey: "uid")
+                NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/users/" + self.server.authData.uid, forKeyPath: "url/userData")
                 print("UID Saved Locally")
 
 
@@ -124,6 +124,7 @@ class LogInViewController: UIViewController {
                         if snapshot.hasChild("homebase") {
                             let homebase = snapshot.value.objectForKey("homebase") as! String
                             localData["homebase"] = homebase
+                            NSUserDefaults.standardUserDefaults().setValue(self.serverURL + "/bases/" + homebase, forKeyPath: "url/homebase")
                             print("Joined Homebase: " + localData["homebase"]!)
                             print("HomeBase Saved Locally")
                         }

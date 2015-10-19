@@ -11,7 +11,7 @@ import Firebase
 
 class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     
-    let server = Firebase(url: "https://homebasehack.firebaseio.com")
+    let server = NSUserDefaults.standardUserDefaults().valueForKeyPath("firebase/server") as! Firebase
     let MyKeychainWrapper = KeychainWrapper()
 
     var holdPass: String = ""

@@ -11,9 +11,10 @@ import Firebase
 
 class homebaseSelectionViewController: UIViewController {
     
-    let users = Firebase(url: "https://homebasehack.firebaseio.com/users/")
+    let userData = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKeyPath("url/userData") as! String)
 
-    let homebases = Firebase(url: "https://homebasehack.firebaseio.com/bases/")
+    let homebases = Firebase(url: NSUserDefaults.standardUserDefaults().valueForKeyPath("url/bases") as! String)
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,15 @@ class homebaseSelectionViewController: UIViewController {
     @IBAction func joinHomeBase(sender: AnyObject) {
         
         // homebase cant be empty
-        if(homebaseField.text == "") {
+        if(homebaseField.text == ""
+            || homebaseField.text?.containsString(".") == true
+            || homebaseField.text?.containsString("#") == true
+            || homebaseField.text?.containsString("$") == true
+            || homebaseField.text?.containsString("[") == true
+            || homebaseField.text?.containsString("]") == true
+            ) {
             let alertView = UIAlertController(title: "Error",
-                message: "Enter a name" as String, preferredStyle:.Alert)
+                message: "Invalid Entry" as String, preferredStyle:.Alert)
             let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alertView.addAction(okAction)
             self.presentViewController(alertView, animated: true, completion: nil)
@@ -43,11 +50,11 @@ class homebaseSelectionViewController: UIViewController {
         
         
         //save homebase name in info on firebase
-        users.childByAppendingPath(users.authData.uid).childByAppendingPath("homebase").setValue(homebaseField.text)
+        userData.childByAppendingPath("homebase").setValue(homebaseField.text)
+        
         
         //save the homebase info to local storage
-        NSUserDefaults.standardUserDefaults().setValue(homebaseField.text, forKeyPath: "userData/homebase")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        modifyLocalHomebasedata()
         
         self.performSegueWithIdentifier("finishSignup", sender: nil)
     }
@@ -60,5 +67,23 @@ class homebaseSelectionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func modifyLocalHomebasedata(){
+        
+        // grab the dictionary
+        var localUserData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String,String>
+        
+        //modify the dictionary
+        localUserData["homebase"] = homebaseField.text
+        
+        //put it back
+        NSUserDefaults.standardUserDefaults().setValue(localUserData, forKey: "userData")
+        
+        NSUserDefaults.standardUserDefaults().setValue("https://homebasehack.firebaseio.com/bases/" + homebaseField.text!, forKeyPath: "url/homebase")
+        NSUserDefaults.standardUserDefaults().synchronize()
+
+
+        
+    }
 
 }
