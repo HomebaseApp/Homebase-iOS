@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Username-->
+        <scene sceneID="Yey-d3-Tv2">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-Wus-MU-j9R" id="Wus-MU-j9R" customClass="SettingsView" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZbU-EL-JXg"/>
+                        <viewControllerLayoutGuide type="bottom" id="7fZ-M6-Wc5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="331-nN-kcq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeBase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-o4-EtD">
+                                <rect key="frame" x="47" y="113" width="321" height="74"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-EZ-0hz">
+                                <rect key="frame" x="62" y="280" width="291" height="52"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Pz0-Qh-Lgi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOut:" destination="Wus-MU-j9R" eventType="touchUpInside" id="erv-QQ-WHB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI3-fI-MVY">
+                                <rect key="frame" x="145" y="195" width="125" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Switch HomeBase"/>
+                                <connections>
+                                    <segue destination="UzW-a6-fV5" kind="presentation" modalTransitionStyle="crossDissolve" id="UzN-lJ-WFA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1fU-o4-EtD" firstAttribute="leading" secondItem="331-nN-kcq" secondAttribute="leadingMargin" constant="27" id="2iW-4k-50p"/>
+                            <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="zkf-EZ-0hz" secondAttribute="centerX" id="AGl-S5-dLZ"/>
+                            <constraint firstItem="JI3-fI-MVY" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="8" id="C6a-T0-U6q"/>
+                            <constraint firstItem="1fU-o4-EtD" firstAttribute="top" secondItem="ZbU-EL-JXg" secondAttribute="bottom" constant="49" id="Mi4-Dn-LKa"/>
+                            <constraint firstItem="zkf-EZ-0hz" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="MrR-8v-2TJ"/>
+                            <constraint firstItem="zkf-EZ-0hz" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="93" id="aRL-mR-drN"/>
+                            <constraint firstItem="JI3-fI-MVY" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="c8v-rn-9ir"/>
+                            <constraint firstItem="7fZ-M6-Wc5" firstAttribute="top" secondItem="zkf-EZ-0hz" secondAttribute="bottom" constant="355" id="dyf-1D-NfT"/>
+                            <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="knz-OL-EC0"/>
+                            <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="zRk-qG-Gop"/>
+                            <constraint firstItem="zkf-EZ-0hz" firstAttribute="leading" secondItem="331-nN-kcq" secondAttribute="leadingMargin" constant="42" id="zzK-oG-lCk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AGl-S5-dLZ"/>
+                                <exclude reference="zRk-qG-Gop"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Gear" selectedImage="Gear" id="X9q-Vm-QLb"/>
+                    <navigationItem key="navigationItem" title="Username" id="jjy-TP-HWO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="homeBase" destination="1fU-o4-EtD" id="HZ4-Wg-maV"/>
+                        <outlet property="user_Name" destination="jjy-TP-HWO" id="BZe-j7-YdH"/>
+                        <segue destination="aLq-kz-hIp" kind="presentation" identifier="logOut" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Z5k-dx-TGC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OOw-r7-Cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="-3547"/>
+        </scene>
+        <!--LoginScreen-->
+        <scene sceneID="kYj-C1-X2w">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LoginScreen" storyboardName="Authentication" referencedIdentifier="LoginScreen" id="aLq-kz-hIp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxT-3W-K8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881" y="-3536"/>
+        </scene>
+        <!--selectHomebase-->
+        <scene sceneID="GbH-Ie-2li">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="selectHomebase" storyboardName="Authentication" referencedIdentifier="selectHomebase" id="UzW-a6-fV5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRD-GG-gFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881.5" y="-3604"/>
+        </scene>
+        <!--loginNavigator-->
+        <scene sceneID="ZJp-I9-Y4v">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="loginNavigator" storyboardName="Authentication" referencedIdentifier="loginNavigator" id="iCI-95-CrQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4a-nu-hfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861.5" y="-3680"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Gear" width="24" height="24"/>
+    </resources>
+</document>
