@@ -29,7 +29,7 @@ class HomeListsViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,7 +39,7 @@ class HomeListsViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.item == 0 {
+        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("NewList", forIndexPath: indexPath)
 
             // Configure the cell...
@@ -55,6 +55,13 @@ class HomeListsViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 45.0
+        } else {
+            return 60.0
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
