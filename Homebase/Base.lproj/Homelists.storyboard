@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hYq-mh-nkX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--One List Type-->
@@ -121,16 +122,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="riA-oj-QWO">
+                            <pickerView contentMode="scaleToFill" semanticContentAttribute="spatial" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="riA-oj-QWO">
                                 <rect key="frame" x="0.0" y="64" width="414" height="188"/>
                                 <animations/>
                             </pickerView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQp-mY-kee">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQp-mY-kee">
                                 <rect key="frame" x="20" y="260" width="374" height="282"/>
                                 <animations/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Selected List Description: Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <string key="content">Selected List Description: The above selector will contain a list of all possible list types such as Grocery List, Todo List, Rotational List, etc. The presentation style may need to change in order to properly explain the differences. This Text box will contain details about each list when it is selected</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -142,12 +143,17 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mQp-mY-kee" firstAttribute="top" secondItem="riA-oj-QWO" secondAttribute="bottom" constant="8" id="Lat-a0-xBy"/>
+                            <constraint firstItem="mQp-mY-kee" firstAttribute="trailing" secondItem="YdP-Mi-uX6" secondAttribute="trailingMargin" id="qAv-qO-7UZ"/>
+                            <constraint firstItem="mQp-mY-kee" firstAttribute="leading" secondItem="YdP-Mi-uX6" secondAttribute="leadingMargin" id="shF-N3-Dbg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New List" id="BaX-lJ-jze"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1w-0e-0sH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181" y="-1115"/>
+            <point key="canvasLocation" x="-123" y="-1084"/>
         </scene>
     </scenes>
     <resources>

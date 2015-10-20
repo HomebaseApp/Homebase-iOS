@@ -89,11 +89,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homebase/Newsfeed.swift"
-            timestampString = "467070397.982551"
+            timestampString = "467072272.948949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "tableView(_:heightForRowAtIndexPath:)"
             landmarkType = "5">
             <Locations>

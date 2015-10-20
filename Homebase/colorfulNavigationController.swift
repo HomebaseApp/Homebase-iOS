@@ -28,27 +28,30 @@ class colorfulNavigationController: UINavigationController {
     
 
     override func viewWillAppear(animated: Bool) {
-        let mainColor = HexColor("FF2A68")
         
-        self.navigationBar.barTintColor = mainColor
-        
-        UIApplication.sharedApplication().statusBarFrame.minY
+        //makes the frame which includes navbar and status bar
         let navBarRect = CGRectMake(
             navigationBar.frame.minX,
             UIApplication.sharedApplication().statusBarFrame.minY,
             navigationBar.frame.width,
             navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
-        navigationBar.tintColor = UIColor(complementaryFlatColorOf: mainColor).lightenByPercentage(20.0)
-        navigationBar.barTintColor = GradientColor(UIGradientStyle.TopToBottom, navBarRect, [UIColor(hexString: "FF5E3A"), UIColor(hexString: "FF2A68")])
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainColor, true)]
+        
+        let mainColor = HexColor("5AD427")
+        let mainGradient = GradientColor(UIGradientStyle.TopToBottom, navBarRect, [UIColor(hexString: "A4E786"), UIColor(hexString: "5AD427")])
+        
+        self.navigationBar.barTintColor = mainColor
+        
+        UIApplication.sharedApplication().statusBarFrame.minY
+
+        navigationBar.tintColor = UIColor(complementaryFlatColorOf: mainGradient)//.lightenByPercentage(20.0)
+        navigationBar.barTintColor = mainGradient
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainGradient, true)]
         // navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainColor, true), NSFontAttributeName: UIFont.systemFontOfSize(20.0)]
         
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = ContrastColorOf(mainColor, true)
-        tabBarAppearance.barTintColor = mainColor
+        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(5)
         
-        self.setStatusBarStyle(UIStatusBarStyleContrast)
-
     }
     
     /*
