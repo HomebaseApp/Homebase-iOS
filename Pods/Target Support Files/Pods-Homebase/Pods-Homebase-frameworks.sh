@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Homebase/ChameleonFramework.framework"
   install_framework "Pods-Homebase/Firebase.framework"
   install_framework "Pods-Homebase/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Homebase/ChameleonFramework.framework"
   install_framework "Pods-Homebase/Firebase.framework"
   install_framework "Pods-Homebase/SwiftyJSON.framework"
 fi

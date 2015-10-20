@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,12 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22E2155405969642C44FEC7DA2966F37</key>
+		<key>2611ABB28B64F510EC16598F330F0565</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0B832CE7E6DF03E5A9A0369154470C8</key>
+		<key>9883DF06E8D2D66F932D42F0FCA1F6E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D260536F10C6CD42DB8E4A0B03896C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,7 +9,7 @@
         <!--Begin-->
         <scene sceneID="oTB-ne-mqc">
             <objects>
-                <navigationController storyboardIdentifier="mainpage" title="Begin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1un-ki-ad1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainpage" title="Begin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1un-ki-ad1" customClass="colorfulNavigationController" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yHR-Ie-qqZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

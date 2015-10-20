@@ -19,7 +19,7 @@ class Newsfeed: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
             var post = snapshot.value as! Dictionary<String, AnyObject>

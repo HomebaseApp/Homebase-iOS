@@ -16,13 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="DVM-3b-vMV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Info Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqd-3v-1pu">
+                                <rect key="frame" x="90" y="147" width="234" height="55"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWM-TY-emN">
+                                <rect key="frame" x="167" y="291" width="80" height="48"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Chat"/>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c39-TE-zXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2156" y="-150"/>
+            <point key="canvasLocation" x="-2166" y="100"/>
         </scene>
         <!--Homefeed-->
         <scene sceneID="NVo-uY-PXs">
@@ -211,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyz-Xy-CCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1596" y="337"/>
+            <point key="canvasLocation" x="-1655" y="100"/>
         </scene>
         <!--View Post-->
         <scene sceneID="aTQ-Im-UJr">
@@ -280,14 +295,14 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="O1q-CS-E7V"/>
                                             <exclude reference="6iW-Sj-3hm"/>
+                                            <exclude reference="O1q-CS-E7V"/>
                                             <exclude reference="mfD-2s-gAo"/>
-                                            <exclude reference="xXh-Go-MKx"/>
-                                            <exclude reference="rAi-JL-bsH"/>
-                                            <exclude reference="4EO-c4-ugm"/>
                                             <exclude reference="0tf-mY-jDZ"/>
+                                            <exclude reference="4EO-c4-ugm"/>
                                             <exclude reference="8L6-ZO-sK1"/>
+                                            <exclude reference="rAi-JL-bsH"/>
+                                            <exclude reference="xXh-Go-MKx"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -381,13 +396,13 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="0Wx-ol-3US"/>
-                                            <exclude reference="y2f-1h-bB3"/>
                                             <exclude reference="5UB-sn-8vh"/>
-                                            <exclude reference="WcY-Xw-GeQ"/>
-                                            <exclude reference="9Py-rr-y0Q"/>
+                                            <exclude reference="y2f-1h-bB3"/>
                                             <exclude reference="29c-eA-DeO"/>
+                                            <exclude reference="9Py-rr-y0Q"/>
                                             <exclude reference="DYa-Rc-Lmo"/>
                                             <exclude reference="WSF-yY-VCz"/>
+                                            <exclude reference="WcY-Xw-GeQ"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

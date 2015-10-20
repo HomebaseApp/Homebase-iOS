@@ -1,8 +1,12 @@
 PODS:
+  - ChameleonFramework/Default (2.0.4)
+  - ChameleonFramework/Swift (2.0.4):
+    - ChameleonFramework/Default
   - Firebase (2.4.2)
   - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift
   - Firebase (>= 2.4.1)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -16,6 +20,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   Firebase: 5e898ed5012c81d28ca5fae1113c6b61a172bc6d
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
