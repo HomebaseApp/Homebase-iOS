@@ -44,6 +44,10 @@ class SettingsView: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func randomTheme(sender: AnyObject) {
+        let navController = self.navigationController as! colorfulNavigationController
+        navController.generateAppTheme()
+    }
     
     /*
     // MARK: - Navigation

@@ -44,6 +44,14 @@
                                     <segue destination="UzW-a6-fV5" kind="presentation" modalTransitionStyle="crossDissolve" id="UzN-lJ-WFA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCU-u3-B3Q">
+                                <rect key="frame" x="132" y="540" width="151" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Try a Random Theme!"/>
+                                <connections>
+                                    <action selector="randomTheme:" destination="Wus-MU-j9R" eventType="touchUpInside" id="Eez-BR-Aqe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,10 +61,12 @@
                             <constraint firstItem="JI3-fI-MVY" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="8" id="C6a-T0-U6q"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="top" secondItem="ZbU-EL-JXg" secondAttribute="bottom" constant="49" id="Mi4-Dn-LKa"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="MrR-8v-2TJ"/>
+                            <constraint firstItem="7fZ-M6-Wc5" firstAttribute="top" secondItem="lCU-u3-B3Q" secondAttribute="bottom" constant="117" id="Tbu-8D-TCh"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="93" id="aRL-mR-drN"/>
                             <constraint firstItem="JI3-fI-MVY" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="c8v-rn-9ir"/>
                             <constraint firstItem="7fZ-M6-Wc5" firstAttribute="top" secondItem="zkf-EZ-0hz" secondAttribute="bottom" constant="355" id="dyf-1D-NfT"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="knz-OL-EC0"/>
+                            <constraint firstItem="lCU-u3-B3Q" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="pqS-LN-W4h"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="zRk-qG-Gop"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="leading" secondItem="331-nN-kcq" secondAttribute="leadingMargin" constant="42" id="zzK-oG-lCk"/>
                         </constraints>

@@ -50,8 +50,36 @@ class colorfulNavigationController: UINavigationController {
         
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = ContrastColorOf(mainColor, true)
-        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(5)
+        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(0.05)
         
+    }
+    
+    func generateAppTheme(){
+        let navBarRect = CGRectMake(
+            navigationBar.frame.minX,
+            UIApplication.sharedApplication().statusBarFrame.minY,
+            navigationBar.frame.width,
+            navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
+        
+        let mainColor = RandomFlatColorWithShade(.Light)
+        let mainGradient = GradientColor(
+            UIGradientStyle.TopToBottom,
+            navBarRect,
+            [mainColor.darkenByPercentage(0.2), mainColor]
+        )
+        
+        self.navigationBar.barTintColor = mainColor
+        
+        UIApplication.sharedApplication().statusBarFrame.minY
+        
+        navigationBar.tintColor = UIColor(complementaryFlatColorOf: mainGradient).lightenByPercentage(0.2)
+        navigationBar.barTintColor = mainGradient
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainGradient, true)]
+        // navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainColor, true), NSFontAttributeName: UIFont.systemFontOfSize(20.0)]
+        
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.tintColor = UIColor(complementaryFlatColorOf: mainGradient).lightenByPercentage(0.2)
+        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(0.1)
     }
     
     /*
