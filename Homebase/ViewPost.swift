@@ -2,6 +2,8 @@
 //  ViewPost.swift
 //  Homebase
 //
+//  Shows a selected post and its comments
+//
 //  Created by Justin Oroz on 10/14/15.
 //  Copyright © 2015 HomeBase. All rights reserved.
 //
@@ -37,7 +39,7 @@ class ViewPost: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 { //post section only has 1
-            return 1
+            return 2
         } else {
             return 0
         }
@@ -45,16 +47,48 @@ class ViewPost: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("thePost", forIndexPath: indexPath) as! Postcell
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("thePost", forIndexPath: indexPath) as! Postcell
+                cell.nameButton.setTitle(thePost.posterFullName, forState: UIControlState.Normal)
+                cell.posterID = thePost.posterID
+                cell.postText.text = thePost.postText
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("newComment", forIndexPath: indexPath)
+                cell.textLabel?.text = "New Comment"
+                return cell
+            }
 
-        // Configure the cell...
-        
-        cell.nameButton.setTitle(thePost.posterFullName, forState: UIControlState.Normal)
-        cell.posterID = thePost.posterID
-        cell.postText.text = thePost.postText
-        return cell
+        } else {
+            let cell = UITableViewCell()
+            return cell
+        }
+
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                return heightForCell(thePost.postText, lines: 0,font: UIFont.systemFontOfSize(17.0), width: self.tableView.bounds.width - 22) + 60
+            } else {
+                return 45.0
+            }
+        } else {
+            return 45.0
+        }
+    }
+    
+    func heightForCell(text:String, lines: Int ,font:UIFont, width:CGFloat) -> CGFloat{
+        let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
+        label.numberOfLines = lines
+        label.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        label.font = font
+        label.text = text
+        
+        label.sizeToFit()
+        return label.frame.height
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -98,6 +132,11 @@ class ViewPost: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if self.tableView.indexPathForSelectedRow?.section == 0
+            && self.tableView.indexPathForSelectedRow?.row == 1 {
+            let newCommentView = segue.destinationViewController as! NewComment
+            newCommentView.thePostInfo = thePost            
+        }
     }
     
 

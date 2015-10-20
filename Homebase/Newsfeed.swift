@@ -22,7 +22,11 @@ class Newsfeed: UITableViewController {
                 
         server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
-            self.posts.append(snapshot.value as! Dictionary)
+            var post = snapshot.value as! Dictionary<String, String>
+            // saves the ID to allow comments later
+            post["broadcastID"] = snapshot.key
+            
+            self.posts.append(post)
             self.tableView.reloadData()
 
         })
@@ -163,11 +167,14 @@ class Newsfeed: UITableViewController {
             if let destination = segue.destinationViewController as? ViewPost {
                 if let postIndex = tableView.indexPathForSelectedRow?.row {
                     var postedID: String = ""
+                    
+                    // allows for old posts without uid to be opened
                     if posts[(posts.count-1) - (postIndex)]["uid"] != nil {
                         postedID = posts[(posts.count-1) - (postIndex)]["uid"]!
                     }
                     
                     destination.thePost = PostData(
+                        broadcastID: posts[(posts.count-1) - (postIndex)]["broadcastID"]!,
                         posterID: postedID,
                         posterFullName: posts[(posts.count-1) - (postIndex)]["fullName"]!,
                         postText: posts[(posts.count-1) - (postIndex)]["text"]!

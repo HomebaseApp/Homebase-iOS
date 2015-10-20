@@ -10,11 +10,9 @@ import UIKit
 import Firebase
 import SwiftyJSON
 
-class NewComment: UIViewController, UITextViewDelegate {
+class NewPost: UIViewController, UITextViewDelegate {
     
     let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-    
-    var thePostInfo = PostData()
     
     @IBOutlet weak var postText: UITextView!
     
@@ -33,15 +31,15 @@ class NewComment: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func comment(sender: AnyObject) {
+    @IBAction func broadcast(sender: AnyObject) {
         
-        let newComment = PostData(
+        let newPost = PostData(
             posterID: server.ref().authData.uid,
             posterFullName: userData["fullName"]!,
             postText: postText.text
         )
         
-        server.broadcasts().childByAppendingPath(thePostInfo.broadcastID + "/comments").childByAutoId().setValue(newComment.fbReadable())
+        server.broadcasts().childByAutoId().setValue(newPost.fbReadable())
 
         
         self.navigationController?.popViewControllerAnimated(true)

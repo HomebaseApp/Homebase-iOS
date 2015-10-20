@@ -17,6 +17,7 @@
 		D029B3851BC8F2A20021DD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029B3841BC8F2A20021DD5D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D029B3871BC901EF0021DD5D /* Newsfeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3861BC901EF0021DD5D /* Newsfeed.swift */; settings = {ASSET_TAGS = (); }; };
 		D029B3891BC9029B0021DD5D /* Postcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029B3881BC9029B0021DD5D /* Postcell.swift */; settings = {ASSET_TAGS = (); }; };
+		D02ECD631BD6A38F00B17C12 /* NewComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02ECD621BD6A38F00B17C12 /* NewComment.swift */; settings = {ASSET_TAGS = (); }; };
 		D041405C1BD5663700B3F525 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		D041405E1BD56B7100B3F525 /* GlobalFirebaseRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D041405D1BD56B7100B3F525 /* GlobalFirebaseRef.swift */; settings = {ASSET_TAGS = (); }; };
 		D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043EE691BC8A3DE0058A855 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		D029B3841BC8F2A20021DD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029B3861BC901EF0021DD5D /* Newsfeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
 		D029B3881BC9029B0021DD5D /* Postcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postcell.swift; sourceTree = "<group>"; };
+		D02ECD621BD6A38F00B17C12 /* NewComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewComment.swift; sourceTree = "<group>"; };
 		D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		D041405D1BD56B7100B3F525 /* GlobalFirebaseRef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFirebaseRef.swift; sourceTree = "<group>"; };
 		D043EE661BC8A3DE0058A855 /* Homebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,14 @@
 				D058714E1BC91B650011DBD6 /* ChatView.swift */,
 			);
 			name = Chat;
+			sourceTree = "<group>";
+		};
+		D02ECD641BD6A3A900B17C12 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				D02ECD621BD6A38F00B17C12 /* NewComment.swift */,
+			);
+			name = Comments;
 			sourceTree = "<group>";
 		};
 		D043EE5D1BC8A3DE0058A855 = {
@@ -295,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				D01B70CC1BC9B43400767FAC /* NewPost.swift */,
+				D02ECD641BD6A3A900B17C12 /* Comments */,
 				D0EA01501BCF52AE00A40A9B /* ViewPost.swift */,
 				D0EA01551BCF53E700A40A9B /* PostData.swift */,
 				D0EA01531BCF531600A40A9B /* PostCommentCell.swift */,
@@ -494,6 +505,7 @@
 			files = (
 				D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */,
 				D0EA01561BCF53E700A40A9B /* PostData.swift in Sources */,
+				D02ECD631BD6A38F00B17C12 /* NewComment.swift in Sources */,
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */,
 				D041405E1BD56B7100B3F525 /* GlobalFirebaseRef.swift in Sources */,
