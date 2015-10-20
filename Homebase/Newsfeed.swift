@@ -19,7 +19,7 @@ class Newsfeed: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
             self.posts.append(snapshot.value as! Dictionary)
@@ -88,8 +88,30 @@ class Newsfeed: UITableViewController {
     
     func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
         cell.postText.text = posts[(posts.count - 1) - (indexPath.item)]["text"]!
-    
+        cell.postText.numberOfLines = 4
+        cell.postText.sizeToFit()
     }
+    
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 45.0
+        } else {
+            return heightForCell(posts[(posts.count - 1) - (indexPath.item)]["text"]!, font: UIFont.systemFontOfSize(17.0), width: self.tableView.bounds.width - 22) + 60
+        }
+    }
+    
+    func heightForCell(text:String, font:UIFont, width:CGFloat) -> CGFloat{
+        let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
+        label.numberOfLines = 4
+        label.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        label.font = font
+        label.text = text
+        
+        label.sizeToFit()
+        return label.frame.height
+    }
+
     
 
     /*

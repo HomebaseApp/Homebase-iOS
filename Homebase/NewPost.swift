@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SwiftyJSON
 
-class NewPost: UIViewController {
+class NewPost: UIViewController, UITextViewDelegate {
     
     let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
     
@@ -18,6 +18,10 @@ class NewPost: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupKeyboardNotifications()
+        setupTextView()
+        postText.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
@@ -27,11 +31,11 @@ class NewPost: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func post(sender: AnyObject) {
+    @IBAction func broadcast(sender: AnyObject) {
         
         let newPost = PostData(
             posterID: server.ref().authData.uid,
-            posterFullName: NSUserDefaults.standardUserDefaults().valueForKey("fullName") as! String,
+            posterFullName: userData["fullName"]!,
             postText: postText.text
         )
         
@@ -51,5 +55,47 @@ class NewPost: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //textView delegate functions & Properties
+    
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        // if the text color is gray, clear it, set black
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        // if text is empty after editing, replace with placeholderasd
+        if textView.text.isEmpty {
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
 
+    
+    func setupTextView() {
+        postText.textContainerInset.left = 8.0
+        postText.textContainerInset.right = 8.0
+        postText.textColor = UIColor.lightGrayColor()
+        postText.directionalLockEnabled = true
+    }
+    
+    //code for textfield resizing on keyboard popup
+    // http://bit.ly/1W1RZEO
+    func setupKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardDidShowNotification, object: nil)
+    }
+    
+    func keyboardWasShown(aNotification:NSNotification) {
+        let info = aNotification.userInfo
+        let infoNSValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let kbSize = infoNSValue.CGRectValue().size
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 4, 0.0)
+        postText.contentInset = contentInsets
+        postText.scrollIndicatorInsets = contentInsets
+    }
+    
 }
