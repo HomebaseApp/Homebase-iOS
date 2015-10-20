@@ -709,7 +709,7 @@
 				);
 				INFOPLIST_FILE = Homebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";
@@ -729,7 +729,7 @@
 				);
 				INFOPLIST_FILE = Homebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hack.homebase.Homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Homebase/KeychainWrapper/KeychainWrapper-Bridge.h";

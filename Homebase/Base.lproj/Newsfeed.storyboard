@@ -19,7 +19,6 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c39-TE-zXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,7 +254,6 @@
                             <outlet property="delegate" destination="KKU-Mk-V1h" id="3hu-TA-kfz"/>
                         </connections>
                     </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMP-oA-WEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

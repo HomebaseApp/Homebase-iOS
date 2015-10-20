@@ -10,6 +10,7 @@
         <scene sceneID="oTB-ne-mqc">
             <objects>
                 <navigationController storyboardIdentifier="mainpage" title="Begin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1un-ki-ad1" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yHR-Ie-qqZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -40,7 +41,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -137,7 +137,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaC-Ec-SxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-893.5" y="-2896"/>
+            <point key="canvasLocation" x="-538.5" y="-2987"/>
         </scene>
         <!--Homelists-->
         <scene sceneID="jya-Jj-400">
@@ -147,7 +147,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uL-pX-0SC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-576.5" y="-2896"/>
+            <point key="canvasLocation" x="-377.5" y="-2987"/>
         </scene>
         <!--Chat-->
         <scene sceneID="jr2-v4-B8s">
@@ -155,15 +155,15 @@
                 <viewControllerPlaceholder storyboardName="Chat" id="lQX-sQ-Q3t" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blx-eJ-QCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.5" y="-2896"/>
+            <point key="canvasLocation" x="178.5" y="-3597"/>
         </scene>
-        <!--UIViewController-Wus-MU-j9R-->
+        <!--settingsMain-->
         <scene sceneID="afX-7M-DZG">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="UIViewController-Wus-MU-j9R" storyboardName="Settings" referencedIdentifier="UIViewController-Wus-MU-j9R" id="fdc-6R-BF2" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="settingsMain" storyboardName="Settings" referencedIdentifier="settingsMain" id="fdc-6R-BF2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYG-g6-ahk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="-3547"/>
+            <point key="canvasLocation" x="153.5" y="-3535"/>
         </scene>
         <!--Calender-->
         <scene sceneID="g5t-9f-KKG">
@@ -173,7 +173,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQC-rW-i0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-298.5" y="-2896"/>
+            <point key="canvasLocation" x="-214.5" y="-2987"/>
         </scene>
     </scenes>
     <resources>

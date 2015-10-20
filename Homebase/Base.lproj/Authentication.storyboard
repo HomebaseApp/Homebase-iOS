@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
                                 <rect key="frame" x="85" y="116" width="240" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -52,7 +52,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
                                 <rect key="frame" x="85" y="72" width="242" height="36"/>
                                 <animations/>
                                 <constraints>
@@ -78,7 +78,7 @@
                                     <segue destination="ifR-ZV-3Bd" kind="show" identifier="getMoreInfo" id="Pdb-hQ-B0l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MW-Le-dkt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MW-Le-dkt">
                                 <rect key="frame" x="129" y="292" width="154" height="40"/>
                                 <animations/>
                                 <constraints>
@@ -142,7 +142,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="afc-Nb-bmR"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="emailField" destination="aJM-G5-Y8j" id="Rjt-Dv-Crt"/>
                         <outlet property="passwordField" destination="nSd-Yt-16Q" id="G9b-xr-q27"/>
@@ -158,6 +157,7 @@
         <scene sceneID="hc5-f4-D9K">
             <objects>
                 <navigationController storyboardIdentifier="loginNavigator" id="azw-D1-zpr" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vcP-N8-mik">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -274,7 +274,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Almost there..." id="U9P-K7-T6V"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="emailField" destination="Ly5-lf-5uY" id="aBD-21-Ezi"/>
                         <outlet property="firstField" destination="7y2-T7-wOa" id="z9W-0I-Nvb"/>
@@ -300,8 +299,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzx-Nz-04E">
-                                <rect key="frame" x="76" y="28" width="262" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Join your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzx-Nz-04E">
+                                <rect key="frame" x="76" y="28" width="262" height="58"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="Er4-GW-njZ"/>
@@ -310,8 +309,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make or Join" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-32-Bw0">
-                                <rect key="frame" x="95" y="365" width="225" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make or Join" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-32-Bw0">
+                                <rect key="frame" x="95" y="229" width="225" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="i4n-yy-ZaY"/>
@@ -348,7 +347,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="homebaseField" destination="GZA-32-Bw0" id="Pdl-0U-5M7"/>
                         <segue destination="yTJ-Mp-MYv" kind="presentation" identifier="finishSignup" modalTransitionStyle="coverVertical" id="9qw-g2-u0a"/>
@@ -371,7 +369,7 @@
         <image name="Splash" width="414" height="736"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1im-6y-1cD"/>
+        <segue reference="fPd-sA-YdK"/>
         <segue reference="WWv-Oa-veE"/>
         <segue reference="9qw-g2-u0a"/>
     </inferredMetricsTieBreakers>
