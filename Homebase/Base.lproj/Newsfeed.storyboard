@@ -323,15 +323,80 @@
                                     <segue destination="EGU-zp-6GH" kind="show" id="UNt-Nz-Kd0"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="theComments" rowHeight="108" id="v57-Xr-oOb" customClass="PostCommentCell" customModule="Homebase" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="295" width="414" height="108"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="theComments" rowHeight="168" id="G0C-lF-aCG" customClass="Postcell" customModule="Homebase" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="295" width="414" height="168"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v57-Xr-oOb" id="Ngq-Mf-i8q">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G0C-lF-aCG" id="A9g-Rb-ix7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Post Text" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLe-4E-inR">
+                                            <rect key="frame" x="15" y="38" width="384" height="112"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="G2s-mf-w1M"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="G2s-mf-w1M"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <button opaque="NO" contentMode="left" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-AB-PoD">
+                                            <rect key="frame" x="15" y="8" width="62" height="30"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="68" id="YT7-CD-hVk"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="398" id="ZXi-8b-atU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <state key="normal" title="Name"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="YT7-CD-hVk"/>
+                                                </mask>
+                                            </variation>
+                                        </button>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="OcA-AB-PoD" firstAttribute="top" secondItem="A9g-Rb-ix7" secondAttribute="topMargin" id="0Wx-ol-3US"/>
+                                        <constraint firstItem="KLe-4E-inR" firstAttribute="bottom" secondItem="A9g-Rb-ix7" secondAttribute="bottomMargin" id="29c-eA-DeO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KLe-4E-inR" secondAttribute="trailing" constant="10" id="2XW-h0-G6O"/>
+                                        <constraint firstItem="OcA-AB-PoD" firstAttribute="trailing" secondItem="A9g-Rb-ix7" secondAttribute="trailingMargin" id="5UB-sn-8vh"/>
+                                        <constraint firstItem="KLe-4E-inR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OcA-AB-PoD" secondAttribute="bottom" constant="4" id="7Rw-4L-1rW"/>
+                                        <constraint firstItem="KLe-4E-inR" firstAttribute="leading" secondItem="A9g-Rb-ix7" secondAttribute="leadingMargin" constant="17" id="9Py-rr-y0Q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KLe-4E-inR" secondAttribute="trailing" constant="10" id="DYa-Rc-Lmo"/>
+                                        <constraint firstItem="KLe-4E-inR" firstAttribute="leading" secondItem="A9g-Rb-ix7" secondAttribute="leadingMargin" constant="12" id="G06-Ka-7Hf"/>
+                                        <constraint firstItem="OcA-AB-PoD" firstAttribute="top" secondItem="A9g-Rb-ix7" secondAttribute="topMargin" id="MaF-Z7-rQk"/>
+                                        <constraint firstItem="OcA-AB-PoD" firstAttribute="leading" secondItem="A9g-Rb-ix7" secondAttribute="leadingMargin" constant="8" id="Nqd-Ak-KFP"/>
+                                        <constraint firstItem="KLe-4E-inR" firstAttribute="leading" secondItem="A9g-Rb-ix7" secondAttribute="leadingMargin" constant="17" id="WSF-yY-VCz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KLe-4E-inR" secondAttribute="trailing" constant="5" id="WcY-Xw-GeQ"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="KLe-4E-inR" secondAttribute="bottom" constant="4" id="gsR-5V-3RE"/>
+                                        <constraint firstItem="OcA-AB-PoD" firstAttribute="top" secondItem="A9g-Rb-ix7" secondAttribute="topMargin" id="y2f-1h-bB3"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0Wx-ol-3US"/>
+                                            <exclude reference="y2f-1h-bB3"/>
+                                            <exclude reference="5UB-sn-8vh"/>
+                                            <exclude reference="WcY-Xw-GeQ"/>
+                                            <exclude reference="9Py-rr-y0Q"/>
+                                            <exclude reference="29c-eA-DeO"/>
+                                            <exclude reference="DYa-Rc-Lmo"/>
+                                            <exclude reference="WSF-yY-VCz"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="nameButton" destination="OcA-AB-PoD" id="gOV-B1-z9I"/>
+                                    <outlet property="postText" destination="KLe-4E-inR" id="zp1-Bb-RNQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -183,7 +183,9 @@
 		D02ECD641BD6A3A900B17C12 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				D0EA01501BCF52AE00A40A9B /* ViewPost.swift */,
 				D02ECD621BD6A38F00B17C12 /* NewComment.swift */,
+				D0EA01531BCF531600A40A9B /* PostCommentCell.swift */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -255,7 +257,6 @@
 			children = (
 				D09E6CA41BD5CE3B00B116F4 /* Newsfeed.storyboard */,
 				D05871521BC9295D0011DBD6 /* NewPostCell.swift */,
-				D029B3881BC9029B0021DD5D /* Postcell.swift */,
 				D029B3861BC901EF0021DD5D /* Newsfeed.swift */,
 				D0EA01521BCF52B300A40A9B /* Posts */,
 			);
@@ -305,10 +306,9 @@
 			isa = PBXGroup;
 			children = (
 				D01B70CC1BC9B43400767FAC /* NewPost.swift */,
-				D02ECD641BD6A3A900B17C12 /* Comments */,
-				D0EA01501BCF52AE00A40A9B /* ViewPost.swift */,
 				D0EA01551BCF53E700A40A9B /* PostData.swift */,
-				D0EA01531BCF531600A40A9B /* PostCommentCell.swift */,
+				D029B3881BC9029B0021DD5D /* Postcell.swift */,
+				D02ECD641BD6A3A900B17C12 /* Comments */,
 			);
 			name = Posts;
 			sourceTree = "<group>";

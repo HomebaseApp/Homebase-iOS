@@ -9,13 +9,27 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewPost: UITableViewController {
     
     var thePost = PostData()
+    var comments: [Dictionary<String, String>] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        server.broadcasts().childByAppendingPath(thePost.broadcastID + "/comments").observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
+            
+            var comment = snapshot.value as! Dictionary<String, String>
+            // saves the ID to allow comments later
+            comment["commentID"] = snapshot.key
+            
+            self.comments.append(comment)
+            self.tableView.reloadData()
+            
+        })
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,7 +55,7 @@ class ViewPost: UITableViewController {
         if section == 0 { //post section only has 1
             return 2
         } else {
-            return 0
+            return comments.count
         }
     }
 
@@ -61,10 +75,34 @@ class ViewPost: UITableViewController {
             }
 
         } else {
-            let cell = UITableViewCell()
-            return cell
+            return commentCellAtIndexPath(indexPath)
         }
 
+    }
+    
+    let commentCellIdentifier = "theComments"
+    
+    func commentCellAtIndexPath(indexPath:NSIndexPath) -> Postcell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(commentCellIdentifier) as! Postcell
+        setNameForCell(cell, indexPath: indexPath)
+        setTextForCell(cell, indexPath: indexPath)
+        return cell
+    }
+    
+    func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
+        cell.nameButton.setTitle(comments[indexPath.item]["fullName"]!, forState: UIControlState.Normal)
+        //
+        if comments[indexPath.item]["uid"] != nil {
+            cell.posterID = comments[indexPath.item]["uid"]!
+        }
+    }
+    
+    
+    
+    func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
+        cell.postText.text = comments[indexPath.item]["text"]!
+        //cell.postText.numberOfLines = 0
+        cell.postText.sizeToFit()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -75,7 +113,8 @@ class ViewPost: UITableViewController {
                 return 45.0
             }
         } else {
-            return 45.0
+            let commentText: String = comments[indexPath.item]["text"]!
+            return heightForCell(commentText, lines: 0,font: UIFont.systemFontOfSize(16.0), width: self.tableView.bounds.width - 22) + 60
         }
     }
     

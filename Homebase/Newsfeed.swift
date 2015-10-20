@@ -13,7 +13,7 @@ class Newsfeed: UITableViewController {
     
     let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
     
-    var posts: [Dictionary<String, String>] = []
+    var posts: [Dictionary<String, AnyObject>] = []
     
     let postCellIdentifier = "broadcast"
     
@@ -22,7 +22,7 @@ class Newsfeed: UITableViewController {
                 
         server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
-            var post = snapshot.value as! Dictionary<String, String>
+            var post = snapshot.value as! Dictionary<String, AnyObject>
             // saves the ID to allow comments later
             post["broadcastID"] = snapshot.key
             
@@ -81,17 +81,17 @@ class Newsfeed: UITableViewController {
     }
     
     func setNameForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.nameButton.setTitle(posts[(posts.count - 1) - (indexPath.item)]["fullName"]!, forState: UIControlState.Normal)
+        cell.nameButton.setTitle(posts[(posts.count - 1) - (indexPath.item)]["fullName"] as? String, forState: UIControlState.Normal)
         //
         if posts[(posts.count - 1) - (indexPath.item)]["uid"] != nil {
-            cell.posterID = posts[(posts.count - 1) - (indexPath.item)]["uid"]!
+            cell.posterID = posts[(posts.count - 1) - (indexPath.item)]["uid"] as! String
         }
     }
   
     
     
     func setTextForCell(cell:Postcell, indexPath:NSIndexPath) {
-        cell.postText.text = posts[(posts.count - 1) - (indexPath.item)]["text"]!
+        cell.postText.text = posts[(posts.count - 1) - (indexPath.item)]["text"] as? String
         cell.postText.numberOfLines = 4
         cell.postText.sizeToFit()
     }
@@ -101,7 +101,7 @@ class Newsfeed: UITableViewController {
         if indexPath.section == 0 {
             return 45.0
         } else {
-            return heightForCell(posts[(posts.count - 1) - (indexPath.item)]["text"]!, font: UIFont.systemFontOfSize(17.0), width: self.tableView.bounds.width - 22) + 60
+            return heightForCell(posts[(posts.count - 1) - (indexPath.item)]["text"] as! String, font: UIFont.systemFontOfSize(17.0), width: self.tableView.bounds.width - 22) + 60
         }
     }
     
@@ -170,14 +170,14 @@ class Newsfeed: UITableViewController {
                     
                     // allows for old posts without uid to be opened
                     if posts[(posts.count-1) - (postIndex)]["uid"] != nil {
-                        postedID = posts[(posts.count-1) - (postIndex)]["uid"]!
+                        postedID = posts[(posts.count-1) - (postIndex)]["uid"] as! String
                     }
                     
                     destination.thePost = PostData(
-                        broadcastID: posts[(posts.count-1) - (postIndex)]["broadcastID"]!,
+                        broadcastID: posts[(posts.count-1) - (postIndex)]["broadcastID"] as! String,
                         posterID: postedID,
-                        posterFullName: posts[(posts.count-1) - (postIndex)]["fullName"]!,
-                        postText: posts[(posts.count-1) - (postIndex)]["text"]!
+                        posterFullName: posts[(posts.count-1) - (postIndex)]["fullName"] as! String,
+                        postText: posts[(posts.count-1) - (postIndex)]["text"] as! String
                     )
                 }
             }
