@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.parseInit()
         //self.parseTester()
         
-        self.checkFirebaseLoginStatus()
+        self.checkLoginStatus()
+        
+        //self.checkFirebaseLoginStatus()
         
         return true
     }
@@ -47,6 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             print("Object has been saved.")
         }
+    }
+    
+    func checkLoginStatus(){
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            // Do stuff with the user
+            
+            // do i need to update user info?
+            
+        } else {
+            // Show the signup or login screen
+            showViewController("loginNavigator")
+        }
+    }
+    
+    func showViewController(name: String){
+        let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier(name)
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
     }
     
     func checkFirebaseLoginStatus(){
