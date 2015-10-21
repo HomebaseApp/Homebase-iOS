@@ -14,11 +14,11 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     let MyKeychainWrapper = KeychainWrapper()
 
     var holdPass: String = ""
-    var holdEmail:String = ""
+    var holdUsername:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailField.text=holdEmail
+        emailField.text=holdUsername
         passwordField.text=holdPass
 
         // Do any additional setup after loading the view.

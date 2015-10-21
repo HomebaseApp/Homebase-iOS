@@ -18,18 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
-                                <rect key="frame" x="85" y="116" width="240" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="SN4-Yj-Na9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
-                                <connections>
-                                    <action selector="nextField:" destination="Tgq-ll-pCh" eventType="editingDidEndOnExit" id="lCt-y3-XsL"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSd-Yt-16Q">
                                 <rect key="frame" x="89" y="237" width="240" height="30"/>
                                 <animations/>
@@ -52,7 +40,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-ow-irt">
                                 <rect key="frame" x="85" y="72" width="242" height="36"/>
                                 <animations/>
                                 <constraints>
@@ -91,6 +79,23 @@
                                     <action selector="submit:" destination="Tgq-ll-pCh" eventType="touchUpInside" id="Hng-dk-xDL"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VXJ-Xw-MrH">
+                                <rect key="frame" x="190" y="292" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-G5-Y8j">
+                                <rect key="frame" x="85" y="116" width="240" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SN4-Yj-Na9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="nextField:" destination="Tgq-ll-pCh" eventType="editingDidEndOnExit" id="lCt-y3-XsL"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -99,6 +104,8 @@
                             <constraint firstItem="q29-K4-nkD" firstAttribute="top" secondItem="3MW-Le-dkt" secondAttribute="bottom" constant="23" id="0So-Di-Azl"/>
                             <constraint firstItem="3MW-Le-dkt" firstAttribute="top" secondItem="nSd-Yt-16Q" secondAttribute="bottom" constant="25" id="0hi-Np-zPL"/>
                             <constraint firstItem="xKD-ow-irt" firstAttribute="leading" secondItem="Vaa-p0-5l7" secondAttribute="leadingMargin" constant="65" id="17d-N1-XhY"/>
+                            <constraint firstItem="VXJ-Xw-MrH" firstAttribute="top" secondItem="nSd-Yt-16Q" secondAttribute="bottom" constant="35" id="1q0-A7-QTT"/>
+                            <constraint firstItem="VXJ-Xw-MrH" firstAttribute="centerX" secondItem="Vaa-p0-5l7" secondAttribute="centerX" id="30Z-IG-mJw"/>
                             <constraint firstItem="q29-K4-nkD" firstAttribute="centerX" secondItem="Vaa-p0-5l7" secondAttribute="centerX" id="432-m0-W8t"/>
                             <constraint firstAttribute="bottomMargin" secondItem="q29-K4-nkD" secondAttribute="bottom" constant="-41" id="4OR-5a-78x"/>
                             <constraint firstItem="3MW-Le-dkt" firstAttribute="centerX" secondItem="xKD-ow-irt" secondAttribute="centerX" id="7pz-W6-F53"/>
@@ -143,8 +150,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="afc-Nb-bmR"/>
                     <connections>
-                        <outlet property="emailField" destination="aJM-G5-Y8j" id="Rjt-Dv-Crt"/>
+                        <outlet property="loadingIndicator" destination="VXJ-Xw-MrH" id="gsX-n2-t7V"/>
+                        <outlet property="loginButton" destination="3MW-Le-dkt" id="il5-4j-hqq"/>
                         <outlet property="passwordField" destination="nSd-Yt-16Q" id="G9b-xr-q27"/>
+                        <outlet property="usernameField" destination="aJM-G5-Y8j" id="xhs-mX-qMO"/>
                         <segue destination="ft8-wd-u9J" kind="show" identifier="noHomeBase" id="k6I-ce-Fpd"/>
                         <segue destination="yTJ-Mp-MYv" kind="presentation" identifier="goodLogin" modalTransitionStyle="coverVertical" id="4Tt-TN-LR0"/>
                     </connections>
@@ -370,7 +379,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fPd-sA-YdK"/>
-        <segue reference="WWv-Oa-veE"/>
-        <segue reference="9qw-g2-u0a"/>
+        <segue reference="k6I-ce-Fpd"/>
+        <segue reference="4Tt-TN-LR0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,20 +8,14 @@
 
 import UIKit
 import Firebase
+import Parse
 
 
 class LogInViewController: UIViewController {
     
-    // get server object
-    let MyKeychainWrapper = KeychainWrapper()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Check for Firebase login info
-        //      fname
-        //      lname
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,26 +23,67 @@ class LogInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
     @IBAction func nextField(sender: AnyObject) {
         passwordField.becomeFirstResponder()
     }
+    
     // submit information
     @IBAction func submit(sender: AnyObject) {
         
-        // obvious invalid data shows alert, doesnt log in
-        if (emailField.text == "" || passwordField.text == "" || emailField.text?.containsString("@") == false)  {
-            let alertView = UIAlertController(title: "Error",
-                message: "Invalid Login" as String, preferredStyle:.Alert)
-            let okAction = UIAlertAction(title: "Try again", style: .Default, handler: nil)
-            alertView.addAction(okAction)
-            self.presentViewController(alertView, animated: true, completion: nil)
-            return;
+        loginLoading(true)
+        
+        if !validInput() { //if input is invalid
+            loginLoading(false)
+            displayBasicAlert("Error", error: "Invalid Login", buttonText: "Try Again")
+            return //dont send it, let them fix it first
         }
         
+        if loginParse(usernameField.text!, password: passwordField.text!) { // try to login and if it succeeds
+            //switch to homepage
+            
+        }
+
+    }
+    
+    func loginLoading(showIndicator: Bool){
+        if showIndicator {
+            loadingIndicator.hidden = false
+            loginButton.hidden = true
+        } else {
+            loadingIndicator.hidden = true
+            loginButton.hidden = false
+        }
+    }
+    
+    func validInput() -> Bool {
+        //checks for obvious signs of invalid input
+        if (usernameField.text == ""
+            || passwordField.text == "") {
+            return false
+        }
+        return true
+    }
+    
+    func loginParse(username: String, password: String) -> Bool{
+        PFUser.logInWithUsernameInBackground(username, password: password) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+            } else {
+                // The login failed. Check error to see why.
+            }
+        }
+        return false
+    }
+    
+    func firebaseSubmit(){
         // check login data against firebase
-        server.ref().authUser(emailField.text, password: passwordField.text) {
+        server.ref().authUser(usernameField.text, password: passwordField.text) {
             error, authData in
             if error != nil {
                 var errorText: String = "Something went wrong"
@@ -76,14 +111,9 @@ class LogInViewController: UIViewController {
             } else {
                 // user is logged in, check authData for data
                 
-                
-                //save password in Keychain
-                self.MyKeychainWrapper.mySetObject(self.passwordField.text, forKey:kSecValueData)
-                self.MyKeychainWrapper.writeToKeychain()
-                
                 // save inputted data locally
                 var localData = [
-                    "email": self.emailField.text,
+                    "email": self.usernameField.text,
                     "uid": server.ref().authData.uid
                 ]
                 print("email Saved Locally")
@@ -141,13 +171,14 @@ class LogInViewController: UIViewController {
                     
                 })
                 
-
+                
                 
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
         }
-
     }
+    
+    
     // background taps dismiss keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -159,7 +190,7 @@ class LogInViewController: UIViewController {
         if (segue.identifier == "getMoreInfo"){ //pass forward filled data
             let info = segue.destinationViewController as! gatherInfoViewController
             info.holdPass = passwordField.text!
-            info.holdEmail = emailField.text!
+            info.holdUsername = usernameField.text!
         }
     }
 
