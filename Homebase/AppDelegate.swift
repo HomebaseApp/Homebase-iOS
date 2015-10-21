@@ -55,6 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var currentUser = PFUser.currentUser()
         if currentUser != nil {
             // Do stuff with the user
+           // currentUser[""]
+            if PFUser()["homebase"] == nil {
+                showViewController("selectHomebase")
+            } else {
+                showViewController("mainpage")
+            }
             
             // do i need to update user info?
             
