@@ -1,13 +1,17 @@
 PODS:
+  - Bolts/Tasks (1.3.0)
   - ChameleonFramework/Default (2.0.4)
   - ChameleonFramework/Swift (2.0.4):
     - ChameleonFramework/Default
   - Firebase (2.4.2)
+  - Parse (1.9.0):
+    - Bolts/Tasks (>= 1.3.0)
   - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
   - Firebase (>= 2.4.1)
+  - Parse
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -20,8 +24,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
   ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   Firebase: 5e898ed5012c81d28ca5fae1113c6b61a172bc6d
+  Parse: 712efbc476d4f47b0f96b70db7e53101575753aa
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
 COCOAPODS: 0.39.0
