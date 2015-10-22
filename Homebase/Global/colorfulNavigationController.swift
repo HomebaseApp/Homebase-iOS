@@ -77,6 +77,8 @@ class colorfulNavigationController: UINavigationController {
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainGradient, true)]
         // navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainColor, true), NSFontAttributeName: UIFont.systemFontOfSize(20.0)]
         
+        self.setStatusBarStyle(UIStatusBarStyleContrast)
+        
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = UIColor(complementaryFlatColorOf: mainGradient).lightenByPercentage(0.2)
         tabBarAppearance.barTintColor = mainColor.lightenByPercentage(0.1)

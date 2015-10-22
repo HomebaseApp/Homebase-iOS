@@ -11,8 +11,6 @@ import Firebase
 
 class Newsfeed: UITableViewController {
     
-    let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-    
     var posts: [Dictionary<String, AnyObject>] = []
     
     let postCellIdentifier = "broadcast"
@@ -20,7 +18,7 @@ class Newsfeed: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
+/*        server.broadcasts().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
             var post = snapshot.value as! Dictionary<String, AnyObject>
             // saves the ID to allow comments later
@@ -29,7 +27,7 @@ class Newsfeed: UITableViewController {
             self.posts.append(post)
             self.tableView.reloadData()
 
-        })
+        }) */
         
         
         // Uncomment the following line to preserve selection between presentations

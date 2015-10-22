@@ -11,9 +11,7 @@ import Firebase
 import SwiftyJSON
 
 class NewPost: UIViewController, UITextViewDelegate {
-    
-    let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-    
+        
     @IBOutlet weak var postText: UITextView!
     
     override func viewDidLoad() {
@@ -33,13 +31,14 @@ class NewPost: UIViewController, UITextViewDelegate {
     
     @IBAction func broadcast(sender: AnyObject) {
         
+        /*
         let newPost = PostData(
             posterID: server.ref().authData.uid,
             posterFullName: userData["fullName"]!,
             postText: postText.text
-        )
+        ) */
         
-        server.broadcasts().childByAutoId().setValue(newPost.fbReadable())
+        //server.broadcasts().childByAutoId().setValue(newPost.fbReadable())
 
         
         self.navigationController?.popViewControllerAnimated(true)

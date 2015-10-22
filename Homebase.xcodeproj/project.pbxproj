@@ -20,7 +20,6 @@
 		D02D08AD1BD6ED62008BDC3B /* colorfulNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D08AC1BD6ED62008BDC3B /* colorfulNavigationController.swift */; };
 		D02ECD631BD6A38F00B17C12 /* NewComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02ECD621BD6A38F00B17C12 /* NewComment.swift */; };
 		D041405C1BD5663700B3F525 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */; };
-		D041405E1BD56B7100B3F525 /* GlobalFirebaseRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D041405D1BD56B7100B3F525 /* GlobalFirebaseRef.swift */; };
 		D043EE6A1BC8A3DE0058A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043EE691BC8A3DE0058A855 /* AppDelegate.swift */; };
 		D043EE711BC8A3DF0058A855 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D043EE6F1BC8A3DF0058A855 /* Main.storyboard */; };
 		D043EE761BC8A3DF0058A855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D043EE741BC8A3DF0058A855 /* LaunchScreen.storyboard */; };
@@ -44,6 +43,7 @@
 		D0FBA62F1BD8C1C300D6D6B9 /* Homelists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FBA62E1BD8C1C300D6D6B9 /* Homelists.storyboard */; };
 		D0FBA6311BD8C1D100D6D6B9 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FBA6301BD8C1D100D6D6B9 /* Chat.storyboard */; };
 		D0FBA6351BD8C21000D6D6B9 /* Calender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FBA6341BD8C21000D6D6B9 /* Calender.storyboard */; };
+		D0FBA6371BD9728D00D6D6B9 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FBA6361BD9728D00D6D6B9 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +78,6 @@
 		D02D08AC1BD6ED62008BDC3B /* colorfulNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = colorfulNavigationController.swift; path = Global/colorfulNavigationController.swift; sourceTree = "<group>"; };
 		D02ECD621BD6A38F00B17C12 /* NewComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewComment.swift; path = Posts/Comments/NewComment.swift; sourceTree = "<group>"; };
 		D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Global/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		D041405D1BD56B7100B3F525 /* GlobalFirebaseRef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFirebaseRef.swift; path = Global/GlobalFirebaseRef.swift; sourceTree = "<group>"; };
 		D043EE661BC8A3DE0058A855 /* Homebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D043EE691BC8A3DE0058A855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D043EE701BC8A3DF0058A855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		D0FBA62E1BD8C1C300D6D6B9 /* Homelists.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Homelists.storyboard; path = Homelists/Homelists.storyboard; sourceTree = "<group>"; };
 		D0FBA6301BD8C1D100D6D6B9 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Chat.storyboard; path = Chat/Chat.storyboard; sourceTree = "<group>"; };
 		D0FBA6341BD8C21000D6D6B9 /* Calender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calender.storyboard; path = Calender/Calender.storyboard; sourceTree = "<group>"; };
+		D0FBA6361BD9728D00D6D6B9 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = Global/Global.swift; sourceTree = "<group>"; };
 		F8928713D20F3444170B8654 /* Pods-Homebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-Homebase/Pods-Homebase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,8 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				D0ACD0E01BD8BDAA00F4410B /* BridgeHeader.h */,
+				D0FBA6361BD9728D00D6D6B9 /* Global.swift */,
 				D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */,
-				D041405D1BD56B7100B3F525 /* GlobalFirebaseRef.swift */,
 				D02D08AC1BD6ED62008BDC3B /* colorfulNavigationController.swift */,
 			);
 			name = Global;
@@ -516,8 +516,8 @@
 				D02ECD631BD6A38F00B17C12 /* NewComment.swift in Sources */,
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */,
-				D041405E1BD56B7100B3F525 /* GlobalFirebaseRef.swift in Sources */,
 				D041405C1BD5663700B3F525 /* UIViewControllerExtensions.swift in Sources */,
+				D0FBA6371BD9728D00D6D6B9 /* Global.swift in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
 				D01B70CD1BC9B43400767FAC /* NewPost.swift in Sources */,
 				146973161BC95A340046C9AD /* Homelist.swift in Sources */,

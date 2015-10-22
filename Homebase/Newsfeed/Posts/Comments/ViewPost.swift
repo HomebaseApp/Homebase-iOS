@@ -20,7 +20,7 @@ class ViewPost: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.broadcasts().childByAppendingPath(thePost.broadcastID + "/comments").observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
+        /*server.broadcasts().childByAppendingPath(thePost.broadcastID + "/comments").observeEventType(FEventType.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
             
             var comment = snapshot.value as! Dictionary<String, String>
             // saves the ID to allow comments later
@@ -29,7 +29,7 @@ class ViewPost: UITableViewController {
             self.comments.append(comment)
             self.tableView.reloadData()
             
-        })
+        }) */
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

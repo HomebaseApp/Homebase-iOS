@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import Parse
+import Bolts
+
 
 
 class LogInViewController: UIViewController {
@@ -45,22 +47,7 @@ class LogInViewController: UIViewController {
             return //dont send it, let them fix it first
         }
         
-        if loginParse(emailField.text!, password: passwordField.text!) {
-            // tries to login, If it succeeds:
-            
-            if user["homebase"] != nil {
-                print("Homebase selected, going home")
-                self.performSegueWithIdentifier("goodLogin", sender: nil)
-            } else {
-                // else force join one
-                print("Homebase NOT selected, select one now")
-                self.performSegueWithIdentifier("noHomeBase", sender: nil)
-            }
-            
-        } else { // if it fails:
-            loginLoading(false)
-            return
-        }
+        loginParse(emailField.text!, password: passwordField.text!)
 
     }
     
@@ -83,20 +70,26 @@ class LogInViewController: UIViewController {
         return true
     }
     
-    func loginParse(username: String, password: String) -> Bool{
-        var loggedIn = false
+    func loginParse(username: String, password: String){
         PFUser.logInWithUsernameInBackground(username, password: password) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
-                loggedIn = true
+                print("Logged in")
+                if user!["homebase"] != nil {
+                    print("Homebase selected, going home")
+                    self.performSegueWithIdentifier("goodLogin", sender: nil)
+                } else {
+                    // else force join one
+                    print("Homebase NOT selected, select one now")
+                    self.performSegueWithIdentifier("noHomeBase", sender: nil)
+                }
             } else {
                 // The login failed. Check error to see why.
                 self.displayBasicAlert("Login Error", error: error!.userInfo["error"] as! String, buttonText: "OK")
-                loggedIn = false
+                self.loginLoading(false)
             }
         }
-        return loggedIn
     }
     
     // background taps dismiss keyboard

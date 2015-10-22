@@ -1,0 +1,16 @@
+//
+//  Global.swift
+//  Homebase
+//
+//  Created by Justin Oroz on 10/22/15.
+//  Copyright © 2015 HomeBase. All rights reserved.
+//
+
+import Foundation
+import Parse
+
+func user() -> PFUser{
+    return PFUser.currentUser()!
+}
+
+

@@ -233,7 +233,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="join"/>
                                         <connections>
-                                            <action selector="join:" destination="ifR-ZV-3Bd" eventType="editingDidEndOnExit" id="uNE-W5-RGl"/>
+                                            <action selector="joinHomebase:" destination="ifR-ZV-3Bd" eventType="editingDidEndOnExit" id="Odo-Wx-9lu"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -265,10 +265,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Join"/>
                                 <connections>
-                                    <action selector="join:" destination="ifR-ZV-3Bd" eventType="touchUpInside" id="Ihr-aT-wX1"/>
                                     <action selector="joinHomebase:" destination="ifR-ZV-3Bd" eventType="touchUpInside" id="NXe-F4-llj"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uUL-Cj-4Rs">
+                                <rect key="frame" x="189" y="366" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,7 +283,9 @@
                             <constraint firstItem="Cdc-7O-dXD" firstAttribute="top" secondItem="7B5-Ja-m3B" secondAttribute="bottom" constant="8" id="CRx-gl-ZV7"/>
                             <constraint firstItem="sWW-YY-xjm" firstAttribute="top" secondItem="Cdc-7O-dXD" secondAttribute="bottom" constant="25" id="Jmi-9C-NgV"/>
                             <constraint firstItem="qxw-qF-dR6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sWW-YY-xjm" secondAttribute="bottom" priority="750" constant="80" id="NI6-47-keb"/>
+                            <constraint firstItem="uUL-Cj-4Rs" firstAttribute="centerY" secondItem="qxw-qF-dR6" secondAttribute="centerY" id="Vjp-6d-dlU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sWW-YY-xjm" secondAttribute="trailing" constant="40" id="eBU-kS-CuX"/>
+                            <constraint firstItem="uUL-Cj-4Rs" firstAttribute="centerX" secondItem="4XM-xK-Swv" secondAttribute="centerX" id="mBE-vf-XBh"/>
                             <constraint firstItem="Cdc-7O-dXD" firstAttribute="centerX" secondItem="4XM-xK-Swv" secondAttribute="centerX" id="p3R-Rd-ccH"/>
                             <constraint firstItem="sWW-YY-xjm" firstAttribute="leading" secondItem="4XM-xK-Swv" secondAttribute="leadingMargin" constant="40" id="wDx-2t-0cY"/>
                         </constraints>
@@ -293,7 +299,9 @@
                     <connections>
                         <outlet property="emailField" destination="Ly5-lf-5uY" id="aBD-21-Ezi"/>
                         <outlet property="firstField" destination="7y2-T7-wOa" id="z9W-0I-Nvb"/>
+                        <outlet property="joinButton" destination="qxw-qF-dR6" id="aKl-6T-bbu"/>
                         <outlet property="lastField" destination="mWs-CZ-09E" id="Vic-tQ-cQh"/>
+                        <outlet property="loadingIndicator" destination="uUL-Cj-4Rs" id="uyO-KN-LYc"/>
                         <outlet property="passwordField" destination="dxY-Xu-k3O" id="xrH-mb-xCe"/>
                         <segue destination="Tgq-ll-pCh" kind="presentation" identifier="returnLogin" id="1im-6y-1cD"/>
                         <segue destination="ft8-wd-u9J" kind="presentation" identifier="homebase" id="WWv-Oa-veE"/>
@@ -325,8 +333,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make or Join" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-32-Bw0">
-                                <rect key="frame" x="95" y="365" width="225" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make or Join" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-32-Bw0">
+                                <rect key="frame" x="95" y="316" width="225" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="i4n-yy-ZaY"/>
@@ -341,6 +349,13 @@
                                 <rect key="frame" x="101" y="119" width="213" height="170"/>
                                 <animations/>
                             </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-cP-hoV">
+                                <rect key="frame" x="-5" y="354" width="419" height="382"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="382" id="i1s-S9-Io1"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -349,11 +364,14 @@
                             <constraint firstItem="Kzx-Nz-04E" firstAttribute="top" secondItem="bQJ-ew-BG8" secondAttribute="bottom" constant="8" symbolic="YES" id="3c1-nV-aub"/>
                             <constraint firstItem="GZA-32-Bw0" firstAttribute="centerX" secondItem="ckj-UK-Jv0" secondAttribute="centerX" id="A2c-lp-Mre"/>
                             <constraint firstItem="ckj-UK-Jv0" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="81" id="Gi1-VX-D6d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZTr-cP-hoV" secondAttribute="trailing" constant="-20" id="LjD-71-S2z"/>
                             <constraint firstItem="ckj-UK-Jv0" firstAttribute="top" secondItem="Kzx-Nz-04E" secondAttribute="bottom" constant="8" id="R3z-7N-HLg"/>
                             <constraint firstItem="JED-wi-lV8" firstAttribute="top" secondItem="GZA-32-Bw0" secondAttribute="bottom" constant="341" id="Rp0-cP-jcE"/>
                             <constraint firstItem="ckj-UK-Jv0" firstAttribute="centerX" secondItem="Kzx-Nz-04E" secondAttribute="centerX" id="Z4J-qg-qnU"/>
                             <constraint firstItem="ckj-UK-Jv0" firstAttribute="top" secondItem="Kzx-Nz-04E" secondAttribute="bottom" multiplier="2" constant="8" symbolic="YES" id="fvK-3Q-6gb"/>
                             <constraint firstItem="GZA-32-Bw0" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="75" id="hgq-Xa-Yi4"/>
+                            <constraint firstItem="JED-wi-lV8" firstAttribute="top" secondItem="ZTr-cP-hoV" secondAttribute="bottom" id="tBY-qx-zt2"/>
+                            <constraint firstItem="ZTr-cP-hoV" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="-25" id="w8j-ph-pk7"/>
                             <constraint firstItem="Kzx-Nz-04E" firstAttribute="centerX" secondItem="Skj-Py-ch8" secondAttribute="centerX" id="xtb-P2-jq9"/>
                             <constraint firstItem="Kzx-Nz-04E" firstAttribute="leading" secondItem="Skj-Py-ch8" secondAttribute="leadingMargin" constant="56" id="yJQ-vI-vbo"/>
                         </constraints>
@@ -365,6 +383,7 @@
                     </view>
                     <connections>
                         <outlet property="homebaseField" destination="GZA-32-Bw0" id="Pdl-0U-5M7"/>
+                        <outlet property="mapView" destination="ZTr-cP-hoV" id="CrU-e1-484"/>
                         <segue destination="yTJ-Mp-MYv" kind="presentation" identifier="finishSignup" modalTransitionStyle="coverVertical" id="9qw-g2-u0a"/>
                     </connections>
                 </viewController>
@@ -385,8 +404,8 @@
         <image name="Splash" width="414" height="736"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1im-6y-1cD"/>
+        <segue reference="9qw-g2-u0a"/>
         <segue reference="WWv-Oa-veE"/>
-        <segue reference="4Tt-TN-LR0"/>
+        <segue reference="1im-6y-1cD"/>
     </inferredMetricsTieBreakers>
 </document>

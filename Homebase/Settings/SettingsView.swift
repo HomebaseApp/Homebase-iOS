@@ -19,12 +19,10 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String, String>
-        
-        user_Name.title = userData["fullName"]
+        user_Name.title = user()["fullName"] as! String
         // Do any additional setup after loading the view.
         
-        homeBase.text = userData["homebase"]
+        homeBase.text = user()["homebase"] as! String
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,12 +31,8 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logOut(sender: AnyObject) {
-        server.ref().unauth()
         
         //DELETE INFORMATION FROM SHARED DATA
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("userData")
-        print("Deleted local userData")
-        NSUserDefaults.standardUserDefaults().synchronize()
         
         self.performSegueWithIdentifier("logOut", sender: nil)
         

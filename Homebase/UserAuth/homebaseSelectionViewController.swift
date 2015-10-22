@@ -7,17 +7,65 @@
 //
 
 import UIKit
-import Firebase
+import MapKit
+import Parse
+import Bolts
 
-class homebaseSelectionViewController: UIViewController {
+
+class homebaseSelectionViewController: UIViewController, CLLocationManagerDelegate{
+    
+    let locationManager = CLLocationManager()
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLocationServices()
+        setupMapView()
         
-        // Do any additional setup after loading the view.
     }
 
+    func setupLocationServices(){
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        } else {
+            displayBasicAlert("Error", error: "Please turn on location services to choose or create a homebase", buttonText: "OK")
+        }
+    }
+    
+    //automatically called when location changes
+    // http://stackoverflow.com/questions/25296691/get-users-current-location-coordinates
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = manager.location
+        print("locations = \(userLocation?.coordinate.latitude) \(userLocation?.coordinate.longitude)")
+        
+        let regionRadius: CLLocationDistance = 200
+
+        centerMapOnLocation(userLocation!, regionRadius: regionRadius)
+        self.locationManager.stopUpdatingLocation()
+
+    }
+    
+    func setupMapView(){
+        self.mapView.showsUserLocation = true
+        self.mapView.showsCompass = true
+        self.mapView.showsBuildings = true
+    }
+    
+    func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+            regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,19 +83,39 @@ class homebaseSelectionViewController: UIViewController {
             || homebaseField.text?.containsString("[") == true
             || homebaseField.text?.containsString("]") == true
             ) {
-                displayBasicAlert("Error", error: "Invalid Entry", buttonText: "OK")
+                displayBasicAlert("Error", error: "Invalid Character", buttonText: "OK")
                 return
         }
         
         
-        //save homebase name in info on firebase
-        server.userData().childByAppendingPath("homebase").setValue(homebaseField.text)
+        let user = PFUser.currentUser()!
+        user["homebase"] = homebaseField.text
+        user.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                let titleText = "Welcome to HomeBase!"
+                var errorText = "Please Verify Your Email"
+                let alertView = UIAlertController(title: titleText,
+                    message: errorText, preferredStyle:.Alert)
+                let okAction = UIAlertAction(title: "OK",
+                    style: .Default,
+                    handler: { (alert: UIAlertAction!) in
+                        self.performSegueWithIdentifier("finishSignup", sender: nil)
+                    }
+                )
+                alertView.addAction(okAction)
+                self.presentViewController(alertView, animated: true, completion: nil)
+                
+            } else {
+                // There was a problem, check error.description
+                self.displayBasicAlert("Error", error: (error?.description)!, buttonText: "Try Again")
+                return
+            }
+        }
+
         
         
-        //save the homebase info to local storage
-        modifyLocalHomebasedata()
-        
-        self.performSegueWithIdentifier("finishSignup", sender: nil)
     }
     /*
     // MARK: - Navigation
@@ -58,21 +126,5 @@ class homebaseSelectionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    private func modifyLocalHomebasedata(){
-        
-        // grab the dictionary
-        var localUserData = NSUserDefaults.standardUserDefaults().valueForKey("userData") as! Dictionary<String,String>
-        
-        //modify the dictionary
-        localUserData["homebase"] = homebaseField.text
-        
-        //put it back
-        NSUserDefaults.standardUserDefaults().setValue(localUserData, forKey: "userData")
-        NSUserDefaults.standardUserDefaults().synchronize()
-
-
-        
-    }
 
 }

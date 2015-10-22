@@ -34,15 +34,14 @@ class NewComment: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func comment(sender: AnyObject) {
-        
+      
+        /*
         let newComment = PostData(
             posterID: server.ref().authData.uid,
             posterFullName: userData["fullName"]!,
             postText: postText.text
-        )
+        ) */
         
-        server.broadcasts().childByAppendingPath(thePostInfo.broadcastID + "/comments").childByAutoId().setValue(newComment.fbReadable())
-
         
         self.navigationController?.popViewControllerAnimated(true)
         

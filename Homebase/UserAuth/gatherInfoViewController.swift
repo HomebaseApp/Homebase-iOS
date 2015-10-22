@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import Parse
+import Bolts
+
 
 class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     
@@ -53,19 +55,30 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
             return
         }
         
+        self.loading(true)
      
-        var user = PFUser()
-        user.username = emailField.text!
-        user.password = passwordField.text!
-        user.email = emailField.text!
+        let newUser = PFUser()
+        newUser.username = emailField.text!
+        newUser.password = passwordField.text!
+        newUser.email = emailField.text!
         
-        user.signUpInBackgroundWithBlock {
+        newUser.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
+                let errorString = error.userInfo["error"] as? String
                 // Show the errorString somewhere and let the user try again.
+                self.displayBasicAlert("Signup Error", error: errorString!, buttonText: "Try Again")
+                self.loading(false)
+                return
             } else {
                 // Hooray! Let them use the app now.
+                
+                newUser["firstName"] = self.firstField.text
+                newUser["lastName"] = self.lastField.text
+                newUser["fullName"] = self.firstField.text! + " " +
+                    self.lastField.text!
+                newUser.saveInBackground()
+                self.performSegueWithIdentifier("homebase", sender: nil)
             }
         }
         
@@ -87,126 +100,20 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     }
     
     
-    @IBAction func firebaseJoin(sender: AnyObject) {
-        
-        if (self.lastField.text! == "" || self.firstField.text! == "") {
-            displayBasicAlert("Error", error: "Please fill in all fields", buttonText: "Try Again")
-            return
+    @IBOutlet weak var joinButton: UIButton!
+    
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    func loading(showIndicator: Bool){
+        if showIndicator {
+            loadingIndicator.hidden = false
+            joinButton.hidden = true
+        } else {
+            loadingIndicator.hidden = true
+            joinButton.hidden = false
         }
-        
-        
-        
-        // send data to Firebase
-        server.ref().createUser(self.emailField.text!, password: self.passwordField.text!,
-            withValueCompletionBlock: { error, result in
-                
-                if error != nil {
-                    
-                    print(self.emailField.text!)
-                    // There was an error creating the account
-                    
-                    // Something went wrong. :( determin problem
-                    var errorText: String = "Something went wrong"
-                    
-                    if let errorCode = FAuthenticationError(rawValue: error.code) {
-                        switch (errorCode) {
-                        case .UserDoesNotExist:
-                            errorText = "Invalid Username"
-                            print("Handle invalid user")
-                        case .InvalidEmail:
-                            errorText = "Invalid Email"
-                            print("Handle invalid email")
-                        case .InvalidPassword:
-                            errorText = "Invalid Password"
-                            print("Handle invalid password")
-                        default:
-                            errorText = "Something went wrong"
-                            print("Handle default situation")
-                        }
-                    }
-                    
-                    // let them know
-                    let alertView = UIAlertController(title: "Error",
-                        message: errorText as String, preferredStyle:.Alert)
-                    let okAction = UIAlertAction(title: "Try again", style: .Default, handler: nil)
-                    alertView.addAction(okAction)
-                    self.presentViewController(alertView, animated: true, completion: nil)
-                } else {
-                    let uid = result["uid"] as? String
-                    // account creation just completed successfully :)
-                    
-                    // The logged in user's unique identifier
-                    print("User created with UID: " + uid!)
-                    self.logIn()
-                }
-                
-                
-        })
-        
     }
     
-    func logIn(){
-        server.ref().authUser(self.emailField.text!, password:self.passwordField.text!) {
-            error, authData in
-            if error != nil {
-                // Something went wrong. :( determin problem
-                
-                // let them know
-                let alertView = UIAlertController(title: "Account created",
-                    message: "However Login failed" as String, preferredStyle:.Alert)
-                let okAction = UIAlertAction(title: "Login", style: UIAlertActionStyle.Default) {
-                    UIAlertAction in
-                    self.performSegueWithIdentifier("returnLogin", sender: nil)
-                    
-                }
-                alertView.addAction(okAction)
-                
-                self.presentViewController(alertView, animated: true, completion: nil)
-            } else {
-                // Authentication just completed successfully :)
-                
-                let newUser = [
-                    "provider": authData.provider,
-                    "firstName": self.firstField.text,
-                    "lastName": self.lastField.text,
-                    "fullName": self.firstField.text! + " " + self.lastField.text!,
-                    "email": self.emailField.text!
-                ]
-                print(newUser)
-                
-                // The logged in user's unique identifier
-                print("Working with: " +  authData.uid!)
-                                
-                // Create a new user dictionary accessing the user's info
-                // provided by the authData parameter
-
-                
-                // Create a child path with a key set to the uid underneath the "users" node
-                server.userData().setValue(newUser)
-                //self.server.childByAppendingPath("test").setValue(newUser)
-                
-                //save password in Keychain
-                self.MyKeychainWrapper.mySetObject(self.passwordField.text, forKey:kSecValueData)
-                self.MyKeychainWrapper.writeToKeychain()
-                
-                // save user email in device
-                
-                NSUserDefaults.standardUserDefaults().setValue(newUser, forKey: "userData")
-                
-                NSUserDefaults.standardUserDefaults().synchronize()
-                
-                let alertView = UIAlertController(title: "Account Created!",
-                    message: "" as String, preferredStyle:.Alert)
-                let newAccountAction = UIAlertAction(title: "Awesome!", style: UIAlertActionStyle.Default) {
-                    UIAlertAction in
-                    self.performSegueWithIdentifier("homebase", sender: nil)
-                }
-                alertView.addAction(newAccountAction)
-                self.presentViewController(alertView, animated: true, completion: nil)
-                
-            }
-        }
-    }
     /*
     // MARK: - Navigation
 
