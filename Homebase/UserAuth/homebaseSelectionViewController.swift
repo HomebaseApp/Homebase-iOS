@@ -47,7 +47,7 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
         let userLocation = manager.location
         print("locations = \(userLocation?.coordinate.latitude) \(userLocation?.coordinate.longitude)")
         
-        let regionRadius: CLLocationDistance = 200
+        let regionRadius: CLLocationDistance = 100
 
         centerMapOnLocation(userLocation!, regionRadius: regionRadius)
         self.locationManager.stopUpdatingLocation()
