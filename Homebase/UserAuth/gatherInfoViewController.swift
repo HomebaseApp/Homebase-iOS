@@ -8,17 +8,18 @@
 
 import UIKit
 import Firebase
+import Parse
 
 class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     
     let MyKeychainWrapper = KeychainWrapper()
 
     var holdPass: String = ""
-    var holdUsername:String = ""
+    var holdEmail:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailField.text=holdUsername
+        emailField.text=holdEmail
         passwordField.text=holdPass
 
         // Do any additional setup after loading the view.
@@ -45,9 +46,48 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
     }
     
 
+    @IBAction func joinHomebase(sender: AnyObject) {
+        
+        if !validInput() {
+            displayBasicAlert("Invalid Input", error: "All Fields Are Required", buttonText: "Try Again")
+            return
+        }
+        
+     
+        var user = PFUser()
+        user.username = emailField.text!
+        user.password = passwordField.text!
+        user.email = emailField.text!
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+            } else {
+                // Hooray! Let them use the app now.
+            }
+        }
+        
+        
+    }
+    
+    func validInput() -> Bool {
+        
+        if (
+        self.lastField.text! == ""
+        || self.firstField.text! == ""
+        || self.passwordField.text! == ""
+        || self.emailField.text! == "")
+        {
+            return false
+        } else{
+            return true
+        }
+    }
     
     
-    @IBAction func join(sender: AnyObject) {
+    @IBAction func firebaseJoin(sender: AnyObject) {
         
         if (self.lastField.text! == "" || self.firstField.text! == "") {
             displayBasicAlert("Error", error: "Please fill in all fields", buttonText: "Try Again")
