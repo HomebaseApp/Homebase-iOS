@@ -15,8 +15,6 @@ import Bolts
 
 class LogInViewController: UIViewController {
     
-    var user = PFUser()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +69,7 @@ class LogInViewController: UIViewController {
     }
     
     func loginParse(username: String, password: String){
-        PFUser.logInWithUsernameInBackground(username, password: password) {
+        HomebaseUser.logInWithUsernameInBackground(username, password: password) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.

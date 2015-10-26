@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Parse
 
 class SettingsView: UIViewController, UITextFieldDelegate {
     
@@ -19,10 +20,16 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user_Name.title = user()["fullName"] as! String
+        user_Name.title = HomebaseUser.currentUser()!.fullName
         // Do any additional setup after loading the view.
         
-        homeBase.text = user()["homebase"] as! String
+        HomebaseUser.currentUser()?.homebase!.fetchIfNeededInBackgroundWithBlock({
+            (result, error) -> Void in
+            if error == nil {
+                let homebase = result as! Homebase
+                self.homeBase.text = homebase.name
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {
