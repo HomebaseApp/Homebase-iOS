@@ -22,8 +22,8 @@ class Homebase : PFObject, PFSubclassing {
     @NSManaged var name: String
     
     @NSManaged var owner: HomebaseUser
-    @NSManaged var admins: [HomebaseUser]
-    @NSManaged var users: [HomebaseUser]
+    @NSManaged private(set) var admins: PFRelation
+    @NSManaged private(set) var users: PFRelation
 
 
     

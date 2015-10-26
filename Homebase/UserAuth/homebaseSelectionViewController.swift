@@ -168,13 +168,20 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
         return homebaseButton
     }
     
+    // Join Homebase button
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.Custom {
             mapView.deselectAnnotation(view.annotation, animated: false)
-            // join homebase
-            HomebaseUser.currentUser()?.homebase = (view.annotation as! HomebaseAnnotation).homebase
+            
+            let newHomebase = (view.annotation as! HomebaseAnnotation).homebase
+            
+            // add user to homebase
+            newHomebase.users.addObject( HomebaseUser.currentUser()!)
+            
+            // add homebase to user
+            HomebaseUser.currentUser()?.homebase = newHomebase
             HomebaseUser.currentUser()?.saveInBackground()
+            
             //HomebaseUser.currentUser()?.relationForKey("homebase").addObject((view.annotation as! HomebaseAnnotation).homebase)
             self.performSegueWithIdentifier("finishSignup", sender: self)
         }
@@ -227,7 +234,7 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
             homebase.location = PFGeoPoint(location: self.locationManager.location)
             //set creator as admin
             homebase.owner = HomebaseUser.currentUser()!
-            homebase.users.append(HomebaseUser.currentUser()!)
+            homebase.users.addObject(HomebaseUser.currentUser()!)
             homebase.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
