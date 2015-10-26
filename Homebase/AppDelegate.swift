@@ -21,17 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.parseInit()
-        //self.parseTester()
-        
         self.checkLoginStatus()
-        
-        //self.checkFirebaseLoginStatus()
-        
         return true
     }
     
     func parseInit(){
-        // [Optional] Power your app with Local Datastore. For more info, go to
+        // intialize subclasses
+        registerParseSubclasses()
+        
         // https://parse.com/docs/ios_guide#localdatastore/iOS
         Parse.enableLocalDatastore()
         
@@ -39,23 +36,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("gpJJ7dVxBELxs7tEQBKEYJe6yJIVcAYUGX6SwIy8",
             clientKey: "sHNC2SaMqAtQWJHxT166Z0RHOtBEDaghO41TFEKO")
         
-        // [Optional] Track statistics around application opens.
+        // Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(nil)
     }
     
-    func parseTester(){
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
+    func registerParseSubclasses(){
+        Homebase.registerSubclass()
+        HomebaseUser.registerSubclass()
     }
     
     func checkLoginStatus(){
-        let currentUser = PFUser.currentUser()
+        let currentUser = HomebaseUser.currentUser()
         if currentUser != nil {
             // Do stuff with the user
-            if currentUser!["homebase"] == nil {
+            if currentUser!.homebase == nil {
+                // if no homebase selected
                 showViewController("selectHomebase")
             } else {
                 showViewController("mainpage")
