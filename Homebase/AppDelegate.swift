@@ -46,18 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func checkLoginStatus(){
-        let currentUser = HomebaseUser.currentUser()
-        if currentUser != nil {
+        
+        if let currentUser = user() {
             // Do stuff with the user
-            if currentUser!.homebase == nil {
-                // if no homebase selected
-                showViewController("selectHomebase")
-            } else {
+            if let userHomebase = currentUser.homebase{
+                // user has selected homebase
                 showViewController("mainpage")
+                print("User Logged In Successfully and has selected a Homebase")
+            } else {
+                // no homebase selected
+                showViewController("selectHomebase")
+                print("User Logged In Successfully but has not selected a Homebase")
             }
         } else {
             // Show the signup or login screen
             showViewController("loginNavigator")
+            print("User is not logged in")
         }
     }
     

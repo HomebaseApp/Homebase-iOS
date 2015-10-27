@@ -9,8 +9,8 @@
 import Foundation
 import Parse
 
-func user() -> PFUser{
-    return PFUser.currentUser()!
+func user() -> HomebaseUser? {
+    return HomebaseUser.currentUser()
 }
 
 
