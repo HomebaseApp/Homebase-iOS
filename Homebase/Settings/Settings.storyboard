@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-o4-EtD">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-o4-EtD">
                                 <rect key="frame" x="47" y="113" width="321" height="52"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
@@ -36,7 +37,7 @@
                                     <action selector="logOut:" destination="Wus-MU-j9R" eventType="touchUpInside" id="erv-QQ-WHB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI3-fI-MVY">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI3-fI-MVY">
                                 <rect key="frame" x="145" y="173" width="125" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Switch HomeBase"/>
@@ -52,18 +53,29 @@
                                     <action selector="randomTheme:" destination="Wus-MU-j9R" eventType="touchUpInside" id="Eez-BR-Aqe"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Yr-cD-zfk">
+                                <rect key="frame" x="177" y="129" width="60" height="60"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="5Jh-D7-EAi"/>
+                                    <constraint firstAttribute="width" secondItem="3Yr-cD-zfk" secondAttribute="height" multiplier="1:1" id="UkF-bU-nkB"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="leading" secondItem="331-nN-kcq" secondAttribute="leadingMargin" constant="27" id="2iW-4k-50p"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="zkf-EZ-0hz" secondAttribute="centerX" id="AGl-S5-dLZ"/>
+                            <constraint firstItem="3Yr-cD-zfk" firstAttribute="top" secondItem="ZbU-EL-JXg" secondAttribute="bottom" constant="65" id="BcF-oB-kB4"/>
                             <constraint firstItem="JI3-fI-MVY" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="8" id="C6a-T0-U6q"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="top" secondItem="ZbU-EL-JXg" secondAttribute="bottom" constant="49" id="Mi4-Dn-LKa"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="MrR-8v-2TJ"/>
                             <constraint firstItem="7fZ-M6-Wc5" firstAttribute="top" secondItem="lCU-u3-B3Q" secondAttribute="bottom" constant="117" id="Tbu-8D-TCh"/>
                             <constraint firstItem="zkf-EZ-0hz" firstAttribute="top" secondItem="1fU-o4-EtD" secondAttribute="bottom" constant="93" id="aRL-mR-drN"/>
                             <constraint firstItem="JI3-fI-MVY" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="c8v-rn-9ir"/>
+                            <constraint firstItem="3Yr-cD-zfk" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="cM3-3x-zKg"/>
                             <constraint firstItem="7fZ-M6-Wc5" firstAttribute="top" secondItem="zkf-EZ-0hz" secondAttribute="bottom" constant="355" id="dyf-1D-NfT"/>
                             <constraint firstItem="1fU-o4-EtD" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="knz-OL-EC0"/>
                             <constraint firstItem="lCU-u3-B3Q" firstAttribute="centerX" secondItem="331-nN-kcq" secondAttribute="centerX" id="pqS-LN-W4h"/>
@@ -84,6 +96,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="homeBase" destination="1fU-o4-EtD" id="HZ4-Wg-maV"/>
+                        <outlet property="loadingIndicator" destination="3Yr-cD-zfk" id="e6P-RN-8Iy"/>
+                        <outlet property="switchHomebase" destination="JI3-fI-MVY" id="GGr-YM-NAn"/>
                         <outlet property="user_Name" destination="jjy-TP-HWO" id="BZe-j7-YdH"/>
                         <segue destination="aLq-kz-hIp" kind="presentation" identifier="logOut" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Z5k-dx-TGC"/>
                     </connections>

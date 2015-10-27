@@ -16,20 +16,26 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var homeBase: UILabel!
 
+    @IBOutlet weak var switchHomebase: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user_Name.title = HomebaseUser.currentUser()!.fullName
-        // Do any additional setup after loading the view.
-        
-        HomebaseUser.currentUser()?.homebase!.fetchIfNeededInBackgroundWithBlock({
-            (result, error) -> Void in
-            if error == nil {
-                let homebase = result as! Homebase
-                self.homeBase.text = homebase.name
-            }
-        })
+        if let userHomebase = user()?.homebase {
+            user_Name.title = user()?.fullName
+            
+            userHomebase.fetchIfNeededInBackgroundWithBlock({
+                (result, error) -> Void in
+                if error == nil {
+                    let homebase = result as! Homebase
+                    self.homeBase.text = homebase.name
+                    self.loadingIndicator.stopAnimating()
+                    self.homeBase.hidden = false
+                    self.switchHomebase.hidden = false
+                }
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
