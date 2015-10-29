@@ -168,6 +168,7 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
         return homebaseButton
     }
     
+    // MARK: - join Homebase
     // Join Homebase button
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (control as? UIButton)?.buttonType == UIButtonType.Custom {
@@ -193,7 +194,7 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
     
     @IBAction func createNewHomebase(sender: AnyObject) {
         //start the object to hold info
-        let homebase = Homebase()
+        
 
         // http://stackoverflow.com/questions/26567413/how-to-get-input-value-from-textfield-in-alert
         //1. Create the alert controller.
@@ -227,26 +228,28 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
                 return
             } else {
                 print( homebaseField.text!)
-                homebase.name = homebaseField.text!
-            }
-            
-            //add location
-            homebase.location = PFGeoPoint(location: self.locationManager.location)
-            //set creator as admin
-            homebase.owner = HomebaseUser.currentUser()!
-            homebase.users.addObject(HomebaseUser.currentUser()!)
-            homebase.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    // The object has been saved.
-                    HomebaseUser.currentUser()!.homebase = homebase
-                    self.performSegueWithIdentifier("finishSignup", sender: self)
-                    print("Success")
-                } else {
-                    // There was a problem, check error.description
-                    print(error?.description)
+                
+                // create the homebase
+                let homebase = Homebase(name: homebaseField.text!,
+                    location: PFGeoPoint(location: self.locationManager.location),
+                    owner: user()!)
+                
+                // save to server
+                homebase.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                        user()!.homebase = homebase
+                        user()!.saveInBackground()
+                        self.performSegueWithIdentifier("finishSignup", sender: self)
+                        print("Success")
+                    } else {
+                        // There was a problem, check error.description
+                        print(error?.description)
+                    }
                 }
             }
+            
         }))
         
         // 4. Present the alert.
@@ -259,50 +262,6 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - join Homebase
-   /* @IBOutlet weak var homebaseField: UITextField!
-
-    @IBAction func joinHomeBase(sender: AnyObject) {
-        
-        // homebase cant be empty
-        if(homebaseField.text == ""
-            || homebaseField.text?.containsString(".") == true
-            || homebaseField.text?.containsString("#") == true
-            || homebaseField.text?.containsString("$") == true
-            || homebaseField.text?.containsString("[") == true
-            || homebaseField.text?.containsString("]") == true
-            ) {
-                displayBasicAlert("Error", error: "Invalid Character", buttonText: "OK")
-                return
-        }
-        
-        
-        let user = PFUser.currentUser()!
-        user["homebase"] = homebaseField.text
-        user.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                // The object has been saved.
-                let titleText = "Welcome to HomeBase!"
-                var errorText = "Please Verify Your Email"
-                let alertView = UIAlertController(title: titleText,
-                    message: errorText, preferredStyle:.Alert)
-                let okAction = UIAlertAction(title: "OK",
-                    style: .Default,
-                    handler: { (alert: UIAlertAction!) in
-                        self.performSegueWithIdentifier("finishSignup", sender: nil)
-                    }
-                )
-                alertView.addAction(okAction)
-                self.presentViewController(alertView, animated: true, completion: nil)
-                
-            } else {
-                // There was a problem, check error.description
-                self.displayBasicAlert("Error", error: (error?.description)!, buttonText: "Try Again")
-                return
-            }
-        }
-    }*/
     
     
     /*

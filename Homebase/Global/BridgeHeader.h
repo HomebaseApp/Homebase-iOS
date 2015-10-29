@@ -10,6 +10,7 @@
 #define BridgeHeader_h
 
 #import <Parse/PFObject+Subclass.h>
+#import <ParseUI/ParseUI.h>
 #import "KeychainWrapper.h"
 
 #endif /* BridgeHeader_h */

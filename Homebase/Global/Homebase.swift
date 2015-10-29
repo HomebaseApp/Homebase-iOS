@@ -9,22 +9,28 @@
 import Parse
 
 class Homebase : PFObject, PFSubclassing {
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
     
-    @NSManaged var location: PFGeoPoint
-    @NSManaged var name: String
+    @NSManaged private(set) var location: PFGeoPoint
+    @NSManaged private(set) var name: String
     
-    @NSManaged var owner: HomebaseUser
+    @NSManaged private(set) var owner: HomebaseUser
+    
     @NSManaged private(set) var admins: PFRelation
     @NSManaged private(set) var users: PFRelation
+    override init() {
+        super.init()
+    }
 
+    init(name: String, location: PFGeoPoint, owner: HomebaseUser){
+        super.init()
+        
+        self.owner = owner
+        admins.addObject(owner)
+        users.addObject(owner)
+        
+        self.name = name
+        self.location = location
+        }
 
     
     static func parseClassName() -> String {

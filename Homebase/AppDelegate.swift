@@ -21,11 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.parseInit()
+        self.registerPush(application, launchOptions: launchOptions)
         self.checkLoginStatus()
         return true
     }
     
     func parseInit(){
+        print("Parse API Version: " + PARSE_VERSION)
+        
         // intialize subclasses
         registerParseSubclasses()
         
@@ -41,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerParseSubclasses(){
+        Comment.registerSubclass()
+        Bulletin.registerSubclass()
         Homebase.registerSubclass()
         HomebaseUser.registerSubclass()
     }
@@ -49,21 +54,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let currentUser = user() {
             // Do stuff with the user
-            if let userHomebase = currentUser.homebase{
-                // user has selected homebase
-                showViewController("mainpage")
-                print("User Logged In Successfully and has selected a Homebase")
-            } else {
-                // no homebase selected
-                showViewController("selectHomebase")
-                print("User Logged In Successfully but has not selected a Homebase")
-            }
+            
+            currentUser.homebase!.fetchIfNeededInBackgroundWithBlock({
+                // checks if homebase points to a valid object
+                (result, error) -> Void in
+                
+                if error == nil {
+                    // user has selected homebase
+                    self.showViewController("mainpage")
+                    print("User Logged In Successfully and has selected a Homebase")
+                } else {
+                    // no homebase selected
+                    currentUser.homebase = nil // clears an invalid pointer
+                    self.showViewController("selectHomebase")
+                    print("User Logged In Successfully but has not selected a Homebase")
+                }
+            })
+
         } else {
             // Show the signup or login screen
             showViewController("loginNavigator")
             print("User is not logged in")
         }
     }
+    
+    // Parse Push notifcations
+    func registerPush(application: UIApplication, launchOptions: [NSObject: AnyObject]?){
+        // Register for Push Notitications
+        if application.applicationState != UIApplicationState.Background {
+            // Track an app open here if we launch with a push, unless
+            // "content_available" was used to trigger a background push (introduced in iOS 7).
+            // In that case, we skip tracking here to avoid double counting the app-open.
+            
+            let preBackgroundPush = !application.respondsToSelector("backgroundRefreshStatus")
+            let oldPushHandlerOnly = !self.respondsToSelector("application:didReceiveRemoteNotification:fetchCompletionHandler:")
+            var pushPayload = false
+            if let options = launchOptions {
+                pushPayload = options[UIApplicationLaunchOptionsRemoteNotificationKey] != nil
+            }
+            if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
+                PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+            }
+        }
+        if application.respondsToSelector("registerUserNotificationSettings:") {
+            let userNotificationTypes = UIUserNotificationType.init(rawValue: UIUserNotificationType.Alert.rawValue | UIUserNotificationType.Badge.rawValue | UIUserNotificationType.Sound.rawValue)
+            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        } else {
+            let types = UIRemoteNotificationType.init(rawValue: UIRemoteNotificationType.Badge.rawValue | UIRemoteNotificationType.Alert.rawValue | UIRemoteNotificationType.Sound.rawValue )
+            application.registerForRemoteNotificationTypes(types)
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            print("Push notifications are not supported in the iOS Simulator.")
+        } else {
+            print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
+        if application.applicationState == UIApplicationState.Inactive {
+            PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
+        }
+    }
+    // end Parse Push notification code
+    
     
     func showViewController(name: String){
         let initialViewController = self.storyboard.instantiateViewControllerWithIdentifier(name)
