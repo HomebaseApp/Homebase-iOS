@@ -72,7 +72,9 @@ class BulletinBoardView: PFQueryTableViewController {
         let bulletins = objects as! [Bulletin]
         let thisBulletin = bulletins[indexPath.row]
         
-        cell.nameButton.setTitle(thisBulletin.user.fullName, forState: UIControlState.Normal)
+        
+        
+        cell.nameButton.setTitle(thisBulletin.userFullName, forState: UIControlState.Normal)
         
         cell.postText.text = thisBulletin.text
         cell.postText.numberOfLines = 4

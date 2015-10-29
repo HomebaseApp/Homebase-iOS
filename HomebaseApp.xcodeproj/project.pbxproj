@@ -80,7 +80,7 @@
 		D02D08AC1BD6ED62008BDC3B /* colorfulNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = colorfulNavigationController.swift; path = Global/colorfulNavigationController.swift; sourceTree = "<group>"; };
 		D02ECD621BD6A38F00B17C12 /* PostBulletinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostBulletinView.swift; path = Posts/Comments/PostBulletinView.swift; sourceTree = "<group>"; };
 		D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Global/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		D043EE661BC8A3DE0058A855 /* Homebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D043EE661BC8A3DE0058A855 /* HomebaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomebaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D043EE691BC8A3DE0058A855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D043EE701BC8A3DF0058A855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D043EE751BC8A3DF0058A855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		D043EE671BC8A3DE0058A855 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D043EE661BC8A3DE0058A855 /* Homebase.app */,
+				D043EE661BC8A3DE0058A855 /* HomebaseApp.app */,
 				D043EE7C1BC8A3DF0058A855 /* HomebaseTests.xctest */,
 				D043EE871BC8A3DF0058A855 /* HomebaseUITests.xctest */,
 			);
@@ -333,9 +333,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D043EE651BC8A3DE0058A855 /* Homebase */ = {
+		D043EE651BC8A3DE0058A855 /* HomebaseApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D043EE901BC8A3DF0058A855 /* Build configuration list for PBXNativeTarget "Homebase" */;
+			buildConfigurationList = D043EE901BC8A3DF0058A855 /* Build configuration list for PBXNativeTarget "HomebaseApp" */;
 			buildPhases = (
 				956809E67411CF5671CD6B2E /* Check Pods Manifest.lock */,
 				D043EE621BC8A3DE0058A855 /* Sources */,
@@ -348,9 +348,9 @@
 			);
 			dependencies = (
 			);
-			name = Homebase;
+			name = HomebaseApp;
 			productName = Homebase;
-			productReference = D043EE661BC8A3DE0058A855 /* Homebase.app */;
+			productReference = D043EE661BC8A3DE0058A855 /* HomebaseApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D043EE7B1BC8A3DF0058A855 /* HomebaseTests */ = {
@@ -412,7 +412,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D043EE611BC8A3DE0058A855 /* Build configuration list for PBXProject "Homebase" */;
+			buildConfigurationList = D043EE611BC8A3DE0058A855 /* Build configuration list for PBXProject "HomebaseApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -425,7 +425,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D043EE651BC8A3DE0058A855 /* Homebase */,
+				D043EE651BC8A3DE0058A855 /* HomebaseApp */,
 				D043EE7B1BC8A3DF0058A855 /* HomebaseTests */,
 				D043EE861BC8A3DF0058A855 /* HomebaseUITests */,
 			);
@@ -570,12 +570,12 @@
 /* Begin PBXTargetDependency section */
 		D043EE7E1BC8A3DF0058A855 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D043EE651BC8A3DE0058A855 /* Homebase */;
+			target = D043EE651BC8A3DE0058A855 /* HomebaseApp */;
 			targetProxy = D043EE7D1BC8A3DF0058A855 /* PBXContainerItemProxy */;
 		};
 		D043EE891BC8A3DF0058A855 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D043EE651BC8A3DE0058A855 /* Homebase */;
+			target = D043EE651BC8A3DE0058A855 /* HomebaseApp */;
 			targetProxy = D043EE881BC8A3DF0058A855 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -774,7 +774,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D043EE611BC8A3DE0058A855 /* Build configuration list for PBXProject "Homebase" */ = {
+		D043EE611BC8A3DE0058A855 /* Build configuration list for PBXProject "HomebaseApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D043EE8E1BC8A3DF0058A855 /* Debug */,
@@ -783,7 +783,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D043EE901BC8A3DF0058A855 /* Build configuration list for PBXNativeTarget "Homebase" */ = {
+		D043EE901BC8A3DF0058A855 /* Build configuration list for PBXNativeTarget "HomebaseApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D043EE911BC8A3DF0058A855 /* Debug */,

@@ -70,7 +70,7 @@ class BulletinView: PFQueryTableViewController {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("theBulletin", forIndexPath: indexPath) as! BulletinCell
-                cell.nameButton.setTitle(theBulletin.user.fullName, forState: UIControlState.Normal)
+                cell.nameButton.setTitle(theBulletin.userFullName, forState: UIControlState.Normal)
                 cell.postText.text = theBulletin.text
                 return cell
             } else {
@@ -91,7 +91,7 @@ class BulletinView: PFQueryTableViewController {
         let theComment = objects![indexPath.row] as! Comment
         let cell = tableView.dequeueReusableCellWithIdentifier(commentCellIdentifier) as! CommentCell
         
-        cell.nameButton.setTitle(theComment.user.fullName, forState: .Normal)
+        cell.nameButton.setTitle(theComment.userFullName, forState: .Normal)
         cell.commentLabel.text = theComment.text
         cell.commentLabel.sizeToFit()
 

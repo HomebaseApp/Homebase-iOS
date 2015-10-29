@@ -30,9 +30,7 @@ class PostBulletinView: UIViewController, UITextViewDelegate {
     
     @IBAction func broadcast(sender: AnyObject) {
         
-        let newBulletin = Bulletin(homebase: user()!.homebase!,
-            user: user()!,
-            text: postText.text)
+        let newBulletin = Bulletin(text: postText.text)
         newBulletin.saveInBackgroundWithBlock { (saved, error) -> Void in
             if saved {
                 self.navigationController?.popViewControllerAnimated(true)

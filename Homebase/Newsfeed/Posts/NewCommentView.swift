@@ -35,8 +35,6 @@ class NewCommentView: UIViewController, UITextViewDelegate {
         print(theBulletin.objectId)
       
         let newComment = Comment(
-            homebase: theBulletin.homebase,
-            user: theBulletin.user,
             bulletin: theBulletin,
             text: postText.text)
         

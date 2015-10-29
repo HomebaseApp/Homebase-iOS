@@ -9,6 +9,7 @@
 import Foundation
 import Parse
 
+
 func user() -> HomebaseUser? {
     return HomebaseUser.currentUser()
 }

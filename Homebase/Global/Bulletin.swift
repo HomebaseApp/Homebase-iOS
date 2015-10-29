@@ -13,16 +13,20 @@ class Bulletin : PFObject, PFSubclassing {
     @NSManaged private(set) var homebase: Homebase
     @NSManaged private(set) var user: HomebaseUser
     @NSManaged private(set) var text: String
+    @NSManaged private(set) var userFullName: String
+    
+
     
     override init(){
         super.init()
     }
     
-    init(homebase: Homebase ,user: HomebaseUser, text: String){
+    init(text: String){
         super.init()
         
-        self.homebase = homebase
-        self.user = user
+        self.user = HomebaseApp.user()!
+        self.homebase = self.user.homebase!
+        self.userFullName = self.user.fullName
         self.text = text
         
     }
