@@ -72,7 +72,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="7XB-px-mHN" kind="show" id="kYa-ZU-Fhh"/>
+                                    <segue destination="7XB-px-mHN" kind="show" identifier="newBulletin" id="kYa-ZU-Fhh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bulletin" rowHeight="168" id="da9-SH-zhT" customClass="BulletinCell" customModule="Homebase" customModuleProvider="target">
@@ -112,7 +112,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <segue destination="edo-AJ-O8v" kind="show" id="Ced-PB-mrn"/>
+                                                <segue destination="edo-AJ-O8v" kind="show" identifier="viewUser" id="Ced-PB-mrn"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -175,7 +175,7 @@
         <!--New Broadcast-->
         <scene sceneID="Sf1-Cr-dmW">
             <objects>
-                <viewController title="New Broadcast" automaticallyAdjustsScrollViewInsets="NO" id="7XB-px-mHN" customClass="NewPostView" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="New Broadcast" automaticallyAdjustsScrollViewInsets="NO" id="7XB-px-mHN" customClass="PostBulletinView" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mA7-2R-soN"/>
                         <viewControllerLayoutGuide type="bottom" id="CoG-b7-BJB"/>

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class NewPostView: UIViewController, UITextViewDelegate {
+class PostBulletinView: UIViewController, UITextViewDelegate {
         
     @IBOutlet weak var postText: UITextView!
     
