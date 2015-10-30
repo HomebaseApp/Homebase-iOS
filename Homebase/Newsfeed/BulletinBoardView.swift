@@ -59,7 +59,7 @@ class BulletinBoardView: PFQueryTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("newBulletinButton")
-            cell!.textLabel?.text = "New Broadcast"
+            cell!.textLabel?.text = "New Bulletin"
             cell!.textLabel?.textAlignment = NSTextAlignment.Center
             return cell!
         }
@@ -71,8 +71,6 @@ class BulletinBoardView: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(bulletinCellIdentifier) as! BulletinCell
         let bulletins = objects as! [Bulletin]
         let thisBulletin = bulletins[indexPath.row]
-        
-        
         
         cell.nameButton.setTitle(thisBulletin.userFullName, forState: UIControlState.Normal)
         

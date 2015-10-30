@@ -24,7 +24,7 @@ class Comment : PFObject, PFSubclassing {
     init(bulletin: Bulletin , text: String){
         super.init()
         
-        self.user = HomebaseApp.user()!
+        self.user = Homebase.user()!
         self.homebase = self.user.homebase!
         self.userFullName = self.user.fullName
         self.text = text

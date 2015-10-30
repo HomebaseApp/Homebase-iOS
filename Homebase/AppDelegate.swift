@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func registerParseSubclasses(){
         Comment.registerSubclass()
         Bulletin.registerSubclass()
+        RotationList.registerSubclass()
         Homebase.registerSubclass()
         HomebaseUser.registerSubclass()
     }
@@ -79,34 +80,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Parse Push notifcations
     func registerPush(application: UIApplication, launchOptions: [NSObject: AnyObject]?){
-        // Register for Push Notitications
-        if application.applicationState != UIApplicationState.Background {
-            // Track an app open here if we launch with a push, unless
-            // "content_available" was used to trigger a background push (introduced in iOS 7).
-            // In that case, we skip tracking here to avoid double counting the app-open.
-            
-            let preBackgroundPush = !application.respondsToSelector("backgroundRefreshStatus")
-            let oldPushHandlerOnly = !self.respondsToSelector("application:didReceiveRemoteNotification:fetchCompletionHandler:")
-            var pushPayload = false
-            if let options = launchOptions {
-                pushPayload = options[UIApplicationLaunchOptionsRemoteNotificationKey] != nil
-            }
-            if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
-                PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-            }
-        }
-        if application.respondsToSelector("registerUserNotificationSettings:") {
-            let userNotificationTypes = UIUserNotificationType.init(rawValue: UIUserNotificationType.Alert.rawValue | UIUserNotificationType.Badge.rawValue | UIUserNotificationType.Sound.rawValue)
-            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        } else {
-            let types = UIRemoteNotificationType.init(rawValue: UIRemoteNotificationType.Badge.rawValue | UIRemoteNotificationType.Alert.rawValue | UIRemoteNotificationType.Sound.rawValue )
-            application.registerForRemoteNotificationTypes(types)
-        }
+        // Register for Push Notitications        
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+        
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        // Store the deviceToken in the current Installation and save it to Parse
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
         installation.saveInBackground()

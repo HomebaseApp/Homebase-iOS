@@ -14,4 +14,8 @@ func user() -> HomebaseUser? {
     return HomebaseUser.currentUser()
 }
 
-
+extension Homebase {
+    static func user() -> HomebaseUser? {
+        return HomebaseUser.currentUser()
+    }
+}

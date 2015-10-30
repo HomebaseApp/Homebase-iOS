@@ -76,6 +76,11 @@
                                     <constraint firstAttribute="width" secondItem="kPf-dm-Rky" secondAttribute="height" multiplier="9:16" id="X8Z-bg-mC5"/>
                                     <constraint firstAttribute="height" constant="736" id="z8y-rg-fzv"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="z8y-rg-fzv"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NO9-rn-XFU">
                                 <rect key="frame" x="198" y="295" width="20" height="20"/>
@@ -98,6 +103,13 @@
                             <constraint firstItem="kPf-dm-Rky" firstAttribute="top" secondItem="STg-2V-hPt" secondAttribute="topMargin" id="lzp-xn-Q5W"/>
                             <constraint firstItem="DM3-0t-sMi" firstAttribute="top" secondItem="kPf-dm-Rky" secondAttribute="bottom" id="ysJ-ZQ-RHf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lzp-xn-Q5W"/>
+                                <exclude reference="dkI-Dc-3dz"/>
+                                <exclude reference="ysJ-ZQ-RHf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>

@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
-class HomeListsViewController: UITableViewController {
+class HomeListsViewController: PFQueryTableViewController {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.parseClassName = RotationList.parseClassName()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,20 @@ class HomeListsViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func queryForTable() -> PFQuery {
+        
+        // repeat for each type of list
+        let rotationalLists = RotationList.query()
+        rotationalLists?.whereKey("visibleBy", equalTo: user()!)
+        rotationalLists?.whereKey("homebase", equalTo: user()!.homebase!)
+        
+        
+        
+        let query = PFQuery.orQueryWithSubqueries([rotationalLists! /* place other list types here */])
+        
+        return query
     }
 
     // MARK: - Table view data source

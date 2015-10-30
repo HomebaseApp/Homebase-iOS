@@ -32,8 +32,6 @@ class NewCommentView: UIViewController, UITextViewDelegate {
     
     @IBAction func comment(sender: AnyObject) {
         
-        print(theBulletin.objectId)
-      
         let newComment = Comment(
             bulletin: theBulletin,
             text: postText.text)
