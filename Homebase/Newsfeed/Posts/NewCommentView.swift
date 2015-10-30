@@ -11,6 +11,7 @@ import Parse
 
 class NewCommentView: UIViewController, UITextViewDelegate {
     
+    @IBOutlet weak var postButton: UIBarButtonItem!
     var theBulletin = Bulletin()
     
     @IBOutlet weak var postText: UITextView!
@@ -30,6 +31,14 @@ class NewCommentView: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textViewDidChange(textView: UITextView) {
+        if textView.text == "" {
+            postButton.enabled = false
+        } else {
+            postButton.enabled = true
+        }
+    }
+    
     @IBAction func comment(sender: AnyObject) {
         
         let newComment = Comment(
@@ -46,6 +55,8 @@ class NewCommentView: UIViewController, UITextViewDelegate {
         
         
     }
+    
+    
     
     /*
     // MARK: - Navigation

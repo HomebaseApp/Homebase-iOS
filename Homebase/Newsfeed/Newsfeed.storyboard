@@ -214,13 +214,14 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Bulletin" id="z1j-Ne-U2T">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="Kga-rq-sO7">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="Kga-rq-sO7">
                             <connections>
                                 <action selector="broadcast:" destination="7XB-px-mHN" id="2AL-RK-Ipu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="postButton" destination="Kga-rq-sO7" id="MfG-1M-GSg"/>
                         <outlet property="postText" destination="ois-cT-fIW" id="4VS-qe-BJd"/>
                     </connections>
                 </viewController>
@@ -474,13 +475,14 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Comment" id="MSc-hj-Lo4">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="dzb-XZ-DdO">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="dzb-XZ-DdO">
                             <connections>
-                                <action selector="comment:" destination="EGU-zp-6GH" id="Lih-sr-ulZ"/>
+                                <action selector="comment:" destination="EGU-zp-6GH" id="6uW-sP-Kfx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="postButton" destination="dzb-XZ-DdO" id="oi4-Pz-siv"/>
                         <outlet property="postText" destination="H8n-FG-uxc" id="KT8-xk-cKH"/>
                     </connections>
                 </viewController>

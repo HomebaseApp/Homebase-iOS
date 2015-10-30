@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class BulletinBoardView: PFQueryTableViewController {
+class BulletinBoardView: PFQueryTableViewController, UITextViewDelegate {
     
     let bulletinCellIdentifier = "bulletin"
     

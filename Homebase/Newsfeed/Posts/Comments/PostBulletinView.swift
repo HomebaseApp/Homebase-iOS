@@ -11,6 +11,7 @@ import Parse
 
 class PostBulletinView: UIViewController, UITextViewDelegate {
         
+    @IBOutlet weak var postButton: UIBarButtonItem!
     @IBOutlet weak var postText: UITextView!
     
     override func viewDidLoad() {
@@ -38,9 +39,6 @@ class PostBulletinView: UIViewController, UITextViewDelegate {
                 self.displayBasicAlert("Error", error: (error?.description)!, buttonText: "Try Again")
             }
         }
-        
-        
-        
     }
     
 
@@ -56,6 +54,13 @@ class PostBulletinView: UIViewController, UITextViewDelegate {
     
     //textView delegate functions & Properties
     
+    func textViewDidChange(textView: UITextView) {
+        if textView.text == "" {
+            postButton.enabled = false
+        } else {
+            postButton.enabled = true
+        }
+    }
     
     func textViewDidBeginEditing(textView: UITextView) {
         // if the text color is gray, clear it, set black

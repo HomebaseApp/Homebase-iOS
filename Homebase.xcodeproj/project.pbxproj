@@ -29,6 +29,7 @@
 		D04A5CF61BCA1447005C701A /* gatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A5CF51BCA1447005C701A /* gatherInfoViewController.swift */; };
 		D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058714C1BC916CB0011DBD6 /* SettingsView.swift */; };
 		D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D058715C1BC937820011DBD6 /* KeychainWrapper.m */; };
+		D069462B1BE337D100AEF4B0 /* NewChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069462A1BE337D100AEF4B0 /* NewChatRoomView.swift */; };
 		D06EF61F1BE1D7650048B2E3 /* BulletinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EF61E1BE1D7650048B2E3 /* BulletinCell.swift */; };
 		D0B9C3D91BDFE2940073B624 /* Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9C3D81BDFE2940073B624 /* Bulletin.swift */; };
 		D0B9C3DB1BE1A8C60073B624 /* RotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9C3DA1BE1A8C60073B624 /* RotationList.swift */; };
@@ -97,6 +98,7 @@
 		D058714C1BC916CB0011DBD6 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D058715B1BC937820011DBD6 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		D058715C1BC937820011DBD6 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		D069462A1BE337D100AEF4B0 /* NewChatRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewChatRoomView.swift; path = Chat/NewChatRoomView.swift; sourceTree = "<group>"; };
 		D06EF61E1BE1D7650048B2E3 /* BulletinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinCell.swift; sourceTree = "<group>"; };
 		D0ACD0E01BD8BDAA00F4410B /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgeHeader.h; path = Global/BridgeHeader.h; sourceTree = "<group>"; };
 		D0B9C3D81BDFE2940073B624 /* Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bulletin.swift; path = Global/Bulletin.swift; sourceTree = "<group>"; };
@@ -178,8 +180,9 @@
 		D003F94E1BCA7B9C005F7084 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				D0C908B01BDD6119007F6C82 /* ChatView.swift */,
 				D0FBA6301BD8C1D100D6D6B9 /* Chat.storyboard */,
+				D0C908B01BDD6119007F6C82 /* ChatView.swift */,
+				D069462A1BE337D100AEF4B0 /* NewChatRoomView.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				D0B9C3D91BDFE2940073B624 /* Bulletin.swift in Sources */,
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */,
+				D069462B1BE337D100AEF4B0 /* NewChatRoomView.swift in Sources */,
 				D041405C1BD5663700B3F525 /* UIViewControllerExtensions.swift in Sources */,
 				D0FBA6371BD9728D00D6D6B9 /* Global.swift in Sources */,
 				D058714D1BC916CB0011DBD6 /* SettingsView.swift in Sources */,
@@ -617,6 +621,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -661,6 +666,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -687,7 +693,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -708,7 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -718,7 +724,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.homebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f831e4ec-82a6-4dd1-9c1a-e418dbb92e93";
 				SWIFT_OBJC_BRIDGING_HEADER = Homebase/Global/BridgeHeader.h;
 			};
 			name = Release;

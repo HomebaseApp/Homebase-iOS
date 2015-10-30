@@ -10,11 +10,11 @@ import UIKit
 import ParseUI
 import Parse
 
-class ChatView: PFQueryTableViewController {
+class NewChatRoomView: PFQueryTableViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.parseClassName = "Chatroom"
+        self.parseClassName = "_User"
     }
     
     override func viewDidLoad() {
@@ -31,22 +31,12 @@ class ChatView: PFQueryTableViewController {
     // MARK: - Table view data source
     
     override func queryForTable() -> PFQuery {
-        let query = PFQuery(className: "Chatroom")
+        let query = HomebaseUser.query()
         
-        query.whereKey("users", equalTo: user()!)
+        query?.whereKey("homebase", equalTo: (user()?.homebase)!)
+        query?.whereKey("objectId", notEqualTo: (user()?.objectId)!)
         
-        return query
-    }
-    
-    override func objectsDidLoad(error: NSError?) {
-        super.objectsDidLoad(error)
-        
-        if objects?.count == 0 {
-            // make it look good
-        } else {
-            // back to normal
-        }
-        
+        return query!
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -59,10 +49,11 @@ class ChatView: PFQueryTableViewController {
         if section == 0{
             return (objects?.count)!
         } else {
+            // other recent contacts
             return 0
         }
     }
-    
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -78,7 +69,7 @@ class ChatView: PFQueryTableViewController {
             return cell
             
         } else {
-            //everyone else
+            // other recent contacts
             return UITableViewCell()
         }
         
