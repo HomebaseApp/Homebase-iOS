@@ -75,17 +75,12 @@ class LogInViewController: UIViewController {
     
     func loginParse(username: String, password: String){
         HomebaseUser.logInWithUsernameInBackground(username, password: password) {
-            (user: PFUser?, error: NSError?) -> Void in
+            (pfuser: PFUser?, error: NSError?) -> Void in
+            let user = pfuser as! HomebaseUser?
             if user != nil {
                 // Do stuff after successful login.
-                
-                // adds user information to installation for push notifications
-                let installation = PFInstallation.currentInstallation()
-                installation.setObject(user!, forKey: "user")
-                installation.saveInBackground()
-                
                 print("Logged in")
-                if user!["homebase"] != nil {
+                if user!.homebase != nil {
                     print("Homebase selected, going home")
                     self.performSegueWithIdentifier("goodLogin", sender: nil)
                 } else {

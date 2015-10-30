@@ -188,12 +188,21 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
             
             let newHomebase = (view.annotation as! HomebaseAnnotation).homebase
             
+
+            
             // add user to homebase
             newHomebase.users.addObject( HomebaseUser.currentUser()!)
             
             // add homebase to user
             HomebaseUser.currentUser()?.homebase = newHomebase
             HomebaseUser.currentUser()?.saveInBackground()
+            
+            // check if developer homebase, add to Dev Push Channel
+            let installation = PFInstallation.currentInstallation()
+            if newHomebase.objectId == "ICahNqgEYQ" {
+                installation.addObject("Developer", forKey: "channels")
+                installation.saveInBackground()
+            }
             
             //HomebaseUser.currentUser()?.relationForKey("homebase").addObject((view.annotation as! HomebaseAnnotation).homebase)
             self.performSegueWithIdentifier("finishSignup", sender: self)

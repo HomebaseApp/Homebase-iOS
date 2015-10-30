@@ -67,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if error == nil {
                     // user has selected homebase
+                                        
                     self.showViewController("mainpage")
                     print("User Logged In Successfully and has selected a Homebase")
                 } else {
