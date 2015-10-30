@@ -33,6 +33,7 @@
 		D06EF61F1BE1D7650048B2E3 /* BulletinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EF61E1BE1D7650048B2E3 /* BulletinCell.swift */; };
 		D0B9C3D91BDFE2940073B624 /* Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9C3D81BDFE2940073B624 /* Bulletin.swift */; };
 		D0B9C3DB1BE1A8C60073B624 /* RotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9C3DA1BE1A8C60073B624 /* RotationList.swift */; };
+		D0BA29AB1BE3684B00F2BFC6 /* FullLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA29AA1BE3684B00F2BFC6 /* FullLengthTextField.swift */; };
 		D0C908A71BDABFB5007F6C82 /* PFGeoPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C908A61BDABFB5007F6C82 /* PFGeoPointExtensions.swift */; };
 		D0C908AB1BDAC59F007F6C82 /* HomebaseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C908AA1BDAC59F007F6C82 /* HomebaseAnnotation.swift */; };
 		D0C908AD1BDB16C8007F6C82 /* Homebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C908AC1BDB16C8007F6C82 /* Homebase.swift */; };
@@ -103,6 +104,7 @@
 		D0ACD0E01BD8BDAA00F4410B /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgeHeader.h; path = Global/BridgeHeader.h; sourceTree = "<group>"; };
 		D0B9C3D81BDFE2940073B624 /* Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bulletin.swift; path = Global/Bulletin.swift; sourceTree = "<group>"; };
 		D0B9C3DA1BE1A8C60073B624 /* RotationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationList.swift; sourceTree = "<group>"; };
+		D0BA29AA1BE3684B00F2BFC6 /* FullLengthTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullLengthTextField.swift; path = UserAuth/FullLengthTextField.swift; sourceTree = "<group>"; };
 		D0C908A61BDABFB5007F6C82 /* PFGeoPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFGeoPointExtensions.swift; path = Global/PFGeoPointExtensions.swift; sourceTree = "<group>"; };
 		D0C908AA1BDAC59F007F6C82 /* HomebaseAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomebaseAnnotation.swift; path = UserAuth/HomebaseAnnotation.swift; sourceTree = "<group>"; };
 		D0C908AC1BDB16C8007F6C82 /* Homebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Homebase.swift; path = Global/Homebase.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				D04A5CF51BCA1447005C701A /* gatherInfoViewController.swift */,
 				D04A5CF31BCA141C005C701A /* homebaseSelectionViewController.swift */,
 				D0C908AA1BDAC59F007F6C82 /* HomebaseAnnotation.swift */,
+				D0BA29AA1BE3684B00F2BFC6 /* FullLengthTextField.swift */,
 				D058715A1BC937820011DBD6 /* KeychainWrapper */,
 			);
 			name = "User Authentication";
@@ -284,8 +287,8 @@
 		D09E6CB31BD5D02000B116F4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				D058714C1BC916CB0011DBD6 /* SettingsView.swift */,
 				D0FBA62A1BD8C1A300D6D6B9 /* Settings.storyboard */,
+				D058714C1BC916CB0011DBD6 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				D022C2B41BE1F08C005D4588 /* Comment.swift in Sources */,
 				D029B3871BC901EF0021DD5D /* BulletinBoardView.swift in Sources */,
 				D04A5CF61BCA1447005C701A /* gatherInfoViewController.swift in Sources */,
+				D0BA29AB1BE3684B00F2BFC6 /* FullLengthTextField.swift in Sources */,
 				D0C908AD1BDB16C8007F6C82 /* Homebase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

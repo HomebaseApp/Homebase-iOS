@@ -44,7 +44,7 @@ class SettingsView: UIViewController, UITextFieldDelegate {
     
     @IBAction func logOut(sender: AnyObject) {
         
-        //DELETE INFORMATION FROM SHARED DATA
+        PFUser.logOut()
         
         self.performSegueWithIdentifier("logOut", sender: nil)
         

@@ -31,10 +31,10 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var firstField: UITextField!
-    @IBOutlet weak var lastField: UITextField!
+    @IBOutlet weak var emailField: FullLengthTextField!
+    @IBOutlet weak var passwordField: FullLengthTextField!
+    @IBOutlet weak var firstField: FullLengthTextField!
+    @IBOutlet weak var lastField: FullLengthTextField!
     
     @IBAction func nextField(sender: AnyObject) { // handle text inputs
         if (sender.tag == 1){
@@ -111,6 +111,11 @@ class gatherInfoViewController: UIViewController, UIAlertViewDelegate {
             loadingIndicator.hidden = true
             joinButton.hidden = false
         }
+    }
+    
+    // background taps dismiss keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     /*

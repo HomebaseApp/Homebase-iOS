@@ -17,17 +17,20 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: FullLengthTextField!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var passwordField: FullLengthTextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     @IBAction func nextField(sender: AnyObject) {
         passwordField.becomeFirstResponder()
@@ -52,9 +55,12 @@ class LogInViewController: UIViewController {
         if showIndicator {
             loadingIndicator.hidden = false
             loginButton.hidden = true
+            signUpButton.hidden = true
+            
         } else {
             loadingIndicator.hidden = true
             loginButton.hidden = false
+            signUpButton.hidden == false
         }
     }
     

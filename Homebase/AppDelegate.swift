@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         } else {
             // Show the signup or login screen
-            showViewController("loginNavigator")
+            showViewController("LoginScreen")
             print("User is not logged in")
         }
     }

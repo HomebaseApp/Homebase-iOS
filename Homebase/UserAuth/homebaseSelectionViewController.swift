@@ -20,18 +20,25 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupLocationServices()
+        setupMapView()
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        setupMapView()
+        
+        setupLocationServices()
+        verifyAuthorized()
+
     }
 
     func setupLocationServices(){
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        while CLLocationManager.authorizationStatus() == .NotDetermined {}
+        
         self.locationManager.startUpdatingLocation()
         self.locationManager.startMonitoringSignificantLocationChanges()
     }
@@ -41,29 +48,34 @@ class homebaseSelectionViewController: UIViewController, CLLocationManagerDelega
         self.mapView.showsUserLocation = true
         self.mapView.showsCompass = true
         self.mapView.showsBuildings = true
-        
-        if CLLocationManager.locationServicesEnabled() {
+    }
     
+    func verifyAuthorized() -> Bool {
+        if CLLocationManager.locationServicesEnabled() {
+            
             switch(CLLocationManager.authorizationStatus()) {
-                case .NotDetermined:
-                    print("Requesting access")
-                    self.locationManager.requestWhenInUseAuthorization()
-                    setupMapView() //try again 
-                    return
-                case .Restricted, .Denied:
-                    print("No access")
-                    self.displayBasicAlert("Error", error: "Please turn on location services to choose or create a homebase", buttonText: "OK")
-                case .AuthorizedAlways, .AuthorizedWhenInUse:
-                    print("Access")
-                    setupLocationServices()
-                    
-                    if ((locationManager.location) != nil) {
-                        centerMapOnLocation(locationManager.location!, regionRadius: CLLocationDistance(100))
-                    }
-                    queryHomebasesInView()
+            case .NotDetermined:
+                print("Not yet authorized")
+                setupLocationServices()
+                return false
+            case .Restricted, .Denied:
+                print("No access")
+                self.displayBasicAlert("Error", error: "Please turn on location services to create a homebase", buttonText: "OK")
+                return false
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                print("Access")
+                setupLocationServices()
+                
+                if ((locationManager.location) != nil) {
+                    centerMapOnLocation(locationManager.location!, regionRadius: CLLocationDistance(100))
+                }
+                queryHomebasesInView()
+                return true
             }
         } else {
-            self.displayBasicAlert("Error", error: "Please turn on location services to choose or create a homebase", buttonText: "OK")        }
+            self.displayBasicAlert("Error", error: "Please turn on location services to create a homebase", buttonText: "OK")
+            return false
+        }
     }
     
     @IBAction func backToCurrentLocation(sender: AnyObject) {

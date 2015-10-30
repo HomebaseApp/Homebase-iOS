@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="228" y="-3547"/>
         </scene>
-        <!--LoginScreen-->
+        <!--loginNavigator-->
         <scene sceneID="kYj-C1-X2w">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoginScreen" storyboardName="Authentication" referencedIdentifier="LoginScreen" id="aLq-kz-hIp" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="LoginScreen" storyboardName="Authentication" referencedIdentifier="loginNavigator" id="aLq-kz-hIp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxT-3W-K8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="-3536"/>
@@ -121,14 +121,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRD-GG-gFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881.5" y="-3604"/>
-        </scene>
-        <!--loginNavigator-->
-        <scene sceneID="ZJp-I9-Y4v">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="loginNavigator" storyboardName="Authentication" referencedIdentifier="loginNavigator" id="iCI-95-CrQ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F4a-nu-hfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="861.5" y="-3680"/>
         </scene>
     </scenes>
     <resources>
