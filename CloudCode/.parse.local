@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "HomeBase": {
+      "applicationId": "gpJJ7dVxBELxs7tEQBKEYJe6yJIVcAYUGX6SwIy8"
+    },
+    "_default": {
+      "link": "HomeBase"
+    }
+  }
+}

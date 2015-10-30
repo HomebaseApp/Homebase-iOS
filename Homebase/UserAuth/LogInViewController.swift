@@ -60,7 +60,7 @@ class LogInViewController: UIViewController {
         } else {
             loadingIndicator.hidden = true
             loginButton.hidden = false
-            signUpButton.hidden == false
+            signUpButton.hidden = false
         }
     }
     
