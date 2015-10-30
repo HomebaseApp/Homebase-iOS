@@ -55,6 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let currentUser = user() {
             // Do stuff with the user
             
+            
+            // adds user information to installation for push notifications
+            let installation = PFInstallation.currentInstallation()
+            installation.setObject(user()!, forKey: "user")
+            installation.saveInBackground()
+            
             currentUser.homebase!.fetchIfNeededInBackgroundWithBlock({
                 // checks if homebase points to a valid object
                 (result, error) -> Void in

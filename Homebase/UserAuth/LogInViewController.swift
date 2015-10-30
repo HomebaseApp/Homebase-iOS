@@ -78,6 +78,12 @@ class LogInViewController: UIViewController {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+                
+                // adds user information to installation for push notifications
+                let installation = PFInstallation.currentInstallation()
+                installation.setObject(user!, forKey: "user")
+                installation.saveInBackground()
+                
                 print("Logged in")
                 if user!["homebase"] != nil {
                     print("Homebase selected, going home")
