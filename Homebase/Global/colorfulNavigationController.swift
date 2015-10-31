@@ -36,10 +36,10 @@ class colorfulNavigationController: UINavigationController {
             navigationBar.frame.width,
             navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
         
-        let mainColor = HexColor("5AD427")
+        colorTheme = HexColor("5AD427")
         let mainGradient = GradientColor(UIGradientStyle.TopToBottom, navBarRect, [UIColor(hexString: "A4E786"), UIColor(hexString: "5AD427")])
         
-        self.navigationBar.barTintColor = mainColor
+        self.navigationBar.barTintColor = colorTheme
         
         UIApplication.sharedApplication().statusBarFrame.minY
 
@@ -50,7 +50,7 @@ class colorfulNavigationController: UINavigationController {
         
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = ContrastColorOf(mainGradient, true)
-        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(0.05)
+        tabBarAppearance.barTintColor = colorTheme.lightenByPercentage(0.05)
         
     }
     
@@ -61,14 +61,14 @@ class colorfulNavigationController: UINavigationController {
             navigationBar.frame.width,
             navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
         
-        let mainColor = RandomFlatColorWithShade(.Light)
+        colorTheme = RandomFlatColorWithShade(.Light)
         let mainGradient = GradientColor(
             UIGradientStyle.TopToBottom,
             navBarRect,
-            [mainColor.darkenByPercentage(0.2), mainColor]
+            [colorTheme.darkenByPercentage(0.2), colorTheme]
         )
         
-        self.navigationBar.barTintColor = mainColor
+        self.navigationBar.barTintColor = colorTheme
         
         UIApplication.sharedApplication().statusBarFrame.minY
         
@@ -81,7 +81,7 @@ class colorfulNavigationController: UINavigationController {
         
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = UIColor(complementaryFlatColorOf: mainGradient).lightenByPercentage(0.2)
-        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(0.1)
+        tabBarAppearance.barTintColor = colorTheme.lightenByPercentage(0.1)
     }
     
     /*

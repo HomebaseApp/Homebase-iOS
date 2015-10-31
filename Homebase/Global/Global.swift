@@ -19,3 +19,5 @@ extension Homebase {
         return HomebaseUser.currentUser()
     }
 }
+
+var colorTheme = UIColor()

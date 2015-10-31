@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import ChameleonFramework
 
 class BulletinBoardView: PFQueryTableViewController, UITextViewDelegate {
     
@@ -77,6 +78,8 @@ class BulletinBoardView: PFQueryTableViewController, UITextViewDelegate {
         cell.postText.text = thisBulletin.text
         cell.postText.numberOfLines = 4
         cell.postText.sizeToFit()
+        
+        //cell.backgroundColor = colorTheme
         
         return cell
     }
