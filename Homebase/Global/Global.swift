@@ -20,4 +20,4 @@ extension Homebase {
     }
 }
 
-var colorTheme = UIColor()
+var mainThemeColor = UIColor(hexString: "8CC540")
