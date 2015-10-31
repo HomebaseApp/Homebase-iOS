@@ -19,3 +19,5 @@ extension Homebase {
         return HomebaseUser.currentUser()
     }
 }
+
+let mainThemeColor = UIColor(hexString: "8CC540")

@@ -19,7 +19,7 @@ class colorfulNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
         
-            }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,21 +36,17 @@ class colorfulNavigationController: UINavigationController {
             navigationBar.frame.width,
             navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
         
-        let mainColor = HexColor("5AD427")
+        
+        // 8CC540
         let mainGradient = GradientColor(UIGradientStyle.TopToBottom, navBarRect, [UIColor(hexString: "A4E786"), UIColor(hexString: "5AD427")])
         
-        self.navigationBar.barTintColor = mainColor
+        self.navigationBar.barTintColor = mainThemeColor
         
-        UIApplication.sharedApplication().statusBarFrame.minY
-
         navigationBar.tintColor = UIColor(complementaryFlatColorOf: mainGradient)//.lightenByPercentage(20.0)
         navigationBar.barTintColor = mainGradient
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainGradient, true)]
         // navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainColor, true), NSFontAttributeName: UIFont.systemFontOfSize(20.0)]
-        
-        let tabBarAppearance = UITabBar.appearance()
-        tabBarAppearance.tintColor = ContrastColorOf(mainGradient, true)
-        tabBarAppearance.barTintColor = mainColor.lightenByPercentage(0.05)
+
         
     }
     
