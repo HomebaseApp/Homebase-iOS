@@ -19,7 +19,7 @@ class colorfulNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
         
-            }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,8 +41,6 @@ class colorfulNavigationController: UINavigationController {
         
         self.navigationBar.barTintColor = colorTheme
         
-        UIApplication.sharedApplication().statusBarFrame.minY
-
         navigationBar.tintColor = UIColor(complementaryFlatColorOf: mainGradient)//.lightenByPercentage(20.0)
         navigationBar.barTintColor = mainGradient
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ContrastColorOf(mainGradient, true)]

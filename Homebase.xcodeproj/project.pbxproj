@@ -39,6 +39,7 @@
 		D0C908AD1BDB16C8007F6C82 /* Homebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C908AC1BDB16C8007F6C82 /* Homebase.swift */; };
 		D0C908AF1BDB1B3B007F6C82 /* HomebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C908AE1BDB1B3B007F6C82 /* HomebaseUser.swift */; };
 		D0C908B11BDD611A007F6C82 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C908B01BDD6119007F6C82 /* ChatView.swift */; };
+		D0D28E291BE4B0290036A0A6 /* colorfulTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D28E281BE4B0290036A0A6 /* colorfulTabBarController.swift */; };
 		D0EA01511BCF52AE00A40A9B /* BulletinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01501BCF52AE00A40A9B /* BulletinView.swift */; };
 		D0EA01541BCF531600A40A9B /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA01531BCF531600A40A9B /* CommentCell.swift */; };
 		D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F2EA911BD4D2ED00A96A32 /* HomeListsViewController.swift */; };
@@ -110,6 +111,8 @@
 		D0C908AC1BDB16C8007F6C82 /* Homebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Homebase.swift; path = Global/Homebase.swift; sourceTree = "<group>"; };
 		D0C908AE1BDB1B3B007F6C82 /* HomebaseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomebaseUser.swift; path = Global/HomebaseUser.swift; sourceTree = "<group>"; };
 		D0C908B01BDD6119007F6C82 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatView.swift; path = Chat/ChatView.swift; sourceTree = "<group>"; };
+		D0D28E281BE4B0290036A0A6 /* colorfulTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = colorfulTabBarController.swift; path = ../../../../../Justin/Cloud/Git/Homebase/Homebase/Global/colorfulTabBarController.swift; sourceTree = "<group>"; };
+		D0D28E2B1BE4CBB50036A0A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = ../../../../../Justin/Cloud/Git/Homebase/Homebase/Base.lproj/SplashViewController.swift; sourceTree = "<group>"; };
 		D0EA01501BCF52AE00A40A9B /* BulletinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BulletinView.swift; path = Posts/Comments/BulletinView.swift; sourceTree = "<group>"; };
 		D0EA01531BCF531600A40A9B /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentCell.swift; path = Posts/Comments/CommentCell.swift; sourceTree = "<group>"; };
 		D0F2EA911BD4D2ED00A96A32 /* HomeListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeListsViewController.swift; path = Homelists/HomeListsViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +227,7 @@
 				D003F94E1BCA7B9C005F7084 /* Chat */,
 				D09E6CB41BD5D0AA00B116F4 /* Calender */,
 				D043EE741BC8A3DF0058A855 /* LaunchScreen.storyboard */,
+				D0D28E2A1BE4CBB50036A0A6 /* SplashViewController.swift */,
 				D029B3841BC8F2A20021DD5D /* Assets.xcassets */,
 				D043EE771BC8A3DF0058A855 /* Info.plist */,
 			);
@@ -309,6 +313,7 @@
 				D0FBA6361BD9728D00D6D6B9 /* Global.swift */,
 				D041405B1BD5663700B3F525 /* UIViewControllerExtensions.swift */,
 				D02D08AC1BD6ED62008BDC3B /* colorfulNavigationController.swift */,
+				D0D28E281BE4B0290036A0A6 /* colorfulTabBarController.swift */,
 				D0C908A61BDABFB5007F6C82 /* PFGeoPointExtensions.swift */,
 			);
 			name = Global;
@@ -532,6 +537,7 @@
 				D0B9C3D91BDFE2940073B624 /* Bulletin.swift in Sources */,
 				D058715D1BC937820011DBD6 /* KeychainWrapper.m in Sources */,
 				D0F2EA921BD4D2ED00A96A32 /* HomeListsViewController.swift in Sources */,
+				D0D28E291BE4B0290036A0A6 /* colorfulTabBarController.swift in Sources */,
 				D069462B1BE337D100AEF4B0 /* NewChatRoomView.swift in Sources */,
 				D041405C1BD5663700B3F525 /* UIViewControllerExtensions.swift in Sources */,
 				D0FBA6371BD9728D00D6D6B9 /* Global.swift in Sources */,
@@ -603,6 +609,14 @@
 				D043EE751BC8A3DF0058A855 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D0D28E2A1BE4CBB50036A0A6 /* SplashViewController.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0D28E2B1BE4CBB50036A0A6 /* Base */,
+			);
+			name = SplashViewController.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
