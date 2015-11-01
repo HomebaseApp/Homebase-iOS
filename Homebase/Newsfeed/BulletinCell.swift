@@ -15,6 +15,7 @@ class BulletinCell: PFTableViewCell {
     @IBOutlet weak var nameButton: UIButton!
     
     @IBOutlet weak var postText: UILabel!
+    @IBOutlet weak var commentCount: UILabel!
 
     /*
     // Only override drawRect: if you perform custom drawing.

@@ -83,8 +83,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Post Text" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiG-gS-rcG">
-                                            <rect key="frame" x="15" y="38" width="384" height="112"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Post Text" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiG-gS-rcG">
+                                            <rect key="frame" x="15" y="38" width="384" height="95"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="0Dy-tE-BXY"/>
@@ -116,14 +116,24 @@
                                                 <segue destination="edo-AJ-O8v" kind="show" identifier="viewUser" id="Ced-PB-mrn"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abc-dO-Ez0">
+                                            <rect key="frame" x="15" y="141" width="225" height="18"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstItem="Abc-dO-Ez0" firstAttribute="top" secondItem="RiG-gS-rcG" secondAttribute="bottom" constant="4" id="0vi-jZ-WR3"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="RiG-gS-rcG" secondAttribute="trailing" constant="5" id="8VL-1z-B9K"/>
                                         <constraint firstItem="KW4-3i-HM5" firstAttribute="top" secondItem="EvM-sB-GE1" secondAttribute="topMargin" id="BQu-Fi-HYN"/>
                                         <constraint firstItem="KW4-3i-HM5" firstAttribute="top" secondItem="EvM-sB-GE1" secondAttribute="topMargin" id="PYg-AI-jsS"/>
                                         <constraint firstItem="KW4-3i-HM5" firstAttribute="top" secondItem="EvM-sB-GE1" secondAttribute="topMargin" id="UaE-7l-JZB"/>
+                                        <constraint firstItem="Abc-dO-Ez0" firstAttribute="leading" secondItem="EvM-sB-GE1" secondAttribute="leadingMargin" constant="7" id="UiL-0p-sOa"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RiG-gS-rcG" secondAttribute="bottom" constant="4" id="bHb-Vr-OXl"/>
+                                        <constraint firstItem="Abc-dO-Ez0" firstAttribute="bottom" secondItem="EvM-sB-GE1" secondAttribute="bottomMargin" id="cQU-3v-8XB"/>
                                         <constraint firstItem="RiG-gS-rcG" firstAttribute="leading" secondItem="EvM-sB-GE1" secondAttribute="leadingMargin" constant="17" id="eKw-wI-kW5"/>
                                         <constraint firstItem="RiG-gS-rcG" firstAttribute="bottom" secondItem="EvM-sB-GE1" secondAttribute="bottomMargin" id="fT3-Tz-7wn"/>
                                         <constraint firstItem="KW4-3i-HM5" firstAttribute="leading" secondItem="EvM-sB-GE1" secondAttribute="leadingMargin" constant="8" id="mSk-Ga-kDi"/>
@@ -151,6 +161,7 @@
                                 <color key="backgroundColor" red="0.97647058823529409" green="1" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="commentCount" destination="Abc-dO-Ez0" id="6Xl-lM-Bc0"/>
                                     <outlet property="nameButton" destination="KW4-3i-HM5" id="Q8k-Od-RC0"/>
                                     <outlet property="postText" destination="RiG-gS-rcG" id="GTu-xu-WVC"/>
                                     <segue destination="KKU-Mk-V1h" kind="show" identifier="bulletinDetail" id="tQd-B3-HBw"/>

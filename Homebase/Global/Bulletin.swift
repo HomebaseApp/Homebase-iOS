@@ -14,6 +14,7 @@ class Bulletin : PFObject, PFSubclassing {
     @NSManaged private(set) var user: HomebaseUser
     @NSManaged private(set) var text: String
     @NSManaged private(set) var userFullName: String
+    @NSManaged private(set) var commentCount: Int
     
 
     
@@ -28,7 +29,12 @@ class Bulletin : PFObject, PFSubclassing {
         self.homebase = self.user.homebase!
         self.userFullName = self.user.fullName
         self.text = text
+        self.commentCount = 0
         
+    }
+    
+    func addComment(){
+        commentCount++
     }
     
     static func parseClassName() -> String {

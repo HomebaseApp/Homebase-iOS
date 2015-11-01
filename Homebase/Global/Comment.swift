@@ -30,6 +30,7 @@ class Comment : PFObject, PFSubclassing {
         self.text = text
         self.bulletin = bulletin
         
+        self.bulletin.addComment()
     }
     
     static func parseClassName() -> String {

@@ -79,9 +79,23 @@ class BulletinBoardView: PFQueryTableViewController, UITextViewDelegate {
         cell.postText.numberOfLines = 4
         cell.postText.sizeToFit()
         
+        cell.commentCount.text = countCommentsForBulletin(thisBulletin)
+        cell.commentCount.sizeToFit()
+        
         //cell.backgroundColor = colorTheme
         
         return cell
+    }
+    
+    func countCommentsForBulletin(bulletin: Bulletin) -> String {
+        let count = bulletin.commentCount
+        if count == 0 {
+            return ""
+        } else if count == 1 {
+            return "\(count) Comment"
+        }else{
+            return "\(count) Comments"
+        }
     }
     
 
@@ -92,7 +106,13 @@ class BulletinBoardView: PFQueryTableViewController, UITextViewDelegate {
             let bulletins = objects as! [Bulletin]
             let thisBulletin = bulletins[indexPath.row]
             
-            return heightForCell(thisBulletin.text, font: UIFont.systemFontOfSize(17.0), width: self.tableView.bounds.width - 22) + 60
+            var height = heightForCell(thisBulletin.text, font: UIFont.systemFontOfSize(17.0), width: self.tableView.bounds.width - 22) + 60
+            
+            if thisBulletin.commentCount > 0 {
+                height = height + 15
+            }
+            
+            return height
         }
     }
     
