@@ -5,9 +5,6 @@ use_frameworks!
 
 target 'Homebase' do
     pod 'ChameleonFramework/Swift'
-    pod 'Parse'
-    pod 'ParseUI'
-    pod 'ParseFacebookUtilsV4'
 end
 
 target 'HomebaseTests' do
