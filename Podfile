@@ -5,6 +5,12 @@ use_frameworks!
 
 target 'Homebase' do
     pod 'ChameleonFramework/Swift'
+	pod 'Firebase/Core'
+	pod 'Firebase/Messaging'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Crash'
+	pod 'Firebase/Storage'
+
 end
 
 target 'HomebaseTests' do
