@@ -114,6 +114,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D06DD7251E68DE7900AFDDC1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D003BCA91D55DB1100C30D09 /* LoginViewController.swift */,
+				D0A5F68D1CED682500B4562C /* Main.storyboard */,
+				D0A5F6921CED682500B4562C /* LaunchScreen.storyboard */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D06DD7261E68DF0D00AFDDC1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D0A5F6871CED682500B4562C /* AppDelegate.swift */,
+				D0A5F6951CED682500B4562C /* Info.plist */,
+				D06C461B1D55D66700090B8B /* GoogleService-Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		D0A5F67B1CED682500B4562C = {
 			isa = PBXGroup;
 			children = (
@@ -139,13 +159,9 @@
 		D0A5F6861CED682500B4562C /* Homebase */ = {
 			isa = PBXGroup;
 			children = (
-				D0A5F6871CED682500B4562C /* AppDelegate.swift */,
-				D003BCA91D55DB1100C30D09 /* LoginViewController.swift */,
-				D0A5F68D1CED682500B4562C /* Main.storyboard */,
+				D06DD7261E68DF0D00AFDDC1 /* Application */,
+				D06DD7251E68DE7900AFDDC1 /* Controllers */,
 				D0A5F6901CED682500B4562C /* Assets.xcassets */,
-				D0A5F6921CED682500B4562C /* LaunchScreen.storyboard */,
-				D0A5F6951CED682500B4562C /* Info.plist */,
-				D06C461B1D55D66700090B8B /* GoogleService-Info.plist */,
 			);
 			path = Homebase;
 			sourceTree = "<group>";
