@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import DeviceKit
+import ChameleonFramework
 
 // swiftlint:disable line_length
 
@@ -14,10 +16,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+	var colorScheme = ColorSchemeOf(.analogous, color: HexColor("#3FAE53")!, isFlatScheme: false)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+		//Chameleon.setGlobalThemeUsingPrimaryColor(colorScheme[0], with: .light)
+		Chameleon.setGlobalThemeUsingPrimaryColor(colorScheme[0], withSecondaryColor: colorScheme[1], andContentStyle: .light)
+
         return true
     }
 
@@ -43,6 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+	func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+
+		let device = Device()
+
+		if device.isPad {
+			return .all
+		} else if device.isPhone || device.isPod {
+			return .allButUpsideDown
+		} else {
+			return .portrait
+		}
+	}
 
 }
-
