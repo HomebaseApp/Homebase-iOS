@@ -77,10 +77,10 @@ extension LoginViewController: UITextFieldDelegate {
 		if let keyboardRect = (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 			let keyboardMinY = keyboardRect.minY
 			let buttonMaxY = self.signInButton.convert(self.signInButton.frame, to: self.view).maxY
-			let padding:CGFloat = 8.0
+			let padding: CGFloat = 8.0
 			let diff = keyboardMinY - buttonMaxY
 
-			if (diff > 0) {
+			if diff > 0 {
 				self.backgroundScrollVIew.setContentOffset(CGPoint(x: 0, y: (diff+padding)), animated: true)
 			}
 

@@ -18,11 +18,14 @@ class User: CKRecordShell, CKRecordShellSync {
 	internal static var database: CKDatabase = CKContainer.default().publicCloudDatabase
 
 	override init?(record: CKRecord?) {
+		guard record?.recordType == "Users"  else {
+			return nil
+		}
 		super.init(record: record)
 	}
 
 	convenience init!() {
-		self.init(record: CKRecord(recordType: "User"))
+		self.init(record: CKRecord(recordType: "Users"))
 	}
 
 	public func save(complete: @escaping (CKRecord?, Error?) -> Void) {
@@ -108,12 +111,31 @@ class User: CKRecordShell, CKRecordShellSync {
 extension User { // Static fetch functions
 	static func fetch(withRecordID recordID: CKRecordID, completionHandler: @escaping (User?, Error?) -> Void) {
 		database.fetch(withRecordID: recordID) {(record, error) in
+
+			guard error == nil else {
+				completionHandler(User(record: record), error)
+				return
+			}
+
+			guard let record = record else {
+				completionHandler(nil, error)
+				return
+			}
+
+			print(record.recordType)
+
+			guard record.recordType == "Users" else {
+				completionHandler(nil, RecordError.recordTypeMismatch)
+				return
+			}
+
 			completionHandler(User(record: record), error)
+
 		}
 	}
 
 	static func query(predicate: NSPredicate, completionHandler: @escaping ([User]?, Error?) -> Void) {
-		let query = CKQuery(recordType: "User", predicate: predicate)
+		let query = CKQuery(recordType: "Users", predicate: predicate)
 		database.perform(query, inZoneWith: nil) { (records, error) in
 			if let records = records {
 				var users: [User] = []

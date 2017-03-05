@@ -13,6 +13,8 @@
 		D003BCAA1D55DB1100C30D09 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003BCA91D55DB1100C30D09 /* LoginViewController.swift */; };
 		D06724C91E6ABE4C00F88022 /* BaseJump.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06724C81E6ABE4C00F88022 /* BaseJump.storyboard */; };
 		D06C461C1D55D66700090B8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D06C461B1D55D66700090B8B /* GoogleService-Info.plist */; };
+		D08F2D411E6B818800BC293F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F2D401E6B818800BC293F /* StringExtension.swift */; };
+		D08F2D431E6B8B7700BC293F /* HomebaseSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F2D421E6B8B7600BC293F /* HomebaseSelectionViewController.swift */; };
 		D09B5F5F1E6A3562001DC288 /* CommentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B5F5E1E6A3562001DC288 /* CommentRecord.swift */; };
 		D09B5F611E6A3A0A001DC288 /* UserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B5F601E6A3A0A001DC288 /* UserRecord.swift */; };
 		D09B5F631E6A568A001DC288 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B5F621E6A568A001DC288 /* BeginViewController.swift */; };
@@ -26,6 +28,9 @@
 		D0A5F6941CED682500B4562C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A5F6921CED682500B4562C /* LaunchScreen.storyboard */; };
 		D0A5F69F1CED682500B4562C /* HomebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A5F69E1CED682500B4562C /* HomebaseTests.swift */; };
 		D0A5F6AA1CED682500B4562C /* HomebaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A5F6A91CED682500B4562C /* HomebaseUITests.swift */; };
+		D0E47F3D1E6BE5F100246DCB /* NewHomebaseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E47F3C1E6BE5F100246DCB /* NewHomebaseAnnotation.swift */; };
+		D0E47F431E6C332500246DCB /* NewHomebaseAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E47F421E6C332500246DCB /* NewHomebaseAnnotationView.swift */; };
+		D0E47F461E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E47F451E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift */; };
 		D0FA41A11E696864008923ED /* BackgroundScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA41A01E696864008923ED /* BackgroundScrollView.swift */; };
 		D0FA41A61E6983BA008923ED /* BaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA41A51E6983BA008923ED /* BaseRecord.swift */; };
 		D0FA41A81E69A49A008923ED /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA41A71E69A49A008923ED /* CloudKit.swift */; };
@@ -63,6 +68,8 @@
 		D06BFEDF1E69069300AD0921 /* CloudKit Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CloudKit Model.xcdatamodel"; sourceTree = "<group>"; };
 		D06BFEE01E69197900AD0921 /* HomeBase.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeBase.playground; sourceTree = "<group>"; };
 		D06C461B1D55D66700090B8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D08F2D401E6B818800BC293F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		D08F2D421E6B8B7600BC293F /* HomebaseSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomebaseSelectionViewController.swift; path = Homebase/Controllers/AccountSetup/HomebaseSelect/HomebaseSelectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		D09B5F5E1E6A3562001DC288 /* CommentRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRecord.swift; sourceTree = "<group>"; };
 		D09B5F601E6A3A0A001DC288 /* UserRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecord.swift; sourceTree = "<group>"; };
 		D09B5F621E6A568A001DC288 /* BeginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +90,9 @@
 		D0A5F6A51CED682500B4562C /* HomebaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomebaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A5F6A91CED682500B4562C /* HomebaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomebaseUITests.swift; sourceTree = "<group>"; };
 		D0A5F6AB1CED682500B4562C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0E47F3C1E6BE5F100246DCB /* NewHomebaseAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomebaseAnnotation.swift; sourceTree = "<group>"; };
+		D0E47F421E6C332500246DCB /* NewHomebaseAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomebaseAnnotationView.swift; sourceTree = "<group>"; };
+		D0E47F451E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 		D0FA41A01E696864008923ED /* BackgroundScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView.swift; sourceTree = "<group>"; };
 		D0FA41A51E6983BA008923ED /* BaseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRecord.swift; sourceTree = "<group>"; };
 		D0FA41A71E69A49A008923ED /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
@@ -178,6 +188,7 @@
 		D09B5F641E6A64C0001DC288 /* AccountSetup */ = {
 			isa = PBXGroup;
 			children = (
+				D0E47F3F1E6C303900246DCB /* HomebaseSelect */,
 				D09B5F651E6A64FD001DC288 /* AccountSetup.storyboard */,
 			);
 			path = AccountSetup;
@@ -236,6 +247,24 @@
 			path = HomebaseUITests;
 			sourceTree = "<group>";
 		};
+		D0E47F3F1E6C303900246DCB /* HomebaseSelect */ = {
+			isa = PBXGroup;
+			children = (
+				D0E47F441E6C336600246DCB /* Annotations */,
+				D08F2D421E6B8B7600BC293F /* HomebaseSelectionViewController.swift */,
+			);
+			path = HomebaseSelect;
+			sourceTree = "<group>";
+		};
+		D0E47F441E6C336600246DCB /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				D0E47F421E6C332500246DCB /* NewHomebaseAnnotationView.swift */,
+				D0E47F3C1E6BE5F100246DCB /* NewHomebaseAnnotation.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
 		D0FA419F1E6967E2008923ED /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +273,8 @@
 				D0FA41A71E69A49A008923ED /* CloudKit.swift */,
 				D09B5F691E6A7B59001DC288 /* CKAssetExtension.swift */,
 				D09B5F671E6A79C3001DC288 /* UIImageExtension.swift */,
+				D08F2D401E6B818800BC293F /* StringExtension.swift */,
+				D0E47F451E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -275,6 +306,7 @@
 			buildConfigurationList = D0A5F6AE1CED682500B4562C /* Build configuration list for PBXNativeTarget "Homebase" */;
 			buildPhases = (
 				5DE2CB237857EA0FF47874CC /* [CP] Check Pods Manifest.lock */,
+				D0E47F3E1E6C0BE900246DCB /* ShellScript */,
 				D09D828B1E68ECC80054F240 /* ShellScript */,
 				D0A5F6801CED682500B4562C /* Sources */,
 				D0A5F6811CED682500B4562C /* Frameworks */,
@@ -552,6 +584,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		D0E47F3E1E6C0BE900246DCB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -type f  -not -path \"*/Pods*\" -print0  | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -562,12 +607,17 @@
 				D0FA41A11E696864008923ED /* BackgroundScrollView.swift in Sources */,
 				D09B5F611E6A3A0A001DC288 /* UserRecord.swift in Sources */,
 				D09B5F5F1E6A3562001DC288 /* CommentRecord.swift in Sources */,
+				D0E47F461E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift in Sources */,
+				D08F2D431E6B8B7700BC293F /* HomebaseSelectionViewController.swift in Sources */,
+				D0E47F3D1E6BE5F100246DCB /* NewHomebaseAnnotation.swift in Sources */,
 				D09B5F681E6A79C3001DC288 /* UIImageExtension.swift in Sources */,
 				D09B5F6A1E6A7B59001DC288 /* CKAssetExtension.swift in Sources */,
 				D09B5F631E6A568A001DC288 /* BeginViewController.swift in Sources */,
 				D0FA41A61E6983BA008923ED /* BaseRecord.swift in Sources */,
 				D003BCAA1D55DB1100C30D09 /* LoginViewController.swift in Sources */,
+				D08F2D411E6B818800BC293F /* StringExtension.swift in Sources */,
 				D0A5F6881CED682500B4562C /* AppDelegate.swift in Sources */,
+				D0E47F431E6C332500246DCB /* NewHomebaseAnnotationView.swift in Sources */,
 				D0FA41AA1E69A515008923ED /* PostRecord.swift in Sources */,
 				D0FA41A81E69A49A008923ED /* CloudKit.swift in Sources */,
 			);

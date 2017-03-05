@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tY4-4l-hOJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--infoNav-->
+        <!--Navigation Controller-->
         <scene sceneID="bUM-Bm-Dvx">
             <objects>
-                <navigationController storyboardIdentifier="infoNav" title="infoNav" id="tY4-4l-hOJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="infoNav" id="tY4-4l-hOJ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wH2-qi-8ip">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="OnA-1L-Odb" kind="show" identifier="infoNav" id="dsi-20-h0j"/>
+                        <segue destination="OnA-1L-Odb" kind="relationship" relationship="rootViewController" id="QyM-3T-5Fc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euk-9g-Qr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1578" y="-149"/>
         </scene>
-        <!--UserInfo-->
+        <!--Homebase-->
         <scene sceneID="fgE-vr-kCd">
             <objects>
-                <viewController storyboardIdentifier="UserInfo" title="UserInfo" id="OnA-1L-Odb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomebasePick" title="Homebase" id="OnA-1L-Odb" customClass="HomebaseSelectionViewController" customModule="Homebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R9d-FJ-fln"/>
                         <viewControllerLayoutGuide type="bottom" id="6Dq-ye-njJ"/>
@@ -36,12 +37,65 @@
                     <view key="view" contentMode="scaleToFill" id="tzf-dH-5dG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8a-8z-rzD" customClass="MGLMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgz-D7-3dH">
+                                        <rect key="frame" x="325" y="553" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="6rt-HL-rs1"/>
+                                            <constraint firstAttribute="width" secondItem="jgz-D7-3dH" secondAttribute="height" id="Nar-oY-mqi"/>
+                                        </constraints>
+                                        <state key="normal" image="home"/>
+                                        <connections>
+                                            <action selector="newHomebase:" destination="OnA-1L-Odb" eventType="touchUpInside" id="hh9-pA-AYk"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Lgx-ES-w9M">
+                                        <rect key="frame" x="325" y="553" width="30" height="30"/>
+                                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19115509089999999" green="0.63786703349999996" blue="0.26147949700000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jgz-D7-3dH" secondAttribute="bottom" constant="20" id="Xsv-kF-YHc"/>
+                                    <constraint firstItem="jgz-D7-3dH" firstAttribute="bottom" secondItem="Lgx-ES-w9M" secondAttribute="bottom" id="alY-vR-7NE"/>
+                                    <constraint firstItem="jgz-D7-3dH" firstAttribute="top" secondItem="Lgx-ES-w9M" secondAttribute="top" id="cRe-X9-LAU"/>
+                                    <constraint firstItem="jgz-D7-3dH" firstAttribute="leading" secondItem="Lgx-ES-w9M" secondAttribute="leading" id="e6W-Md-3uB"/>
+                                    <constraint firstAttribute="trailing" secondItem="jgz-D7-3dH" secondAttribute="trailing" constant="20" id="kzV-15-ELD"/>
+                                    <constraint firstItem="jgz-D7-3dH" firstAttribute="trailing" secondItem="Lgx-ES-w9M" secondAttribute="trailing" id="rZn-fg-Y4h"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsZooming" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsScrolling" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsRotating" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsTilting" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E8a-8z-rzD" firstAttribute="top" secondItem="R9d-FJ-fln" secondAttribute="bottom" id="EEs-Sq-FPp"/>
+                            <constraint firstItem="E8a-8z-rzD" firstAttribute="leading" secondItem="tzf-dH-5dG" secondAttribute="leading" id="TSk-kP-59A"/>
+                            <constraint firstAttribute="trailing" secondItem="E8a-8z-rzD" secondAttribute="trailing" id="pgJ-Gf-FLj"/>
+                            <constraint firstItem="6Dq-ye-njJ" firstAttribute="top" secondItem="E8a-8z-rzD" secondAttribute="bottom" id="zar-cF-07h"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Homebase" id="0IY-4L-6k5"/>
+                    <connections>
+                        <outlet property="map" destination="E8a-8z-rzD" id="7b3-d2-S8f"/>
+                        <outlet property="newHomebaseActivityIndicator" destination="Lgx-ES-w9M" id="uaZ-sS-axb"/>
+                        <outlet property="newHomebaseButton" destination="jgz-D7-3dH" id="P1x-mT-Ja9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ML3-BD-KZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="-148"/>
+            <point key="canvasLocation" x="-743.20000000000005" y="-148.87556221889056"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="24" height="24"/>
+    </resources>
 </document>

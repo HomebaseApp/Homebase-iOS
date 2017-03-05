@@ -9,13 +9,7 @@
 import UIKit
 import CloudKit
 import ChameleonFramework
-
-enum BeginButtonTask {
-	case begin
-	case retry
-	case settingsCloud
-	case settingsRestrictions
-}
+import CDAlertView
 
 class BeginViewController: UIViewController {
 	override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return .portrait }
@@ -23,6 +17,9 @@ class BeginViewController: UIViewController {
 	@IBOutlet weak var beginButton: UIButton!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var logo: UIImageView!
+	@IBOutlet weak var userInputView: UIView!
+	@IBOutlet weak var usernameField: UITextField!
+	@IBOutlet weak var welcomeLabel: UILabel!
 
 	var user: User?
 	var timer = Timer()
@@ -43,7 +40,12 @@ class BeginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+	// MARK: - iCloud Checks & Fetches
+
+	//checks the returned account status and takes actions dependant on response	
 	func checkAccountStatus(accountStatus: CKAccountStatus, error: Error?) {
+		// swiftlint:disable:previous function_body_length
+
 		switch accountStatus {
 		case .available:
 			print("iCloud Available")
@@ -61,6 +63,7 @@ class BeginViewController: UIViewController {
 			}, cancel: nil)
 
 			DispatchQueue.main.async {
+				// set timer to check for updated permissions, if changed restart initiation
 				self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
 					CKContainer.default().accountStatus(completionHandler: { (status, error) in
 
@@ -82,6 +85,7 @@ class BeginViewController: UIViewController {
 			buttonConfig(task: .settingsRestrictions)
 
 			DispatchQueue.main.async {
+				// set timer to check for updated permissions, if changed restart initiation
 				self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
 					CKContainer.default().accountStatus(completionHandler: { (status, error) in
 
@@ -139,6 +143,7 @@ class BeginViewController: UIViewController {
 			return
 		}
 
+		// retreive user record
 		User.fetch(withRecordID: recordID!) { (user, error) in
 
 			guard error == nil else {
@@ -178,27 +183,40 @@ class BeginViewController: UIViewController {
 		}
 	}
 
-	func displayAlert(titled title: String?, message: String?, actionTitle: String,
-	                  action: ((UIAlertAction) -> Void)? = nil,
-	                  cancel: ((UIAlertAction) -> Void)? = nil) {
+	// MARK: - User Interface
 
-		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: action))
-		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: cancel))
+	func displayAlert(titled title: String?, message: String?, actionTitle: String,
+	                  action: ((CDAlertViewAction) -> Void)? = nil,
+	                  cancel: ((CDAlertViewAction) -> Void)? = nil) {
+
+		let alert = CDAlertView(title: title, message: message, type: .error)
+		alert.add(action: CDAlertViewAction(title: actionTitle, handler: action))
+		alert.add(action: CDAlertViewAction(title: "Cancel", handler: cancel))
 
 		DispatchQueue.main.async {
-			self.present(alert, animated: true, completion: nil)
+			alert.show()
 		}
+	}
+
+	enum BeginButtonTask {
+		case begin
+		case retry
+		case settingsCloud
+		case settingsRestrictions
 	}
 
 	func buttonConfig(task: BeginButtonTask?) {
 		DispatchQueue.main.async {
 			switch task {
 			case .begin?:
-				self.beginButton.isHidden = false
+				if let username = self.user?.username {
+					self.usernameField.text = username
+					self.welcomeLabel.text = "Welcome back"
+				}
+				self.beginButton.isHidden = true
 				self.activityIndicator.stopAnimating()
-				self.beginButton.setTitle("Begin", for: .normal)
-				self.beginButton.restorationIdentifier = "begin"
+				self.userInputView.isHidden = false
+				self.usernameField.becomeFirstResponder()
 			case .retry?:
 				self.beginButton.isHidden = false
 				self.activityIndicator.stopAnimating()
@@ -221,10 +239,10 @@ class BeginViewController: UIViewController {
 		}
 	}
 
+	// MARK: - User Actions
+
 	@IBAction func buttonPressed(_ sender: UIButton) {
 		switch sender.restorationIdentifier {
-		case "begin"?:
-			self.performSegue(withIdentifier: "userInfo", sender: self.user)
 		case "icloud"?:
 			UIApplication.shared.open(URL(string: "App-Prefs:root=CASTLE")!)
 		case "restrictions"?:
@@ -235,6 +253,35 @@ class BeginViewController: UIViewController {
 		default:
 			return
 		}
+	}
+
+	@IBAction func donePressed(_ sender: UITextField) {
+		guard sender.text!.length >= 5  else {
+			self.usernameField.shake()
+			CDAlertView(title: "Too Short", message: "Username must be at least 5 characters", type: .warning).show({ (_) in
+				self.usernameField.becomeFirstResponder()
+			})
+			return
+		}
+
+		guard let user = user else {
+			print("User record does not exist")
+			return
+		}
+
+		user.username = sender.text!
+
+		user.save { (record, error) in
+			guard error == nil else {
+				print("Failed to save username to record with error: \(error.debugDescription)")
+				return
+			}
+
+			print("Saved username to record \(record!.recordID)")
+			return
+		}
+
+		self.performSegue(withIdentifier: "userInfo", sender: user)
 	}
 
     /*

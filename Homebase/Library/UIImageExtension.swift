@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 extension UIImage {
-	convenience init?(from asset:CKAsset) {
+	convenience init?(from asset: CKAsset) {
 		guard let imageData = try? Data(contentsOf: asset.fileURL) else { return nil }
 
 		self.init(data: imageData)

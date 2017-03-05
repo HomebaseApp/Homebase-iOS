@@ -5,6 +5,7 @@ PODS:
     - ChameleonFramework/Default
   - DeviceKit (1.0.1)
   - Mapbox-iOS-SDK (3.4.2)
+  - MapboxGeocoder.swift (0.6.0)
   - PermissionScope (1.1.1)
   - UITextField+Shake (1.1.2)
   - VersionTrackerSwift (1.1.0)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - DeviceKit (~> 1.0)
   - Mapbox-iOS-SDK (~> 3.4)
+  - MapboxGeocoder.swift (~> 0.6)
   - PermissionScope
   - UITextField+Shake (~> 1.1)
   - VersionTrackerSwift
@@ -32,10 +34,11 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DeviceKit: 461e525867e48e725f41699c1cab3100df1258ff
   Mapbox-iOS-SDK: d2c567fee32d316044ec925c8bcfb74a92d57ec9
+  MapboxGeocoder.swift: dd6783c5262b4ebb1cf5f2662b56cea94a90f67d
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   UITextField+Shake: 47cc0429dafb3da580686339ad2da091249a8ea2
   VersionTrackerSwift: 7f08827b631584ecbda53361b6ab3f9587fac5ab
 
-PODFILE CHECKSUM: 4504e7cb33eb04f81443c3183ff704f1aa9cbc6e
+PODFILE CHECKSUM: 95df61e7320f15edc86a7e87af014d954f996093
 
 COCOAPODS: 1.0.1

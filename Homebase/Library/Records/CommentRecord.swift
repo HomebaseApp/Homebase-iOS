@@ -12,6 +12,9 @@ class Comment: CKRecordShell, CKRecordShellSync {
 	internal static var database: CKDatabase = CKContainer.default().publicCloudDatabase
 
 	override init?(record: CKRecord?) {
+		guard record?.recordType == "Comment"  else {
+			return nil
+		}
 		super.init(record: record)
 	}
 
@@ -102,8 +105,22 @@ class Comment: CKRecordShell, CKRecordShellSync {
 extension Comment { // Static fetch functions
 	static func fetch(withRecordID recordID: CKRecordID, completionHandler: @escaping (Comment?, Error?) -> Void) {
 		database.fetch(withRecordID: recordID) {(record, error) in
-			completionHandler(Comment(record: record), error)
-		}
+			guard error == nil else {
+				completionHandler(Comment(record: record), error)
+				return
+			}
+
+			guard let record = record else {
+				completionHandler(nil, error)
+				return
+			}
+
+			guard record.recordType == "Comment" else {
+				completionHandler(nil, RecordError.recordTypeMismatch)
+				return
+			}
+
+			completionHandler(Comment(record: record), error)		}
 	}
 
 	static func query(predicate: NSPredicate, completionHandler: @escaping ([Comment]?, Error?) -> Void) {

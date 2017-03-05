@@ -13,6 +13,9 @@ class Post: CKRecordShell, CKRecordShellSync {
 	internal static var database: CKDatabase = CKContainer.default().publicCloudDatabase
 
 	override init?(record: CKRecord?) {
+		guard record?.recordType == "Post"  else {
+			return nil
+		}
 		super.init(record: record)
 	}
 
@@ -127,6 +130,22 @@ class Post: CKRecordShell, CKRecordShellSync {
 extension Post { // Static fetch functions
 	static func fetch(withRecordID recordID: CKRecordID, completionHandler: @escaping (Post?, Error?) -> Void) {
 		database.fetch(withRecordID: recordID) {(record, error) in
+
+			guard error == nil else {
+				completionHandler(Post(record: record), error)
+				return
+			}
+
+			guard let record = record else {
+				completionHandler(nil, error)
+				return
+			}
+
+			guard record.recordType == "Post" else {
+				completionHandler(nil, RecordError.recordTypeMismatch)
+				return
+			}
+
 			completionHandler(Post(record: record), error)
 		}
 	}

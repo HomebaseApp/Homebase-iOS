@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Homebase' do
     pod 'Mapbox-iOS-SDK', '~> 3.4'
+	pod 'MapboxGeocoder.swift', '~> 0.6'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'PermissionScope'
     pod 'VersionTrackerSwift'

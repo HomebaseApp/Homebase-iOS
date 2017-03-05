@@ -55,5 +55,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoianVpY2U4MDUiLCJhIjoiY2l6dndpOTh0MDFnNzJ3bmhqcGw4cmc0OCJ9.KDaMRVaEPUS0FIIVP4cgtA</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to find nearby Homebases</string>
+	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
+	<string>YES</string>
 </dict>
 </plist>

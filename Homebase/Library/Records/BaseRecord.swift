@@ -12,6 +12,9 @@ import UIKit
 class Base: CKRecordShell, CKRecordShellSync {
 
 	override init?(record: CKRecord?) {
+		guard record?.recordType == "Base"  else {
+			return nil
+		}
 		super.init(record: record)
 	}
 
@@ -95,8 +98,22 @@ class Base: CKRecordShell, CKRecordShellSync {
 extension Base { // Static fetch functions
 	static func fetch(withRecordID recordID: CKRecordID, completionHandler: @escaping (Base?, Error?) -> Void) {
 		database.fetch(withRecordID: recordID) {(record, error) in
-			completionHandler(Base(record: record), error)
-		}
+			guard error == nil else {
+				completionHandler(Base(record: record), error)
+				return
+			}
+
+			guard let record = record else {
+				completionHandler(nil, error)
+				return
+			}
+
+			guard record.recordType == "Base" else {
+				completionHandler(nil, RecordError.recordTypeMismatch)
+				return
+			}
+
+			completionHandler(Base(record: record), error)		}
 	}
 
 	static func query(predicate: NSPredicate, completionHandler: @escaping ([Base]?, Error?) -> Void) {

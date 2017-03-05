@@ -14,19 +14,20 @@ enum CloudStatusError: Error {
 	case undetermined(error:Error)
 }
 
+enum RecordError: Error {
+	case recordTypeMismatch
+}
+
 class CKRecordShell {
 	public let record: CKRecord
 
 	public var created: Date? {
-		get {
-			return record.creationDate
-		}
+		return record.creationDate
 	}
 
+	// swiftlint:disable:next variable_name
 	public var id: CKRecordID {
-		get {
 			return record.recordID
-		}
 	}
 
 	init?(record: CKRecord?) {
