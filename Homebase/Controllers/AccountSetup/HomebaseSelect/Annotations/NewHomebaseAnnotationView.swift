@@ -16,7 +16,7 @@ class NewHomebaseAnnotationView: MGLAnnotationView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
-		self.imageView.image = #imageLiteral(resourceName: "Splash Icon")
+		self.imageView.image = #imageLiteral(resourceName: "Map New Annotation")
 		self.imageView.frame = self.bounds
 		self.imageView.contentMode = .scaleAspectFit
 		self.addSubview(self.imageView)

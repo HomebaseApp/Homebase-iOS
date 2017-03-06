@@ -16,7 +16,7 @@ import ChameleonFramework
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-	var colorScheme = ColorSchemeOf(.analogous, color: HexColor("#3FAE53")!, isFlatScheme: false)
+	var colorScheme = ColorSchemeOf(.analogous, color: HexColor("#8EC44A")!, isFlatScheme: false)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

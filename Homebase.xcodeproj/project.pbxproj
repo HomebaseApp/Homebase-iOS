@@ -65,7 +65,6 @@
 		AFA252AE8CBD3DE9CEF7CB2A /* Pods_HomebaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomebaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D003BCA91D55DB1100C30D09 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D06724C81E6ABE4C00F88022 /* BaseJump.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BaseJump.storyboard; sourceTree = "<group>"; };
-		D06BFEDF1E69069300AD0921 /* CloudKit Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CloudKit Model.xcdatamodel"; sourceTree = "<group>"; };
 		D06BFEE01E69197900AD0921 /* HomeBase.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeBase.playground; sourceTree = "<group>"; };
 		D06C461B1D55D66700090B8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08F2D401E6B818800BC293F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -198,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				D06BFEE01E69197900AD0921 /* HomeBase.playground */,
-				D06BFEDE1E69069300AD0921 /* CloudKit Model.xcdatamodeld */,
 				D0A5F6861CED682500B4562C /* Homebase */,
 				D0A5F69D1CED682500B4562C /* HomebaseTests */,
 				D0A5F6A81CED682500B4562C /* HomebaseUITests */,
@@ -898,19 +896,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D06BFEDE1E69069300AD0921 /* CloudKit Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D06BFEDF1E69069300AD0921 /* CloudKit Model.xcdatamodel */,
-			);
-			currentVersion = D06BFEDF1E69069300AD0921 /* CloudKit Model.xcdatamodel */;
-			path = "CloudKit Model.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D0A5F67C1CED682500B4562C /* Project object */;
 }
