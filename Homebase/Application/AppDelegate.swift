@@ -18,7 +18,6 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-	var colorScheme = ColorSchemeOf(.analogous, color: HexColor("#8EC44A")!, isFlatScheme: false)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
 		GIDSignIn.sharedInstance().delegate = self
-
-		//Chameleon.setGlobalThemeUsingPrimaryColor(colorScheme[0], with: .light)
-		Chameleon.setGlobalThemeUsingPrimaryColor(colorScheme[0], withSecondaryColor: colorScheme[1], andContentStyle: .light)
 
         return true
     }
@@ -83,16 +79,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Google Sign in
 extension AppDelegate: GIDSignInDelegate {
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-  // ...
-  if let error = error {
-	// ...
-	return
-  }
+		// ...
+		if let error = error {
+			// ...
+			return
+		}
 
-  guard let authentication = user.authentication else { return }
-  let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
+		guard let authentication = user.authentication else { return }
+		let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                     accessToken: authentication.accessToken)
-  // ...
+			// ...
 	}
 
 	func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,

@@ -20,7 +20,6 @@
 		D09B5F661E6A64FD001DC288 /* AccountSetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09B5F651E6A64FD001DC288 /* AccountSetup.storyboard */; };
 		D09B5F681E6A79C3001DC288 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B5F671E6A79C3001DC288 /* UIImageExtension.swift */; };
 		D09B5F6A1E6A7B59001DC288 /* CKAssetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B5F691E6A7B59001DC288 /* CKAssetExtension.swift */; };
-		D09D82921E6902640054F240 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D82911E6902640054F240 /* CloudKit.framework */; };
 		D0A5F6881CED682500B4562C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A5F6871CED682500B4562C /* AppDelegate.swift */; };
 		D0A5F68F1CED682500B4562C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A5F68D1CED682500B4562C /* Main.storyboard */; };
 		D0A5F6911CED682500B4562C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A5F6901CED682500B4562C /* Assets.xcassets */; };
@@ -76,7 +75,6 @@
 		D09B5F671E6A79C3001DC288 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		D09B5F691E6A7B59001DC288 /* CKAssetExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAssetExtension.swift; sourceTree = "<group>"; };
 		D09D828E1E69015A0054F240 /* Homebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Homebase.entitlements; path = ../Homebase.entitlements; sourceTree = "<group>"; };
-		D09D82911E6902640054F240 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D0A5F6841CED682500B4562C /* Homebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A5F6871CED682500B4562C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A5F68E1CED682500B4562C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,7 +90,7 @@
 		D0E47F3C1E6BE5F100246DCB /* NewHomebaseAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomebaseAnnotation.swift; sourceTree = "<group>"; };
 		D0E47F421E6C332500246DCB /* NewHomebaseAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomebaseAnnotationView.swift; sourceTree = "<group>"; };
 		D0E47F451E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
-		D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Application/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0EA5FCD1E6D68E200BFCE37 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		D0FA41A01E696864008923ED /* BackgroundScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView.swift; sourceTree = "<group>"; };
 		D0FA41A51E6983BA008923ED /* BaseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRecord.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72704752707D976076A0A82F /* Pods_Homebase.framework in Frameworks */,
-				D09D82921E6902640054F240 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +130,6 @@
 		6883DDF179E9C8A6CD88C341 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D09D82911E6902640054F240 /* CloudKit.framework */,
 				ED8EF9DB5416880975AB8BE0 /* Pods_Homebase.framework */,
 				AFA252AE8CBD3DE9CEF7CB2A /* Pods_HomebaseTests.framework */,
 				4EF669B7D91EBD16B8712F5B /* Pods_HomebaseUITests.framework */,
@@ -180,6 +176,7 @@
 			children = (
 				D09D828E1E69015A0054F240 /* Homebase.entitlements */,
 				D0A5F6871CED682500B4562C /* AppDelegate.swift */,
+				D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */,
 				D0A5F6951CED682500B4562C /* Info.plist */,
 			);
 			path = Application;
@@ -224,7 +221,6 @@
 				D06DD7251E68DE7900AFDDC1 /* Controllers */,
 				D0FA41A21E696C9B008923ED /* Resources */,
 				D06DD7261E68DF0D00AFDDC1 /* Application */,
-				D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */,
 			);
 			path = Homebase;
 			sourceTree = "<group>";
@@ -385,7 +381,7 @@
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};

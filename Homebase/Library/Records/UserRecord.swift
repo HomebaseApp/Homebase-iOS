@@ -16,15 +16,15 @@ enum UserRecordError: Error {
 }
 
 class User: FirebaseRecord {
-	internal static var database: CKDatabase = CKContainer.default().publicCloudDatabase
 
-	private let ref: FIRDatabaseReference!
+	internal let ref: FIRDatabaseReference!
 	private var observerHandle: UInt = 0
 	private var snapshot: [String: AnyObject]?
 	private var dataInitialized = false
 
-	init(uid: String, loadComplete: @escaping (_ user: FirebaseRecord) -> Void) {
+	init(uid: String, loadComplete: @escaping (_ user: User) -> Void) {
 		ref = User.root.child("Users").child(uid)
+
 		super.init()
 
 		observerHandle = ref.observe(.childChanged, with: { (snapshot) in
@@ -49,5 +49,4 @@ class User: FirebaseRecord {
 			ref.setValue(["username": newValue])
 		}
 	}
-
 }

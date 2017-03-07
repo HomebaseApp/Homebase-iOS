@@ -68,6 +68,6 @@ fastlane/screenshots
 fastlane/test_output
 
 
-CloudKit Model.xcdatamodeld/
+CloudKit Model.xcdatamodeld
 
 HomeBase.playground
