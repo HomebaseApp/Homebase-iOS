@@ -71,6 +71,8 @@ PODS:
   - FirebaseStorage (1.1.0):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
+  - GeoFire (2.0.0):
+    - Firebase/Database (~> 3.2)
   - GoogleAPIClientForREST (1.2.0):
     - GoogleAPIClientForREST/Core (= 1.2.0)
     - GTMSessionFetcher (>= 1.1.7)
@@ -128,6 +130,7 @@ DEPENDENCIES:
   - Firebase/Invites
   - Firebase/Messaging
   - Firebase/Storage
+  - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
   - Mapbox-iOS-SDK (~> 3.4)
   - MapboxGeocoder.swift (~> 0.6)
   - PermissionScope
@@ -137,11 +140,16 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
+  GeoFire:
+    :git: https://github.com/firebase/geofire-objc.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
     :git: https://github.com/ViccAlexander/Chameleon.git
+  GeoFire:
+    :commit: dbb8d193f5ee1371837800d0502bd29cba779da4
+    :git: https://github.com/firebase/geofire-objc.git
 
 SPEC CHECKSUMS:
   CDAlertView: e6f365fa0fac7349197e7ea4bd7810c069215cf4
@@ -158,6 +166,7 @@ SPEC CHECKSUMS:
   FirebaseInvites: d50fe8a5ddfa0770ad80f003fdf66b7b0508a6a7
   FirebaseMessaging: df8267f378580a24174ce7861233aa11d5c90109
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
+  GeoFire: ef73103b88eb026c27212c40ea16757d6ad362ea
   GoogleAPIClientForREST: 9e5fd600a06c38abf92b5db337c5df2cfb95ee12
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
@@ -170,6 +179,6 @@ SPEC CHECKSUMS:
   UITextField+Shake: 47cc0429dafb3da580686339ad2da091249a8ea2
   VersionTrackerSwift: 7f08827b631584ecbda53361b6ab3f9587fac5ab
 
-PODFILE CHECKSUM: 60d9f2fdfdbb4ba1223b07ef70398b866595e889
+PODFILE CHECKSUM: 9f2b525ee660f647abed8c2ff2dcdd26da441eb2
 
 COCOAPODS: 1.0.1

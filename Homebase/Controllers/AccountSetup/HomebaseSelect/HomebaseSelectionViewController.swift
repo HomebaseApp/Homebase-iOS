@@ -10,6 +10,7 @@ import UIKit
 import Mapbox
 import PermissionScope
 import MapboxGeocoder
+import GeoFire
 
 class HomebaseSelectionViewController: UIViewController {
 
