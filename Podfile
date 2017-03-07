@@ -12,6 +12,14 @@ target 'Homebase' do
     pod 'UITextField+Shake', '~> 1.1'
 	pod 'DeviceKit', '~> 1.0'
 	pod 'CDAlertView'
+	pod 'Firebase/Core'
+	pod 'Firebase/Database'
+	pod 'Firebase/Messaging'
+	pod 'Firebase/Crash'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Storage'
+	pod 'Firebase/Invites'
+	pod 'Firebase/DynamicLinks'
 end
 
 target 'HomebaseTests' do

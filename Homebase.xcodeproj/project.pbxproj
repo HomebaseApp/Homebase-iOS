@@ -12,7 +12,6 @@
 		72704752707D976076A0A82F /* Pods_Homebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8EF9DB5416880975AB8BE0 /* Pods_Homebase.framework */; };
 		D003BCAA1D55DB1100C30D09 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003BCA91D55DB1100C30D09 /* LoginViewController.swift */; };
 		D06724C91E6ABE4C00F88022 /* BaseJump.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06724C81E6ABE4C00F88022 /* BaseJump.storyboard */; };
-		D06C461C1D55D66700090B8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D06C461B1D55D66700090B8B /* GoogleService-Info.plist */; };
 		D08F2D411E6B818800BC293F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F2D401E6B818800BC293F /* StringExtension.swift */; };
 		D08F2D431E6B8B7700BC293F /* HomebaseSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F2D421E6B8B7600BC293F /* HomebaseSelectionViewController.swift */; };
 		D09B5F5F1E6A3562001DC288 /* CommentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B5F5E1E6A3562001DC288 /* CommentRecord.swift */; };
@@ -31,6 +30,8 @@
 		D0E47F3D1E6BE5F100246DCB /* NewHomebaseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E47F3C1E6BE5F100246DCB /* NewHomebaseAnnotation.swift */; };
 		D0E47F431E6C332500246DCB /* NewHomebaseAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E47F421E6C332500246DCB /* NewHomebaseAnnotationView.swift */; };
 		D0E47F461E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E47F451E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift */; };
+		D0EA5FCC1E6D5B5F00BFCE37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */; };
+		D0EA5FCE1E6D68E200BFCE37 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA5FCD1E6D68E200BFCE37 /* Firebase.swift */; };
 		D0FA41A11E696864008923ED /* BackgroundScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA41A01E696864008923ED /* BackgroundScrollView.swift */; };
 		D0FA41A61E6983BA008923ED /* BaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA41A51E6983BA008923ED /* BaseRecord.swift */; };
 		D0FA41A81E69A49A008923ED /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA41A71E69A49A008923ED /* CloudKit.swift */; };
@@ -66,7 +67,6 @@
 		D003BCA91D55DB1100C30D09 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D06724C81E6ABE4C00F88022 /* BaseJump.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BaseJump.storyboard; sourceTree = "<group>"; };
 		D06BFEE01E69197900AD0921 /* HomeBase.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HomeBase.playground; sourceTree = "<group>"; };
-		D06C461B1D55D66700090B8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08F2D401E6B818800BC293F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D08F2D421E6B8B7600BC293F /* HomebaseSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomebaseSelectionViewController.swift; path = Homebase/Controllers/AccountSetup/HomebaseSelect/HomebaseSelectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		D09B5F5E1E6A3562001DC288 /* CommentRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRecord.swift; sourceTree = "<group>"; };
@@ -92,6 +92,8 @@
 		D0E47F3C1E6BE5F100246DCB /* NewHomebaseAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomebaseAnnotation.swift; sourceTree = "<group>"; };
 		D0E47F421E6C332500246DCB /* NewHomebaseAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomebaseAnnotationView.swift; sourceTree = "<group>"; };
 		D0E47F451E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Application/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0EA5FCD1E6D68E200BFCE37 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		D0FA41A01E696864008923ED /* BackgroundScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView.swift; sourceTree = "<group>"; };
 		D0FA41A51E6983BA008923ED /* BaseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRecord.swift; sourceTree = "<group>"; };
 		D0FA41A71E69A49A008923ED /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
@@ -179,7 +181,6 @@
 				D09D828E1E69015A0054F240 /* Homebase.entitlements */,
 				D0A5F6871CED682500B4562C /* AppDelegate.swift */,
 				D0A5F6951CED682500B4562C /* Info.plist */,
-				D06C461B1D55D66700090B8B /* GoogleService-Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -223,6 +224,7 @@
 				D06DD7251E68DE7900AFDDC1 /* Controllers */,
 				D0FA41A21E696C9B008923ED /* Resources */,
 				D06DD7261E68DF0D00AFDDC1 /* Application */,
+				D0EA5FCB1E6D5B5F00BFCE37 /* GoogleService-Info.plist */,
 			);
 			path = Homebase;
 			sourceTree = "<group>";
@@ -269,6 +271,7 @@
 				D0FA41AB1E69A51D008923ED /* Records */,
 				D0FA41A01E696864008923ED /* BackgroundScrollView.swift */,
 				D0FA41A71E69A49A008923ED /* CloudKit.swift */,
+				D0EA5FCD1E6D68E200BFCE37 /* Firebase.swift */,
 				D09B5F691E6A7B59001DC288 /* CKAssetExtension.swift */,
 				D09B5F671E6A79C3001DC288 /* UIImageExtension.swift */,
 				D08F2D401E6B818800BC293F /* StringExtension.swift */,
@@ -423,11 +426,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EA5FCC1E6D5B5F00BFCE37 /* GoogleService-Info.plist in Resources */,
 				D06724C91E6ABE4C00F88022 /* BaseJump.storyboard in Resources */,
 				D09B5F661E6A64FD001DC288 /* AccountSetup.storyboard in Resources */,
 				D0A5F6941CED682500B4562C /* LaunchScreen.storyboard in Resources */,
 				D0A5F6911CED682500B4562C /* Assets.xcassets in Resources */,
-				D06C461C1D55D66700090B8B /* GoogleService-Info.plist in Resources */,
 				D0A5F68F1CED682500B4562C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +609,7 @@
 				D09B5F611E6A3A0A001DC288 /* UserRecord.swift in Sources */,
 				D09B5F5F1E6A3562001DC288 /* CommentRecord.swift in Sources */,
 				D0E47F461E6C55A800246DCB /* CLLocationCoordinate2DExtension.swift in Sources */,
+				D0EA5FCE1E6D68E200BFCE37 /* Firebase.swift in Sources */,
 				D08F2D431E6B8B7700BC293F /* HomebaseSelectionViewController.swift in Sources */,
 				D0E47F3D1E6BE5F100246DCB /* NewHomebaseAnnotation.swift in Sources */,
 				D09B5F681E6A79C3001DC288 /* UIImageExtension.swift in Sources */,
@@ -776,7 +780,7 @@
 				INFOPLIST_FILE = Homebase/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homebase.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -796,7 +800,7 @@
 				INFOPLIST_FILE = Homebase/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.homebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homebase.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -9,6 +9,8 @@
 import UIKit
 import DeviceKit
 import ChameleonFramework
+import Firebase
+import GoogleSignIn
 
 // swiftlint:disable line_length
 
@@ -20,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+		// Use Firebase library to configure APIs
+		FIRApp.configure()
+
+		GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+		GIDSignIn.sharedInstance().delegate = self
 
 		//Chameleon.setGlobalThemeUsingPrimaryColor(colorScheme[0], with: .light)
 		Chameleon.setGlobalThemeUsingPrimaryColor(colorScheme[0], withSecondaryColor: colorScheme[1], andContentStyle: .light)
@@ -62,4 +70,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 
+	@available(iOS 9.0, *)
+	func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+  -> Bool {
+	return GIDSignIn.sharedInstance().handle(url,
+	                                         sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+	                                         annotation: [:])
+	}
+
+}
+
+// MARK: - Google Sign in
+extension AppDelegate: GIDSignInDelegate {
+	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+  // ...
+  if let error = error {
+	// ...
+	return
+  }
+
+  guard let authentication = user.authentication else { return }
+  let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                    accessToken: authentication.accessToken)
+  // ...
+	}
+
+	func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+	            withError error: Error!) {
+		// Perform any operations when the user disconnects from app here.
+		// ...
+	}
 }

@@ -20,10 +20,27 @@
 	<string>0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1049447047455-79q5nk3adfg2mde4hkmfbn4iccaf7cul</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoianVpY2U4MDUiLCJhIjoiY2l6dndpOTh0MDFnNzJ3bmhqcGw4cmc0OCJ9.KDaMRVaEPUS0FIIVP4cgtA</string>
+	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
+	<string>YES</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to find nearby Homebases</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -55,11 +72,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoianVpY2U4MDUiLCJhIjoiY2l6dndpOTh0MDFnNzJ3bmhqcGw4cmc0OCJ9.KDaMRVaEPUS0FIIVP4cgtA</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to find nearby Homebases</string>
-	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
-	<string>YES</string>
 </dict>
 </plist>
